@@ -30,3 +30,4 @@ resources/datasets/phishing_email_hf.csv
 # local test exports
 outputs/test_export.*
 data/telemetry/campaigns.json
+eval/run.err.log
