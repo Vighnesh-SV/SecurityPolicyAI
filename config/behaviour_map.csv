@@ -1,0 +1,18 @@
+rule_regex,behaviour,mitre,training_topic,employee_relevant
+(?i)platform configuration changed|deleted history of malwares|enumerate groups|windows is shutting down|service (start type|state) changed,Routine system activity (noise),,(ignored),no
+(?i)password spray|failed logon|brute,Weak or reused passwords,T1110,Strong passphrases and MFA,yes
+(?i)pass the hash|credential dump|lsass|credentials in (files|registry),Credential theft after compromise,T1003;T1552,Protecting credentials and spotting credential phishing,yes
+(?i)credentials in files,Passwords stored in files,T1552.001,Using a password manager instead of files,yes
+(?i)after working hours,Off-hours or shared-account logons,T1078,Account sharing and reporting unusual sign-ins,yes
+(?i)rdp from public ip|remote desktop|multi-transport|rdp connection,Unsafe remote access,T1021.001;T1133,Safe remote working and VPN use,yes
+(?i)defender.*(disabled|configuration changed|real-time)|scanning .* disabled,Turning off security tools,T1562.001,Never disable antivirus or security software,yes
+(?i)defender (found|detected|took action|failed)|malware,Malware from downloads or attachments,T1204;T1566,Phishing attachments and unsafe downloads,yes
+(?i)powershell downloads|suspicious powershell|powershell with suspicious|malicious commands,Running pasted or downloaded commands,T1059.001;T1204.004,Never run commands from emails or web pop-ups (ClickFix scams),yes
+(?i)mshta|wscript|cscript|compiled html|rundll32|regsvr32,Opening malicious scripts or files,T1204.002;T1218,Dangerous file types (.hta .js .chm .lnk),yes
+(?i)process running in (unusual|suspicious) location|masquerading,Running programs from Downloads/Temp,T1036;T1204.002,Only install software from approved sources,yes
+(?i)install root certificate,Accepting untrusted certificates,T1553.004,Browser certificate warnings,yes
+(?i)prohibited process connecting to internet,Unapproved software use,T1204,Shadow IT and approved software,yes
+(?i)clipboard|audio capture,Data exposure on the endpoint,T1115;T1123,Handling sensitive data and screen locking,yes
+(?i)share|smb,Unsafe file sharing,T1135;T1021.002,Sharing files safely,partial
+(?i)user added|user created|create account|group,Account and permission changes,T1136;T1098,Least privilege and access requests (admins),partial
+(?i).*,Technical or attacker technique,,(SOC-only; not used for staff training),no

@@ -1,0 +1,31 @@
+# secrets / environments
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_tmp/
+
+# rebuilt locally by scripts/setup.py
+data/cache/
+data/chroma/
+data/processed/
+data/*.log
+memory/
+eval/run.log
+outputs/exports/
+
+# PRIVATE: raw APT-Hunter output contains real machine/user names. Only the anonymised
+# data/telemetry/apt_hunter_summary.csv is shared.
+data/telemetry/sample_org/
+data/telemetry/run.log
+data/telemetry/quiz_results.jsonl
+data/telemetry/sim_events.jsonl
+
+# downloaded by scripts/setup.py (large, public)
+resources/repos/
+resources/mitre/
+resources/standards/
+resources/datasets/phishing_email_hf.csv
+
+# local test exports
+outputs/test_export.*

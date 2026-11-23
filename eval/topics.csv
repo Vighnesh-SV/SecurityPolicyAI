@@ -1,0 +1,21 @@
+id,topic,audience,format
+1,Spotting phishing emails,All staff,newsletter
+2,Invoice and payment-redirect fraud,Finance,tip
+3,QR-code phishing (quishing),All staff,tip
+4,MFA fatigue / push-bombing,All staff,newsletter
+5,Fake IT helpdesk calls (vishing),All staff,quiz
+6,Deepfake voice and video CEO fraud,Executives,newsletter
+7,ClickFix: fake CAPTCHA asking you to paste commands,All staff,tip
+8,Strong passphrases and password managers,All staff,quiz
+9,Safe remote working and public Wi-Fi,All staff,newsletter
+10,Malicious attachments and file types,All staff,quiz
+11,USB and removable media,All staff,tip
+12,Patch now: actively exploited vulnerabilities (KEV),IT staff,newsletter
+13,Resume and job-offer scams,HR,tip
+14,Supply-chain and fake software updates,Developers,newsletter
+15,Secrets in code and config files,Developers,quiz
+16,SMS phishing (smishing) and package-delivery scams,All staff,tip
+17,AI chatbots and sharing confidential data,All staff,newsletter
+18,Business email compromise,Executives,quiz
+19,Reporting a security incident,All staff,tip
+20,Social media oversharing,All staff,newsletter

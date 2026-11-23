@@ -1,0 +1,127 @@
+{
+ "id": "e781711a76",
+ "request": {
+  "topic": "Spotting phishing emails",
+  "audience": "All staff",
+  "format": "newsletter",
+  "language": "English",
+  "use_rag": false,
+  "use_memory": false,
+  "use_telemetry": false,
+  "policy_text": "",
+  "extra": "",
+  "k_sources": 8
+ },
+ "content": {
+  "title": "Spotting Phishing Emails",
+  "summary": "Learn how to spot common phishing red flags and safely report suspicious messages to protect Nebulon.",
+  "body_markdown": "# Catching the Phish Before It Hooks You\n\nWe all get tricked sometimes [ORG]. Our inboxes are busier than ever, and scam emails can look surprisingly convincing when you are rushing through a busy workday. Phishing emails are designed to push our buttons, making us feel rushed, curious, or concerned so that we act without thinking. The good news is that with a few quick habits, you can spot most scam emails before they cause any harm.\n\n## What is happening?\n\nCybercriminals use phishing emails to impersonate trusted colleagues, partners, or popular online services. Their main goal is to trick you into sharing sensitive information, such as your Nebulon login details, or clicking on malicious links that install unwanted software. Because these messages often mimic regular workplace requests, staying alert is our best line of defense.\n\n## Red flags to watch out for\n\nWhen checking your inbox, keep an eye out for these common warning signs:\n\n1. **Creating artificial urgency:** Be wary of messages demanding immediate action, such as \"Your account will be suspended in 2 hours\" or \"Urgent payment required.\" Scammers want you to panic so you skip double-checking.\n2. **Suspicious or mismatched sender details:** Look closely at the email address, not just the display name. If an email claims to come from an internal Nebulon system or a known brand, but the address domain looks unusual, treat it with caution.\n3. **Generic greetings and unexpected requests:** Be cautious if an email uses a generic \"Dear user\" greeting or asks you to update payment details, supply passwords, or open unexpected attachments.\n4. **Misleading links:** Before clicking any link, hover your mouse cursor over it (or long-press on a mobile device) to preview the destination URL. If the web address looks misspelled or suspicious, do not click it.\n\n## What you should do\n\nIf an email feels slightly off, trust your instincts and follow these practical steps:\n\n- **Slow down:** Take a quick pause before clicking links, downloading attachments, or entering credentials.\n- **Verify outside of email:** If a message claims to be from a colleague or vendor asking for financial transfers or sensitive data, contact them directly using a known phone number or a separate chat message.\n- **Avoid clicking directly:** Instead of clicking links inside an unexpected notification email, navigate directly to the official website or portal through your browser bookmarks.\n\n## How to report suspicious emails\n\nIf you spot a suspicious email, please let the security team know right away [ORG]. You can use the **Report Phish** button in your email client or forward the message directly to **security@nebulon.example.com** [ORG]. Reporting helps protect everyone across Nebulon, and there is never any penalty for reporting an email that turns out to be legitimate [ORG]!",
+  "key_points": [
+   "Phishing emails often leverage artificial urgency to bypass critical thinking.",
+   "Always inspect the actual sender domain and preview link destinations.",
+   "Verify unexpected requests through a trusted secondary channel before acting.",
+   "Reporting suspicious emails immediately helps protect the entire organisation."
+  ],
+  "red_flags": [
+   "Urgent or threatening language demanding immediate action.",
+   "Mismatched display names and actual sender email addresses.",
+   "Unexpected attachments or login requests.",
+   "Links pointing to unfamiliar, misspelled, or strange web addresses."
+  ],
+  "actions": [
+   "Slow down and take a pause before opening attachments or clicking links.",
+   "Hover over links to verify destination URLs before clicking.",
+   "Verify unusual requests via a trusted separate communication channel.",
+   "Report suspicious messages using the Report Phish button or email security@nebulon.example.com."
+  ],
+  "report_how": "Forward any suspicious email to security@nebulon.example.com or use the Report Phish button in your email client.",
+  "quiz": [],
+  "phishing_sim": null,
+  "citations": [],
+  "mitre": [
+   "T1566.001",
+   "T1566.002"
+  ],
+  "compliance": [
+   "ISO/IEC 27001:2022 A.6.3",
+   "NIST CSF 2.0 PR.AT-01"
+  ],
+  "targets_mistakes": []
+ },
+ "sources": [],
+ "memory_text": "",
+ "past_modules": [],
+ "mistakes": [],
+ "model": "gemini-3.5-flash",
+ "guardrails": {
+  "untrusted_links": [],
+  "citations": {
+   "cited_ids": [],
+   "invalid_ids": [],
+   "n_citations": 0,
+   "n_org": 4
+  }
+ },
+ "created": "2026-11-22",
+ "review": {
+  "metrics": {
+   "factuality": 0.5,
+   "citation_cov": 0.333,
+   "consistency": 0,
+   "relevance": 0.5,
+   "style": 0.75,
+   "clarity": 1.0,
+   "freshness": null,
+   "novelty": 0.319,
+   "unsafe_links": 0
+  },
+  "judge": {
+   "claims": [
+    {
+     "claim": "We all get tricked sometimes.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Cybercriminals use phishing emails to impersonate trusted contacts and steal Nebulon login details or install unwanted software.",
+     "cited": [],
+     "verdict": "uncited"
+    },
+    {
+     "claim": "Creating artificial urgency, mismatched sender details, generic greetings, and misleading links are common phishing red flags.",
+     "cited": [],
+     "verdict": "uncited"
+    },
+    {
+     "claim": "Hovering over links or long-pressing on mobile devices previews the destination URL.",
+     "cited": [],
+     "verdict": "uncited"
+    },
+    {
+     "claim": "Suspicious requests for financial transfers or sensitive data should be verified outside of email using a known phone number or separate chat message.",
+     "cited": [],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Suspicious emails can be reported using the Report Phish button or by forwarding to security@nebulon.example.com without penalty.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    }
+   ],
+   "contradictions": [
+    "Style guide requires every factual claim to cite a trusted source from config/sources.yaml, but factual claims regarding phishing tactics and red flags have no source citations."
+   ],
+   "relevance": 3,
+   "style": 4,
+   "clarity": 5,
+   "fixes": [
+    "Add citations from config/sources.yaml for factual claims about phishing red flags and cybercriminal tactics to comply with the style guide."
+   ]
+  },
+  "judge_model": "gemini-3.5-flash"
+ }
+}

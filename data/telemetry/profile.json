@@ -1,0 +1,846 @@
+{
+ "Finance": [
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 5,
+   "rate": 0.417,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 12 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting corporate communications / executive announcements scams",
+   "count": 4,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 12 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 6,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 18 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 15,
+   "rate": 0.312,
+   "source": "nest-phish",
+   "evidence": "missed 15 of 48 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Compliance/policy acknowledgements & surveys' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting compliance/policy acknowledgements & surveys scams",
+   "count": 9,
+   "rate": 0.3,
+   "source": "nest-phish",
+   "evidence": "missed 9 of 30 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Misses phishing with emails with an attachment",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with an attachment",
+   "count": 32,
+   "rate": 0.281,
+   "source": "nest-phish",
+   "evidence": "missed 32 of 114 such emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Employee wellness challenge' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting employee wellness challenge scams",
+   "count": 5,
+   "rate": 0.278,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 18 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Training & certifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting training & certifications scams",
+   "count": 5,
+   "rate": 0.278,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 18 phishing emails"
+  }
+ ],
+ "HR": [
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Travel/calendar logistics' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting travel/calendar logistics scams",
+   "count": 3,
+   "rate": 0.75,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 4 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Shipping/delivery notifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting shipping/delivery notifications scams",
+   "count": 3,
+   "rate": 0.6,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 5 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 3,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 8 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with emails with a link",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with a link",
+   "count": 16,
+   "rate": 0.348,
+   "source": "nest-phish",
+   "evidence": "missed 16 of 46 such emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with urgent or threatening wording",
+   "mitre": "T1566",
+   "topic": "Red flag: urgent or threatening wording",
+   "count": 14,
+   "rate": 0.326,
+   "source": "nest-phish",
+   "evidence": "missed 14 of 43 such emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with requests for passwords or personal details",
+   "mitre": "T1566",
+   "topic": "Red flag: requests for passwords or personal details",
+   "count": 7,
+   "rate": 0.318,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 22 such emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with look-alike external sender domains",
+   "mitre": "T1566",
+   "topic": "Red flag: look-alike external sender domains",
+   "count": 14,
+   "rate": 0.275,
+   "source": "nest-phish",
+   "evidence": "missed 14 of 51 such emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with emails with an attachment",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with an attachment",
+   "count": 5,
+   "rate": 0.263,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 19 such emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with generic greetings",
+   "mitre": "T1566",
+   "topic": "Red flag: generic greetings",
+   "count": 11,
+   "rate": 0.262,
+   "source": "nest-phish",
+   "evidence": "missed 11 of 42 such emails"
+  }
+ ],
+ "IT": [
+  {
+   "department": "IT",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 5,
+   "rate": 0.5,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 10 phishing emails"
+  },
+  {
+   "department": "IT",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 6,
+   "rate": 0.4,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 15 phishing emails"
+  },
+  {
+   "department": "IT",
+   "behaviour": "Falls for 'Voicemail/communications system alerts' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting voicemail/communications system alerts scams",
+   "count": 5,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 15 phishing emails"
+  }
+ ],
+ "Engineering": [
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 7,
+   "rate": 0.875,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 8 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Running pasted or downloaded commands",
+   "mitre": "T1059.001;T1204.004",
+   "topic": "Never run commands from emails or web pop-ups (ClickFix scams)",
+   "count": 41,
+   "rate": null,
+   "source": "apt-hunter",
+   "evidence": "41 detections: Suspicious PowerShell commands Detected; powershell script block - Found Suspicious PowerShell commands "
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 6,
+   "rate": 0.5,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 12 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Training & certifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting training & certifications scams",
+   "count": 5,
+   "rate": 0.417,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 12 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Account/security notifications (IT/auth)' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting account/security notifications (it/auth) scams",
+   "count": 8,
+   "rate": 0.4,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 20 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting corporate communications / executive announcements scams",
+   "count": 3,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 8 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Misses phishing with requests for passwords or personal details",
+   "mitre": "T1566",
+   "topic": "Red flag: requests for passwords or personal details",
+   "count": 33,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 33 of 88 such emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'IT maintenance / access continuity' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting it maintenance / access continuity scams",
+   "count": 7,
+   "rate": 0.35,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 20 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'HR/payroll/benefits administration' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting hr/payroll/benefits administration scams",
+   "count": 8,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 24 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Travel/calendar logistics' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting travel/calendar logistics scams",
+   "count": 5,
+   "rate": 0.312,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 16 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Misses phishing with emails with a link",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with a link",
+   "count": 56,
+   "rate": 0.304,
+   "source": "nest-phish",
+   "evidence": "missed 56 of 184 such emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Misses phishing with urgent or threatening wording",
+   "mitre": "T1566",
+   "topic": "Red flag: urgent or threatening wording",
+   "count": 50,
+   "rate": 0.291,
+   "source": "nest-phish",
+   "evidence": "missed 50 of 172 such emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 9,
+   "rate": 0.281,
+   "source": "nest-phish",
+   "evidence": "missed 9 of 32 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Misses phishing with generic greetings",
+   "mitre": "T1566",
+   "topic": "Red flag: generic greetings",
+   "count": 44,
+   "rate": 0.262,
+   "source": "nest-phish",
+   "evidence": "missed 44 of 168 such emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Misses phishing with look-alike external sender domains",
+   "mitre": "T1566",
+   "topic": "Red flag: look-alike external sender domains",
+   "count": 52,
+   "rate": 0.255,
+   "source": "nest-phish",
+   "evidence": "missed 52 of 204 such emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Compliance/policy acknowledgements & surveys' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting compliance/policy acknowledgements & surveys scams",
+   "count": 5,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 20 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Employee wellness challenge' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting employee wellness challenge scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Operations/field/grid dispatch' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting operations/field/grid dispatch scams",
+   "count": 5,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 20 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Shipping/delivery notifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting shipping/delivery notifications scams",
+   "count": 5,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 20 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Falls for 'Voicemail/communications system alerts' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting voicemail/communications system alerts scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Turning off security tools",
+   "mitre": "T1562.001",
+   "topic": "Never disable antivirus or security software",
+   "count": 7,
+   "rate": null,
+   "source": "apt-hunter",
+   "evidence": "7 detections: Windows Defender real-time protection configuration changed"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Malware from downloads or attachments",
+   "mitre": "T1204;T1566",
+   "topic": "Phishing attachments and unsafe downloads",
+   "count": 2,
+   "rate": null,
+   "source": "apt-hunter",
+   "evidence": "2 detections: Windows Defender took action against Malware; Windows Defender Found Malware"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Weak or reused passwords",
+   "mitre": "T1110",
+   "topic": "Strong passphrases and MFA",
+   "count": 1,
+   "rate": null,
+   "source": "apt-hunter",
+   "evidence": "1 detections: Password Spray Detected"
+  }
+ ],
+ "Sales": [
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 8,
+   "rate": 1.0,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 8 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 7,
+   "rate": 0.583,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting corporate communications / executive announcements scams",
+   "count": 4,
+   "rate": 0.5,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 8 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Voicemail/communications system alerts' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting voicemail/communications system alerts scams",
+   "count": 5,
+   "rate": 0.417,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Compliance/policy acknowledgements & surveys' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting compliance/policy acknowledgements & surveys scams",
+   "count": 8,
+   "rate": 0.4,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 20 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Shipping/delivery notifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting shipping/delivery notifications scams",
+   "count": 8,
+   "rate": 0.4,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 20 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Misses phishing with requests for passwords or personal details",
+   "mitre": "T1566",
+   "topic": "Red flag: requests for passwords or personal details",
+   "count": 35,
+   "rate": 0.398,
+   "source": "nest-phish",
+   "evidence": "missed 35 of 88 such emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 12,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 12 of 32 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Survey / prize promotion' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting survey / prize promotion scams",
+   "count": 6,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 16 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Misses phishing with emails with an attachment",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with an attachment",
+   "count": 27,
+   "rate": 0.355,
+   "source": "nest-phish",
+   "evidence": "missed 27 of 76 such emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Misses phishing with look-alike external sender domains",
+   "mitre": "T1566",
+   "topic": "Red flag: look-alike external sender domains",
+   "count": 72,
+   "rate": 0.353,
+   "source": "nest-phish",
+   "evidence": "missed 72 of 204 such emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'IT maintenance / access continuity' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting it maintenance / access continuity scams",
+   "count": 7,
+   "rate": 0.35,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 20 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Training & certifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting training & certifications scams",
+   "count": 4,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Misses phishing with generic greetings",
+   "mitre": "T1566",
+   "topic": "Red flag: generic greetings",
+   "count": 55,
+   "rate": 0.327,
+   "source": "nest-phish",
+   "evidence": "missed 55 of 168 such emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Misses phishing with urgent or threatening wording",
+   "mitre": "T1566",
+   "topic": "Red flag: urgent or threatening wording",
+   "count": 54,
+   "rate": 0.314,
+   "source": "nest-phish",
+   "evidence": "missed 54 of 172 such emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Misses phishing with emails with a link",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with a link",
+   "count": 57,
+   "rate": 0.31,
+   "source": "nest-phish",
+   "evidence": "missed 57 of 184 such emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'HR/payroll/benefits administration' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting hr/payroll/benefits administration scams",
+   "count": 7,
+   "rate": 0.292,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 24 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Account/security notifications (IT/auth)' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting account/security notifications (it/auth) scams",
+   "count": 5,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 20 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Employee giving / donations campaign' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting employee giving / donations campaign scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Employee wellness challenge' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting employee wellness challenge scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Travel/calendar logistics' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting travel/calendar logistics scams",
+   "count": 4,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 16 phishing emails"
+  }
+ ],
+ "Operations": [
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 3,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 8 phishing emails"
+  },
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Operations/field/grid dispatch' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting operations/field/grid dispatch scams",
+   "count": 7,
+   "rate": 0.35,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 20 phishing emails"
+  },
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Compliance/policy acknowledgements & surveys' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting compliance/policy acknowledgements & surveys scams",
+   "count": 6,
+   "rate": 0.3,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 20 phishing emails"
+  },
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  },
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Document sharing/collaboration prompts' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting document sharing/collaboration prompts scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  },
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 8,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 32 phishing emails"
+  },
+  {
+   "department": "Operations",
+   "behaviour": "Falls for 'Training & certifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting training & certifications scams",
+   "count": 3,
+   "rate": 0.25,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 12 phishing emails"
+  }
+ ],
+ "Executives": [
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 7,
+   "rate": 0.583,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 12 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Operations/field/grid dispatch' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting operations/field/grid dispatch scams",
+   "count": 15,
+   "rate": 0.5,
+   "source": "nest-phish",
+   "evidence": "missed 15 of 30 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 7,
+   "rate": 0.389,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 18 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Travel/calendar logistics' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting travel/calendar logistics scams",
+   "count": 9,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 9 of 24 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting corporate communications / executive announcements scams",
+   "count": 4,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 12 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Training & certifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting training & certifications scams",
+   "count": 6,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 18 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'HR/payroll/benefits administration' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting hr/payroll/benefits administration scams",
+   "count": 11,
+   "rate": 0.306,
+   "source": "nest-phish",
+   "evidence": "missed 11 of 36 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Account/security notifications (IT/auth)' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting account/security notifications (it/auth) scams",
+   "count": 9,
+   "rate": 0.3,
+   "source": "nest-phish",
+   "evidence": "missed 9 of 30 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Misses phishing with requests for passwords or personal details",
+   "mitre": "T1566",
+   "topic": "Red flag: requests for passwords or personal details",
+   "count": 39,
+   "rate": 0.295,
+   "source": "nest-phish",
+   "evidence": "missed 39 of 132 such emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Misses phishing with emails with a link",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with a link",
+   "count": 80,
+   "rate": 0.29,
+   "source": "nest-phish",
+   "evidence": "missed 80 of 276 such emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Employee giving / donations campaign' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting employee giving / donations campaign scams",
+   "count": 5,
+   "rate": 0.278,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 18 phishing emails"
+  },
+  {
+   "department": "Executives",
+   "behaviour": "Falls for 'Employee wellness challenge' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting employee wellness challenge scams",
+   "count": 5,
+   "rate": 0.278,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 18 phishing emails"
+  }
+ ]
+}

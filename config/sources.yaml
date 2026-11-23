@@ -1,0 +1,34 @@
+# Trusted sources. Only these may be cited (guardrail E4).
+
+firecrawl_targets:          # scraped with Firecrawl (needs FIRECRAWL_API_KEY)
+  - {id: cisa_sow,      url: "https://www.cisa.gov/secure-our-world",                    mode: crawl, limit: 25}
+  - {id: cisa_phish,    url: "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing", mode: scrape}
+  - {id: ncsc_staff,    url: "https://www.ncsc.gov.uk/collection/top-tips-for-staff",    mode: crawl, limit: 15}
+  - {id: ncsc_phish,    url: "https://www.ncsc.gov.uk/guidance/phishing",                mode: scrape}
+  - {id: certin,        url: "https://www.cert-in.org.in/",                              mode: crawl, limit: 20}
+  - {id: enisa_tl,      url: "https://www.enisa.europa.eu/topics/cyber-threats/threat-landscape", mode: scrape}
+  - {id: owasp_top10,   url: "https://owasp.org/www-project-top-ten/",                   mode: scrape}
+  - {id: apwg,          url: "https://apwg.org/trendsreports/",                          mode: scrape}
+  - {id: ncsc_2sv,      url: "https://www.ncsc.gov.uk/guidance/setting-two-step-verification-2sv", mode: scrape}
+  - {id: ncsc_3words,   url: "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words", mode: scrape}
+  - {id: ncsc_sim,      url: "https://www.ncsc.gov.uk/blog-post/trouble-phishing",       mode: scrape}
+  - {id: ftc_phish,     url: "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams", mode: scrape}
+  - {id: fbi_bec,       url: "https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/business-email-compromise", mode: scrape}
+  - {id: cisa_mfa,      url: "https://www.cisa.gov/MFA",                                 mode: scrape}
+  - {id: cisa_passwd,   url: "https://www.cisa.gov/secure-our-world/use-strong-passwords", mode: scrape}
+  - {id: cisa_update,   url: "https://www.cisa.gov/secure-our-world/update-software",    mode: scrape}
+
+rss_feeds:                  # free, no key; all verified reachable
+  - {id: cisa_adv,  url: "https://www.cisa.gov/cybersecurity-advisories/all.xml"}
+  - {id: ncsc,      url: "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml"}
+  - {id: krebs,     url: "https://krebsonsecurity.com/feed/"}
+  - {id: thn,       url: "https://feeds.feedburner.com/TheHackersNews"}
+  # bleepingcomputer.com/feed returns 403 to scripts, so it's left out
+
+static:
+  - {id: cisa_kev,  path: "resources/feeds/cisa_kev.json"}
+  - {id: mitre,     path: "resources/mitre/enterprise-attack.json"}
+  - {id: nist_50r1, path: "resources/standards/NIST.SP.800-50r1.pdf"}
+  - {id: nist_csf2, path: "resources/standards/NIST.CSWP.29_CSF2.pdf"}
+
+freshness_days: 90

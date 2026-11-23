@@ -1,0 +1,423 @@
+"email_id","date","sender","recipient","subject","body","true_label","has_link","has_attachment","has_generic_greeting","has_urgent_language","has_external_sender","has_request_personal_information","total_signals"
+18,"05/27/2022, 01:48:05 PM","hr.onboarding@nebulon.com","marco.rivas@nebulon.com","Welcome to Nebulon!","
+Hi Marco,
+
+Welcome aboard! We’re excited to have you join the Grid Forecasting team.
+Your laptop and badge will be ready for pickup Tuesday at the Houston office.
+Your manager (Tina Vo) has you scheduled for team orientation at 10am.
+
+Here’s the HR portal link for benefits enrollment: https://www.nebulon.com/hr/benefits-portal
+
+Let us know if you have questions!
+
+Best,
+Janelle – HR Onboarding","legit",1,0,0,0,0,0,1
+31,"10/22/2021, 09:12:43 AM","vendor.portal@partstek.com","dennis.laird@nebulon.com","Shipping Confirmation – PO #NBL-9931","
+Hello,
+
+Your order NBL-9931 has shipped.
+Includes 4x microinverter kits, cabling set, and mounting rails.
+Carrier: FedEx Freight
+ETA: April 1–3
+
+Track your package here: https://www.partstek.com/orders/NBL-9931
+
+Let us know if anything’s missing.
+
+Thanks for your continued business!
+
+Sincerely, 
+PartsTek Fulfillment","legit",1,0,0,0,1,0,2
+29,"10/09/2020, 01:09:35 PM","marketing@fieldpower.com","kyle.nguyen@nebulon.com","Fleet Optimization Tools for Utility Vehicles","
+Hi Kyle,
+
+Tired of tracking service vehicles manually?
+FieldPower’s new SmartFleet suite uses satellite telemetry to optimize field dispatch, idle time, and fuel efficiency.
+
+Works with legacy GPS units
+Fleet-wide heatmaps
+No hardware lock-in
+
+Learn More  at www.fieldpower.com/smartfleet
+
+Thanks for being part of the FieldPower community.","legit",1,0,0,0,1,0,2
+26,"08/20/2024, 10:28:59 AM","itservices@secure-nebulon.com","jasmine.cho@nebulon.com","Important Notice Regarding Your Benefits","Dear Jasmine,
+
+To access your 2025 benefits statement, please login here:
+
+http://nebulon.benefits.verify-checkup.com/secureid/7824
+
+Best,
+HR Team","phish",1,0,0,0,1,0,2
+1,"01/18/2024, 11:06:57 AM","accounts.alert@payrollservices.com","bryan.simms@nebulon.com","Payroll Hold Notification","Bryan,
+
+Your direct deposit failed due to account mismatch.
+
+Please resubmit banking account info here:
+http://payrollservices.com/directpay/reset
+
+Failure to update by tomorrow will result in a paper check.
+
+Thank you,
+Payroll Services","phish",1,0,0,1,0,1,3
+14,"04/12/2021, 08:48:47 AM","colin.bates@nebulon.com","andrea.ren@nebulon.com","Re: Supplier NDA","
+Andrea,
+
+I’ve reviewed our NDA drafts. It’s mostly solid but many are missing language on non-solicitation. Section 5.2 might also need a tweak for mutual indemnity.
+
+Want me to send you redlines?
+
+Best,
+Colin
+
+NDA_Draft_Review_Comments.zip","legit",0,0,0,0,0,0,0
+38,"11/25/2021, 09:12:45 AM","service@outlock.com","nate.carter@nebulon.com","Urgent: Your Mailbox Will Be Suspended","Hi Nate,
+
+We've detected multiple login failures on your mail account. You must validate ownership or face suspension.
+
+Click this link: http://mail-reset-safe.com
+
+The action must be completed within 1 hour.
+
+Do not share this message with others. It is unique to your credentials.
+
+Act now to avoid system lockout.
+
+IT Security Team","phish",1,0,0,1,0,0,2
+6,"03/09/2020, 12:23:56 PM","compliance-department@gmail.com","site-ops@nebulon.com","Annual Policy Review Required","Dear team,
+
+Our updated site conduct policies are now live. Please review the attached documents and acknowledge before March 10.
+
+Failure to acknowledge will result in account restrictions.
+
+We appreciate your cooperation.
+
+Best regards,
+HR Compliance Team
+
+Updated_Site_Conduct_Policies.pdf.exe","phish",0,1,1,1,0,0,3
+30,"10/12/2021, 03:27:45 PM","security@secure-sentinel.com","tony.smith@nebulon.com","Account Update Required","Hi,
+
+Your profile needs to be updated to continue receiving system notifications. Please complete the form linked below:
+
+http://secure-update.io
+
+Thanks,
+Admin Desk","phish",1,0,1,0,1,0,3
+36,"11/16/2020, 03:53:42 PM","noreply@greenbench.com","jasmine.cho@nebulon.com","Your GreenBench Solar Tracker is Synced","
+Hi Jasmine,
+
+Your new GreenBench Solar Dashboard is now live. We’re tracking module-level performance from the 3 Ridgeview arrays.
+
+Login to view real-time data, alerts, and historical trends.  https://www.greenbench.com/dashboard/ridgeview
+
+Let us know if you want to add wind telemetry as well.
+
+Thanks,
+GreenBench Support","legit",0,0,0,0,1,0,1
+16,"04/21/2023, 07:41:39 AM","security@nebulonalerts.net","lauren.diaz@nebulon.com","Security Alert: Action Needed","Dear User,
+
+We have detected unusual activity in your account. Please verify your identity immediately by visiting the secure link below:
+
+http://verify-account-now.com
+
+Thank you,
+Security Team","phish",1,0,1,1,1,0,4
+33,"11/02/2020, 06:08:55 AM","itservices@nebuIon.com","tamara.greer@nebulon.com","Mandatory Policy Acknowledgement","Hello,
+
+To process your recent payroll adjustment, provide  your employee ID, social security number, and bank routing number for our records https://www.neblon.com/employee information
+
+Thanks,
+Payroll Processing","phish",0,0,1,1,0,1,3
+15,"04/13/2023, 08:31:22 AM","clark.mandell@nebulon.com","francine.yi@nebulon.com","Dockside Turbine RFI","
+Francine,
+
+AquaTech Coatings needs clarification on the blade coating spec for the Dockside turbines.
+Can you confirm whether we’re sticking with the polymer layer or shifting to epoxy? Once you know, please fill out an orderwith the vendor here: https://www.AquaTechCoatings.com/orders
+
+Let me know ASAP once you've done that.
+
+Thanks!
+Clark","legit",0,0,0,1,0,0,1
+13,"04/05/2022, 11:39:16 AM","dispatch.notice@yahoo.com","grid.control@nebulon.com","Dispatch Hold Alert â€“ Region 5","Grid Control Team,
+We're seeing dispatch delays in Region 5.
+
+Please confirm turbine status at once:
+http://solarbinder.com/turbine-check
+
+Your response is essential to maintain grid continuity. Call center is standing by.
+
+Thanks,
+SolarBinder Ops","phish",1,0,1,1,0,0,3
+27,"08/21/2020, 09:15:05 AM","usps@shipping-usps.com","Roger.Kegel@nebulon.com","Urgent: Delivery Issue","Dear Roger, 
+
+We have issues with your shipping address for package US53384166
+
+Your package has arrived. Unfortunately we made an error with your shipment because we have issues with your shipping address. Please verify your address via the link below so we can confirm that your address is eligible for the delivery.
+
+Verify Address: http[:]//usp.login.com/XW)Jac2JISKVSROUWYUM4MIRSOWSIRTRYTINKSmNEd
+
+Thanks,
+UPS","phish",1,0,1,0,1,0,3
+9,"03/13/2021, 11:27:14 AM","stephanie.doyle@envoycomms.co","media@nebulon.com","Media Inquiry – March 29 Interview Request","
+Hi Nebulon Media Team,
+
+I’m writing from EnvoyComms on behalf of Energy Weekly. We’d like to request a short interview with your Director of Grid Innovation for our upcoming feature on microgrid scaling in Texas.
+
+Let us know if someone is available using this scheduling poll: https://www.envoycomms.com/scheduling/interview-poll-grid-innovation
+
+Thanks,
+Stephanie Doyle","legit",0,0,1,0,1,0,2
+34,"11/04/2024, 09:19:55 AM","marcy.tolliver@usenergyforum.org","policy-team@nebulon.com","Reminder: Regional Policy Briefing – April 3","
+Colleagues,
+
+You’re invited to the U.S. Energy Forum’s spring regional policy webinar.
+Topics include regulatory shifts, transmission funding, and interconnection queues.
+
+Date: April 3, 2025
+Time: 1pm–2:30pm EST
+Register: https://www.usenergyforum.org/briefing2025
+
+Best,
+Marcy Tolliver
+U.S. Energy Forum","legit",1,0,1,0,1,0,3
+23,"07/04/2023, 12:18:07 PM","security-alerts@microsoft365support.com","Joel.Lopez@nebulon.com","Unusual Sign-in Attempt On Your Microsoft Business Account","WARNING!!!
+
+You have accessed a website that is against corporate policy. To prevent termination, please write a detailed incident report regarding this incident at https://www.nebulon.com/incident-report
+
+Thanks,
+Nebulon Security Team
+
+","phish",1,0,0,0,1,0,2
+21,"06/08/2020, 02:49:43 PM","sharepoint@nebulon-sharepoint.com","Amy.Winik@nebulon.com","A shared document is waiting for your review","Amy, 
+
+SharePoint has shared a safe document for you to review.
+
+Review Document: http[:]//employee-sharepoint.com/PAVUSUCKSUTTIPOWZZoUU
+
+Thanks,
+Sharepoint Admin","phish",1,0,0,0,1,0,2
+17,"04/29/2023, 10:30:15 AM","security-alerts@onedrive.microsoft.com","Joel.Lopez@nebulon.com","Unusual Sign-in Attempt On Your Microsoft Business Account","Someone signed in to your microsoft One Drive account from a new location 
+
+Hostname : onedrive.nebulon.com/Joel-Lopez 
+IP Address 	192.168.1.100
+Time 	2023-09-26 11:42:31 MDT 
+  
+If you recently signed in and recognize the IP address, you may disregard this email. 
+
+To further protect your account, consider configuring a two-factor authentication method: https://www.nebulon.com/security/two-factor-authentication. 
+","legit",NA,NA,NA,NA,NA,NA,0
+32,"11/01/2024, 11:27:34 AM","login.alert@securityalerts.com","emily.jones@nebulon.com","Login Attempt From Unknown Location","Hi Emily,
+
+We noticed a login attempt from an unusual location:
+
+IP: 200.156.38.192
+Region: Argentina
+Device: Linux / Chrome
+
+If this was not you, please secure your account now:
+http://secure-login.com
+
+Let us know if you require assistance.
+
+IT Security","phish",1,0,0,0,1,0,2
+10,"03/14/2024, 11:23:03 AM","hannah.leblanc@nebulon.com","george.fuentes@nebulon.com","Site 12 PTO Calendar","
+Hi George,
+
+I updated the Site 12 PTO calendar: www.calendar.nebulon.com/June2025. All techs are covered except March 22nd.
+Can you ping Carson or Manny and see if either can take that day?
+
+Thanks,
+Hannah","legit",0,0,0,0,0,0,0
+37,"11/22/2022, 12:01:34 PM","dennis.lu@nebulon.com","gridops-east@nebulon.com","Live Line Training","
+All,
+
+Reminder: Live Line Safety Training is mandatory this quarter.  https://www.nebulon.com/training/live-line-safety-schedule
+
+East region sessions begin next week—see the attached schedule.
+
+Field techs must complete this before site renewals are approved.
+
+Thanks,
+Dennis","legit",0,1,1,0,0,0,2
+8,"03/12/2023, 03:21:28 PM","finance.ops@nebulon.com","procurement@nebulon.com","Reconciliation Deadline","
+Team,
+
+Reminder: Q1 procurement reconciliation is due April 5. Please use the updated spreadsheet from the 3/15 finance call https://www.nebulon.com/finance/q1-procurement-reconciliation. Late entries will delay vendor payments and site rollups.
+
+Let us know if you need access to the shared folder.
+
+Thanks,
+Finance Ops","legit",0,0,1,1,0,0,2
+11,"03/21/2024, 11:22:14 AM","sabrina.choi@nebulon.com","billing@nebulon.com","March Invoice #89312 Discrepancy","
+Hi Billing Team,
+
+We noticed that Invoice #89312 lists the Site 6 labor hours under the wrong PO (see attached).
+It should reference PO 47855-C, not B. Please see attached. 
+
+Can you reissue before the quarter closes?
+
+Thanks,
+Sabrina
+
+ Invoice_89312_Correction_Notice.pdf","legit",0,0,1,0,0,0,1
+24,"07/28/2022, 06:05:10 PM","credentials@accesscontrol.com","jorge.lopez@nebulon.com","Action Required: Credential Expiration","Hi Jorge,
+
+Your access credentials for the turbine control interface will expire in 24 hours.
+
+To maintain access, please re-enter your employee ID and password here: http://accesscontrol.com/update-profile
+
+This will ensure uninterrupted access to control systems. Do not delay.
+
+Contact the admin team with any issues.
+
+Best,
+IT Services","phish",1,0,0,1,0,1,3
+19,"06/05/2023, 01:24:12 PM","noreply@billingservices.com","rachel.mckay@nebulon.com","Action Required: Past Due Balance","Rachel,
+
+Our records show an unpaid balance on your corporate card in the amount of $1,504.76. To view details and submit payment, visit: 
+
+http://billingservices.com/payment
+
+Please address this immediately to avoid service impacts. 
+
+Thank you for your attention.
+
+- Billing Services","phish",1,0,0,1,1,1,4
+28,"10/05/2023, 03:10:42 PM","support@gridmetrics.net","lauren.diaz@nebulon.com","Your GridMetrics Subscription – March Analytics Ready","
+Hi Lauren,
+
+Your March GridMetrics load forecast report is now available.
+We’ve added a new breakdown for behind-the-meter storage estimates.
+You can access the report via your dashboard or use the direct link below:
+
+http://www.login.gridmetrics.net/reports/march2025
+
+Please let us know if you need a CSV export or have feature requests.
+
+Sincerely,
+The GridMetrics Team","legit",1,0,0,0,1,0,2
+40,"12/20/2022, 02:11:32 PM","notifications@eventbrite.com","maxine.turner@nebulon.com","Registration Confirmed – Western Energy Summit","
+Hi Maxine,
+
+Your registration for the 2025 Western Energy Summit is confirmed.
+May 8–10, 2025
+Salt Lake City, UT
+
+You’ll receive the hotel discount codes in a separate message. A schedule of speakers can be found here: https://www.westernenergysummit.com/2025/details
+
+Thanks for joining us!
+
+The WES Team","legit",0,0,0,0,1,0,1
+20,"06/05/2023, 08:02:46 AM","admin@hr-nebulon.com","zane.holloway@nebulon.com","System Maintenance Notification","Hello valued Nebulon emploee,
+
+Your informations is out of date and must to be verify. Click the link for update:
+
+http://update-nebulon-secure.com
+
+We thanks you!","phish",1,0,1,0,1,0,3
+35,"11/07/2023, 06:58:25 PM","italerts@securityalerts.com","rob.king@nebulon.com","Unusual Login Attempt Detected","Hi Rob,
+
+Your account was accessed from a new location:
+
+Device: Windows Edge
+IP: 103.82.11.249
+Region: Vietnam
+
+If this was not you, reset your password now:
+http://securityalerts.com/reset
+
+IT Services","phish",1,0,0,0,0,0,1
+12,"04/01/2021, 12:28:38 PM","billing@arcservcloud.com","rick.waller@nebulon.com","Your ArcServ Invoice – Due April 5","
+Dear Rick,
+
+Attached is your March invoice for ArcServ Cloud Services.
+Plan: Tier 2 – Redundant backup + encrypted storage
+Amount: $312.00
+Due: April 15, 2025
+
+Pay at https://www.arcservcloud.com/billing/neb312
+
+Thanks for your business,
+ArcServ Billing","legit",1,1,0,0,1,1,4
+3,"02/14/2023, 09:24:58 AM","alerts@hr.com","mark.chen@nebulon.com","System Maintenance Notification","Hello Mark,
+
+There has been a request to reset your password. If you did not initiate this, please click the link below to secure your account:
+
+http://nebulon-auth-reset.net
+
+Nebulon IT","phish",1,0,0,0,1,0,2
+2,"01/21/2021, 11:46:50 AM","procurement.requests@nebulon.com","arjun.rai@nebulon.com","PO 22904 – Signed Copy Needed","
+Arjun,
+
+The vendor returned PO 22904 signed (see attachment). Please countersign and reupload to the procurement folder today.
+
+Once that’s done, we’ll route it for invoicing.
+
+Thanks,
+Procurement
+
+PO_22904_Signed_Vendor_Agreement.pdf","legit",0,1,0,0,0,0,1
+5,"03/03/2021, 11:56:23 AM","sonal.vyas@nebulon.com","safety-audit@nebulon.com","Missing Incident Logs – February","
+Team,
+
+We’re missing February incident logs from Sites 8, 11, and 14. Please upload directly to the Safety SharePoint folder by Friday, https://www.sharepoint.nebulon.com/safety/incident-logs-upload
+
+Let me know if you’re unsure about which form version to use.
+
+Best,
+Sonal","legit",0,0,1,0,0,0,1
+22,"06/22/2023, 06:16:13 PM","compliance@regulatorycompliance.com","compliance@nebulon.com","Mandatory Survey Completion","Hi team,
+
+Per regulatory requirements, all employees must complete the Q1 compliance survey. It takes less than 5 minutes. Please be sure to include your social in the results to ensure accurate tracking. 
+
+Please complete the attached survey.
+
+This must be completed by end of week.
+
+We appreciate your cooperation.
+
+Regards,
+Compliance Operations
+
+Q1_Compliance_Survey.docx","phish",0,1,1,1,0,0,3
+25,"08/17/2021, 11:52:04 AM","carl.benton@envirotracklabs.com","darla.jenkins@nebulon.com","Site 11 Water Sample Results – Available Now","
+Hi Darla,
+
+EnviroTrack has posted the water quality results for Site 11.
+No anomalies detected. Conductivity and turbidity are within historical norms.
+
+Full lab report available here: http://www.envirotracklabs.com/reports/site11-2025Q1
+Let us know if you need GIS tags for integration.
+
+Regards,
+Carl Benton
+EnviroTrack Labs","legit",1,0,0,0,1,0,2
+7,"03/12/2020, 01:12:37 PM","notifications@voicemailservice.com","Diane.Robin@nebulon.com","New Voicemail","User,
+
+Acaller with USA number left an Audio Message.
+
+Date: Today
+Audio Length: 0.25s
+Expiration: 24 Hours
+
+You can access your voicemail through this link: https://vocemail.nebuloncorp.com/login","phish",0,0,1,0,1,0,2
+39,"12/13/2022, 09:11:17 AM","support@nebulonalerts.net","jasmine.cho@nebulon.com","System Maintenance Notification","URGENT ACTION REQUIRED!
+
+Failure to respond within 24 hours will result in immediate suspension of your Nebulon network access. Click the link below to confirm your credentials now:
+
+http://nebulon-access-check.com
+
+Nebulon Security Enforcement","phish",1,0,1,1,1,0,4
+4,"02/20/2024, 01:44:49 PM","mailinglist@smartgridupdate.com","selina.lang@nebulon.com","SmartGrid Update – March Issue","
+Selina,
+
+Your March issue of SmartGrid Update is here!
+Forecasting with AI: What’s real and what’s vaporware
+Case Study: Idaho Power’s seasonal load shift success
+Tech Spotlight: Substation AI monitors from Lithos
+
+Read now: https://www. smartgridupdate.com/march25
+
+Thanks,
+The SmartGrid Update Editorial Team","legit",1,0,0,0,1,0,2

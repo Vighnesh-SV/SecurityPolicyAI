@@ -1,0 +1,21 @@
+# Gemini models (tested with the team's AI Studio key). Each list is tried in order; on a
+# 503 "high demand" or 429 quota error the next one is used. 2.5 models are closed to new accounts.
+generator: [gemini-3.8-flash, gemini-3.6-flash, gemini-3.5-flash]
+judge:     [gemini-3.7-flash, gemini-3.6-flash, gemini-3.5-flash]
+cheap:     [gemini-3.5-flash-lite, gemini-3.6-flash]   # tagging, digest, bulk jobs
+
+# Embeddings. gemini-embedding-2 merges a batch into ONE vector, so it can't be used for
+# batch indexing. gemini-embedding-001 batches correctly; free tier = 100 texts/minute.
+# Free tier also caps embeddings at 1,000 requests/DAY (each text = 1 request, queries included),
+# which a full index + evaluation exceeds. So the knowledge base uses a local model by default.
+embedding:
+  provider: local             # local | gemini
+  model: gemini-embedding-001
+  dim: 768
+  per_minute: 90              # free tier: 100 texts/min
+  tokens_per_minute: 25000    # free tier: 30k tokens/min
+  local_model: BAAI/bge-small-en-v1.5   # 384-dim, strong retrieval model, runs on CPU
+
+memento:                      # models Memento uses for fact extraction
+  extraction: gemini-3.5-flash-lite
+  chat: gemini-3.6-flash

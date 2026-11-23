@@ -1,0 +1,2 @@
+{"topic_id": 1, "topic": "Spotting phishing emails", "setup": "A_llm_only", "model": "gemini-3.5-flash", "factuality": 0.5, "citation_cov": 0.333, "consistency": 0, "relevance": 0.5, "style": 0.75, "clarity": 1.0, "freshness": null, "novelty": 0.319, "unsafe_links": 0, "n_sources": 0}
+{"topic_id": 1, "topic": "Spotting phishing emails", "setup": "B_+rag", "model": "gemini-3.6-flash", "factuality": 0.583, "citation_cov": 1.0, "consistency": 1, "relevance": 0.5, "style": 1.0, "clarity": 1.0, "freshness": 0.0, "novelty": 0.299, "unsafe_links": 0, "n_sources": 8}

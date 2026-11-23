@@ -1,0 +1,5 @@
+department,behaviour,mitre,topic,count,source,evidence
+Engineering,Malware from downloads or attachments,T1204;T1566,Phishing attachments and unsafe downloads,2,apt-hunter,2 detections: Windows Defender took action against Malware; Windows Defender Found Malware
+Engineering,Running pasted or downloaded commands,T1059.001;T1204.004,Never run commands from emails or web pop-ups (ClickFix scams),41,apt-hunter,41 detections: Suspicious PowerShell commands Detected; powershell script block - Found Suspicious PowerShell commands 
+Engineering,Turning off security tools,T1562.001,Never disable antivirus or security software,7,apt-hunter,7 detections: Windows Defender real-time protection configuration changed
+Engineering,Weak or reused passwords,T1110,Strong passphrases and MFA,1,apt-hunter,1 detections: Password Spray Detected

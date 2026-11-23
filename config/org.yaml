@@ -1,0 +1,18 @@
+# SIMULATED organisation layer (the source data has no departments).
+# Mistakes come from real data: APT-Hunter detections on the sample host and NEST-Phish
+# human responses. Only the person → department assignment here is simulated.
+name: Nebulon (demo organisation)
+report_address: security@nebulon.example.com
+departments: [Finance, HR, IT, Engineering, Sales, Operations, Executives]
+
+# Windows hosts analysed by APT-Hunter → department that owns them.
+# Add real host names locally only; hosts not listed go to default_host_department.
+hosts: {}
+default_host_department: Engineering
+
+# NEST-Phish participants are spread over departments by a stable hash of participant_id.
+nest_assignment: hash
+
+# A department only gets a "recurring mistake" when the rate is at least this high
+mistake_min_rate: 0.25
+mistake_min_count: 3

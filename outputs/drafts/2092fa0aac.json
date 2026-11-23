@@ -1,0 +1,257 @@
+{
+ "id": "2092fa0aac",
+ "request": {
+  "topic": "Invoice and payment-redirect fraud",
+  "audience": "Finance",
+  "format": "phishing_sim",
+  "language": "English",
+  "use_rag": true,
+  "use_memory": true,
+  "use_telemetry": true,
+  "policy_text": "",
+  "extra": "",
+  "k_sources": 8
+ },
+ "content": {
+  "title": "Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud",
+  "summary": "Learn how to spot and report fraudulent vendor payment-redirect requests targeting Finance workflows.",
+  "body_markdown": "## Oops! That was a security simulation\n\nWe all get tricked sometimes. Last month we covered general phishing awareness; this time we are focusing on invoice and payment-redirect fraud targeting accounts payable [S1], [S6].\n\n### What is happening\nAttackers frequently target business payment workflows and vendor payout systems [S6], [S7]. They send emails posing as trusted partners to request sudden changes to bank details or push unexpected invoices [S1], [S4]. These unauthorized alterations can misdirect thousands of dollars to fraudulent accounts [S1].\n\n### How to spot it\n- **Sudden payment changes:** Watch for unexpected requests to alter vendor bank account records [S1], [S6].\n- **Urgent pressure:** Be cautious of emails creating immediate urgency to bypass standard approval checks [S8].\n- **Unrecognized invoices:** Look out for unexpected invoices demanding quick payment [S4].\n- **Spoofed addresses:** Check sender email addresses closely for small misspellings or unexpected domains [S1], [S8].\n\n### What to do\n- Independently verify all vendor banking change requests using an established phone number before updating details [S1], [S6].\n- Strictly follow internal dual-authorization and reconciliation steps for payments [S6].\n- Do not click links or open unexpected billing attachments from unverified senders [S4], [S8].\n\n### How to report\nIf you receive a suspicious payment request or invoice, forward it immediately to security@nebulon.example.com.",
+  "key_points": [
+   "Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts [S1], [S6].",
+   "Always verify banking detail updates using trusted out-of-band communication channels [S1], [S6].",
+   "Urgent language and unexpected invoice changes are key indicators of billing fraud [S4], [S8]."
+  ],
+  "red_flags": [
+   "Request to change vendor payment details received unexpectedly via email [S1], [S6].",
+   "High-pressure tone warning of service interruption if payment is delayed [S8].",
+   "Links pointing to unverified external domains like example.com [S8]."
+  ],
+  "actions": [
+   "Verify vendor detail changes out-of-band via a confirmed, official phone number before updating records [S1], [S6].",
+   "Follow standard accounts payable approval and reconciliation steps [S6].",
+   "Report suspicious emails directly to security@nebulon.example.com."
+  ],
+  "report_how": "Forward any suspicious email or payment request to security@nebulon.example.com.",
+  "quiz": [],
+  "phishing_sim": {
+   "sender": "ap-update@vendor-billing.example.com",
+   "subject": "URGENT: Updated Bank Account Details for Pending Vendor Invoices",
+   "body": "Dear Finance Team,\n\nPlease note that our bank account details have been updated effective immediately. Please update our vendor profile and direct all future invoice payments to the new account specified at http://www.vendor-billing.example.com/update to avoid service disruption.\n\nThank you,\nVendor Accounts Payable Team",
+   "red_flags": [
+    "Unsolicited request to change vendor bank payout details [S1], [S6].",
+    "Urgent threat of service disruption to force fast action [S8].",
+    "Direction to click an external link to update banking credentials [S4], [S8]."
+   ],
+   "training_marker": "SECURITY AWARENESS TRAINING SIMULATION - NOT A REAL EMAIL"
+  },
+  "citations": [
+   {
+    "id": "S1",
+    "used_for": "FBI insights on business email compromise, domain spoofing, and payment redirection scams"
+   },
+   {
+    "id": "S4",
+    "used_for": "FTC guidelines on recognizing unexpected invoices and malicious links"
+   },
+   {
+    "id": "S6",
+    "used_for": "CERT-In advisory on abuse of business payment workflows and record alterations"
+   },
+   {
+    "id": "S7",
+    "used_for": "CERT-In advisory on threats to vendor and partner payout platforms"
+   },
+   {
+    "id": "S8",
+    "used_for": "CERT-In indicators of phishing including urgency and domain verification"
+   }
+  ],
+  "mitre": [
+   "T1566"
+  ],
+  "compliance": [
+   "ISO/IEC 27001:2022 A.6.3",
+   "NIST CSF 2.0 PR.AT-01"
+  ],
+  "targets_mistakes": [
+   "Falls for 'Finance/AP/vendor billing' phishing (missed 15 of 48 phishing emails) MITRE T1566"
+  ]
+ },
+ "sources": [
+  {
+   "chunk_id": "3b6341c97f94eeeb",
+   "score": 0.6613,
+   "age_days": null,
+   "kind": "guidance",
+   "title": "Business Email Compromise — FBI",
+   "source": "fbi_bec",
+   "url": "https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/business-email-compromise",
+   "doc_id": "3edf8f68241a1c1c",
+   "date": "2026-11-22",
+   "date_known": false,
+   "excerpt": "Business Email Compromise — FBI\nAnd in each case, thousands—or even hundreds of thousands—of dollars were sent to criminals instead.\n\n### Report BEC\n\nVisit ic3.gov, the FBI's Internet Crime Complaint Center (IC3), to report business email compromise scams.\n\nYou should also contact your financial institution immediately and request that they contact the financial institution where any transfer was sent.\n\n## How BEC scams work\n\nA scammer might:\n\n- **Spoof an email account or website.** Slight variations on legitimate addresses (john.kelly@examplecompany.com vs. john.kelley@examplecompany.com) fo"
+  },
+  {
+   "chunk_id": "f12b635514155d8b",
+   "score": 0.6597,
+   "age_days": null,
+   "title": "certin",
+   "date": "2026-11-22",
+   "kind": "guidance",
+   "source": "certin",
+   "url": "https://www.cert-in.org.in/PDF/CSH_Booklet25.pdf",
+   "doc_id": "00209aa3169245f2",
+   "date_known": false,
+   "excerpt": "certin\nYou don't need a UPI PIN or OTP to receive\nmoney.\n\nBe cautious of offers that seem too good to be\ntrue.\n\nMonitor financial statements regularly for\nunauthorized activity.\n\n---\n\n# FAKE CHARITY APPEAL\n\nNAT DONATION ONATI DONATION\n\nCharity scammers pretend to be from real charities and\ncontact people by phone, email, social media, or in\nperson. They create fake websites and materials to look\ntrustworthy.\n\n## Do’s\n\nAsk questions about the\ncharity’s mission and\nspending.\n\nDonate securely through\nofficial platforms.\n\nMost legitimate charity\norganisation websites\nuse .org rather than\n.com.\n\nBe"
+  },
+  {
+   "chunk_id": "43b7e7a1412c9767",
+   "score": 0.6542,
+   "age_days": 1,
+   "date_known": true,
+   "url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud/",
+   "doc_id": "93138fbb4db250e2",
+   "source": "krebs",
+   "kind": "news",
+   "title": "CTO of ‘RansomwareHelp’ Indicted for Wire Fraud",
+   "date": "2026-11-21",
+   "excerpt": "CTO of ‘RansomwareHelp’ Indicted for Wire Fraud\nCTO of ‘RansomwareHelp’ Indicted for Wire Fraud\n\nThe chief technology officer and co-founder of ransomwarehelp.com, a six year old Florida business that claimed to use \"advanced cryptographic tools\" to restore data locked by ransomware, has been charged with wire fraud after an FBI sting operation found the company was simply paying the attackers for a decryption key and charging victims a markup for work that was never performed."
+  },
+  {
+   "chunk_id": "8b7057cf4406e466",
+   "score": 0.6536,
+   "age_days": 2760,
+   "title": "How To Recognize and Avoid Phishing Scams | Consumer Advice",
+   "date_known": true,
+   "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+   "date": "2019-05-03",
+   "doc_id": "d5e5f1a3c8e7b2a3",
+   "source": "ftc_phish",
+   "kind": "guidance",
+   "excerpt": "How To Recognize and Avoid Phishing Scams | Consumer Advice\nScammers often update their tactics to keep up with the latest news or trends, but here are some common tactics used in phishing emails or text messages:\n\nPhishing emails and text messages often tell a story to trick you into clicking on a link or opening an attachment. You might get an unexpected email or text message that looks like it’s from a company you know or trust, like a bank or a credit card or utility company. Or maybe it’s from an online payment website or app. The message could be from a scammer, who might\n\n- say they’ve "
+  },
+  {
+   "chunk_id": "dc19365ea67b6670",
+   "score": 0.6502,
+   "age_days": null,
+   "doc_id": "00209aa3169245f2",
+   "kind": "guidance",
+   "title": "certin",
+   "url": "https://www.cert-in.org.in/PDF/CSH_Booklet25.pdf",
+   "date_known": false,
+   "date": "2026-11-22",
+   "source": "certin",
+   "excerpt": "certin\nLOAN\n\nVictims are lured into\nhigh-interest loans,\nmaking repayment\nnearly impossible.\n\nScammers extort money\nby manipulating photos\nand threatening victims.\n\n## Safety Practices\n\nLegitimate lenders don’t request upfront fees. Avoid those demanding\npayment before loan disbursement.\n\nBe cautious of unsolicited loan offers promising guaranteed approval\nwithout credit checks.\n\nCarefully scrutinize interest rates and terms; if they seem too good to\nbe true, they likely are.\n\nMake sure the app has a Reserve Bank of India's (RBI's)\nmobile-only Non-Banking Financial Company (NBFC) license to\ngi"
+  },
+  {
+   "chunk_id": "61ce1b19f8ac2694",
+   "score": 0.647,
+   "age_days": null,
+   "title": "Advisories",
+   "date_known": false,
+   "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0062&pageid=PUBVLNOTES02",
+   "source": "certin",
+   "doc_id": "9015e5cdf7a07bf9",
+   "date": "2026-11-22",
+   "kind": "guidance",
+   "excerpt": "Advisories\napplications, critical records, user identities and third-party interfaces. Existing monitoring and incident-response arrangements should also account for the risks arising from misuse of trusted business processes and automated intrusion activity.<br>**Categories of Incidents Observed**<br>**1.  Financially motivated abuse of business payment workflows**<br>CERT-In has received reports of unauthorised financial transactions involving organisations outside the financial sector. Some incidents have affected service providers supporting government-linked payment workflows and platform"
+  },
+  {
+   "chunk_id": "2bc38b6ad21c246c",
+   "score": 0.644,
+   "age_days": null,
+   "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0062&pageid=PUBVLNOTES02",
+   "title": "Advisories",
+   "kind": "guidance",
+   "doc_id": "9015e5cdf7a07bf9",
+   "source": "certin",
+   "date_known": false,
+   "date": "2026-11-22",
+   "excerpt": "Advisories\n| ## CERT-In Advisory   CIAD-2026-0062<br>**Abuse of Business Payment Workflows and Use of AI-Driven Agentic Offensive Frameworks across Sectors**<br>Original Issue Date: November 20, 2026<br>Severity Rating: Critical<br>Description<br>CERT-In has recently issued advisories highlighting threats arising from the exploitation of payment and disbursement systems, unauthorised activity by AI agents under evaluation, misuse of open-source agentic AI tools and AI-assisted cyberattacks against Indian ICT assets.<br>Recent observations by CERT-In show that unauthorised financial transaction"
+  },
+  {
+   "chunk_id": "769506cdc73bffbf",
+   "score": 0.6378,
+   "age_days": null,
+   "title": "certin",
+   "source": "certin",
+   "date_known": false,
+   "kind": "guidance",
+   "date": "2026-11-22",
+   "doc_id": "1003ca0249b96238",
+   "url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+   "excerpt": "certin\nNew Message\n\nYour Bank <khas@hello.org.in>\nTue, 07/02/2023\n\nYour Bank\n\nDear Bank Customer,\n\nURL require login\n\nNot Your bank\n\nYour bank account will get deactivated today due to inactivity on\nyour account. Click on the link to\n*\"https:www/khasenterprise.in/reactivate/yourbank/loginform.htm\"*\nstart the verification process to activate your account.\nYour account will restore after completing the process.\nThanks you for being a valuable customer.\n\nLink not going to your bank\n\n###### Safety Tips\n\nCarefully check the URL before clicking on it.\n\nNever react to the messages which shows urgency"
+  }
+ ],
+ "memory_text": "## Running pasted or downloaded commands (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- detection_details: Suspicious PowerShell commands Detected; powershell script block - Found Suspicious PowerShell commands\n- detections: 41\n- mitre_technique: T1059.001;T1204.004\n- source: apt-hunter\n- ← [exhibits_security_mistake] Engineering\n\n## Finance (organization)\n- type: organization\n- parent_organization: Nebulon\n- → [part_of] Nebulon\n- → [susceptible_to] Physical access/security\n- → [susceptible_to] Corporate communications / executive announcements\n- → [susceptible_to] Data privacy / records management\n- → [susceptible_to] Finance/AP/vendor billing\n- → [susceptible_to] Compliance/policy acknowledgements & surveys\n- → [susceptible_to] Phishing with emails with an attachment\n\n## Finance/AP/vendor billing (concept)\n- type: concept\n- missed_emails: 3 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- type: phishing\n- vulnerability: phishing\n- ← [vulnerable_to] HR\n\n## Training & certifications phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 5 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Engineering (organization)\n- parent_organization: Nebulon\n\n## Nebulon (organization)\n- call_to_action: always end with how to report\n- citations: every factual claim cites a trusted source from config/sources.yaml\n- department: Engineering\n- description: demo organisation\n- newsletter_length: ≤ 500 words\n- note: demo organisation\n- phishing_simulations: always clearly marked as TRAINING in metadata; use only reserved domains (example.com, example.org)\n- prohibitions: fear-mongering, shaming named people or teams, real employee data, live malicious links\n- quiz_length: 5 MCQs with explanations\n- reading_level: plain English, short sentences, no unexplained jargon\n- status: demo organisation\n- structure: hook → what's happening → how to spot it (3–5 red flags) → what to do → how to report\n- tip_length: ≤ 120 words\n- tone: friendly, practical, never blaming\n\n## Physical access/security (concept)\n- as_of: 2026-11-22\n- category: phishing\n- department: Engineering\n- missed_emails: 7 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n\n## Corporate communications / executive announcements (concept)\n- missed_emails: 4 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n\n## Data privacy / records management (concept)\n- category: phishing\n- missed_emails: 6 of 15\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n\n## Compliance/policy acknowledgements & surveys (concept)\n- missed_emails: 9 of 30\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n\n## Phishing with emails with an attachment (concept)\n- missed_emails: 32 of 114\n- mitre_technique: T1566\n- source: nest-phish\n\n## HR (organization)\n- department_of: Nebulon\n- recurring_security_mistakes: Falls for 'Tr",
+ "past_modules": [],
+ "mistakes": [
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 5,
+   "rate": 0.417,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 12 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting corporate communications / executive announcements scams",
+   "count": 4,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 12 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 6,
+   "rate": 0.333,
+   "source": "nest-phish",
+   "evidence": "missed 6 of 18 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 15,
+   "rate": 0.312,
+   "source": "nest-phish",
+   "evidence": "missed 15 of 48 phishing emails"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Falls for 'Compliance/policy acknowledgements & surveys' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting compliance/policy acknowledgements & surveys scams",
+   "count": 9,
+   "rate": 0.3,
+   "source": "nest-phish",
+   "evidence": "missed 9 of 30 phishing emails"
+  }
+ ],
+ "model": "gemini-3.6-flash",
+ "guardrails": {
+  "untrusted_links": [],
+  "sim_rewritten": [],
+  "citations": {
+   "cited_ids": [
+    1,
+    4,
+    6,
+    7,
+    8
+   ],
+   "invalid_ids": [],
+   "n_citations": 18
+  }
+ },
+ "created": "2026-11-22"
+}
