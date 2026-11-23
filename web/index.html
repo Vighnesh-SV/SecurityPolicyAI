@@ -15,7 +15,7 @@
     <button data-view="simulate">Simulate</button>
     <button data-view="insights">Insights</button>
   </nav>
-  <span class="right"><a href="learn.html">Employee quiz ↗</a></span>
+  <span class="right"><a href="learn.html">Employee portal ↗</a></span>
 </header>
 
 <main>
@@ -50,6 +50,7 @@
   <section id="v-library" class="hidden">
     <h1>Library</h1>
     <p class="lead">Drafts and approved modules. Approved content is remembered so new content builds on it.</p>
+    <div class="card hidden" id="stale-card"><h2>Update suggested</h2><ul class="list" id="stale"></ul></div>
     <div class="card"><ul class="list" id="drafts"></ul></div>
     <div id="library-out"></div>
   </section>
@@ -81,6 +82,11 @@
       </div>
       <ul class="list" id="mistakes" style="margin-top:8px"></ul>
     </div>
+    <div class="card">
+      <h2>Trend</h2>
+      <div id="trend-out"></div>
+    </div>
+    <details class="card"><summary>This week by department</summary><div id="week-out"></div></details>
     <details class="card"><summary>What's new in the threat feeds</summary>
       <div class="row"><button class="btn ghost" id="digest-btn">Check last 14 days</button></div>
       <div id="digest-out"></div>

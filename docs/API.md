@@ -22,13 +22,19 @@ CORS is open, so a dev server on any port can call it.
 | GET | `/drafts/{id}/export?fmt=md\|docx` | File download |
 | GET | `/modules` | Approved-module history |
 | GET | `/quizzes` | Approved quizzes **without answers** |
-| POST | `/quizzes/{id}/submit` | `{department, answers:[int\|null]}` → score + per-question feedback |
+| POST | `/quizzes/{id}/submit` | `{department, answers:[int\|null], user_id?}` → score + per-question feedback |
 | GET | `/simulations?approved_only=true` | Phishing-simulation kits: training email + debrief |
 | POST | `/simulations/{id}/events` | `{department, user_id, action}` record a recipient action |
 | GET | `/simulations/{id}/stats` | Unique users per action per department |
 | POST | `/campaigns` | `{draft_id, department, recipients}` → pseudonymous inbox links (approved kits only) |
 | GET | `/campaigns` | Campaigns with funnel counts and inbox links |
 | GET | `/inbox/{cid}/{token}` | Recipient's training inbox (records opened; link → click → fake sign-in → debrief; report button) |
+| POST 🐢 | `/check` | `{text}` → "Is this phishing?" verdict, warning signs, what to do (rules always; AI text when quota allows) |
+| GET | `/progress/{user_id}?days=7` | One employee's weekly report: avoided, reported, clicked, quiz average, streak, tips |
+| GET | `/reports/weekly` | Department totals for the week (no ranking of individuals) |
+| POST | `/reports/snapshot` | Save this week's reports to `outputs/reports/<week>.json` (also automatic, hourly) |
+| GET | `/trends/{dept}` | Weekly click rate / report rate / quiz average + before→after change |
+| GET | `/modules/staleness` | Approved modules overtaken by newer guidance ("update suggested") |
 | GET | `/profile` / `/profile/{dept}?n=10` | Recurring mistakes per department |
 | POST | `/profile/rebuild` | Recompute mistakes from logs + NEST + quizzes + simulations |
 | POST 🐢 | `/digest` | `{days}` → suggested new topics from recent feeds |
@@ -67,6 +73,9 @@ POST /profile/rebuild                     → a click rate ≥ 25% becomes a rec
                                             so the next generated content targets it
 ```
 Actions: `delivered`, `opened`, `clicked`, `submitted_data`, `reported`.
+
+**Automatic jobs** (started with the API; `SPAI_AUTO_REFRESH=0` disables): feeds are refreshed and re-indexed
+once a day, and the weekly report snapshot is kept up to date every hour.
 
 **3. Quiz**
 ```

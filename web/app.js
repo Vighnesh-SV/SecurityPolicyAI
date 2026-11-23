@@ -149,6 +149,10 @@ async function loadLibrary() {
 }
 
 async function initLibrary() {
+  $("#stale").onclick = (e) => {
+    const b = e.target.closest("[data-refresh]");
+    if (b) { $("#topic").value = b.dataset.refresh; $("#extra").value = "Update the earlier module with the newest guidance."; show("create"); }
+  };
   bindDraft($("#library-out"));
   $("#drafts").onclick = async (e) => {
     const li = e.target.closest("[data-open]");
@@ -190,12 +194,60 @@ function initSimulate() {
 }
 
 async function loadMistakes() {
-  const rows = await api(`/profile/${encodeURIComponent($("#ins-dept").value)}?n=8`);
+  const rows = await api(`/profile/${encodeURIComponent($("#ins-dept").value)}?n=5`);
   $("#mistakes").innerHTML = rows.map((m) => `<li style="cursor:default"><div class="grow"><div>${esc(m.behaviour)}</div>
       <div class="muted small">${esc(m.evidence)} · ${esc(m.source)}</div></div>
       ${m.rate != null ? `<span class="pill ${m.rate >= 0.4 ? "bad" : "warn"}">${Math.round(m.rate * 100)}%</span>` : ""}
       <button class="btn ghost small" data-teach="${esc(m.topic)}">Teach this</button></li>`).join("")
     || "<li class='muted'>No recurring mistakes above the threshold.</li>";
+}
+
+// small inline SVG line chart: values in 0..1, null = gap
+function lineChart(weeks, series) {
+  const W = 640, H = 170, P = 30, n = weeks.length;
+  if (!n) return "<p class='muted'>No simulation or quiz results yet.</p>";
+  const x = (i) => (n === 1 ? W / 2 : P + (i * (W - 2 * P)) / (n - 1)), y = (v) => H - P - v * (H - 2 * P);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto" role="img">`;
+  for (const g of [0, 0.5, 1]) svg += `<line x1="${P}" x2="${W - P}" y1="${y(g)}" y2="${y(g)}" stroke="var(--line)"/>
+    <text x="2" y="${y(g) + 4}" font-size="11" fill="var(--muted)">${g * 100}%</text>`;
+  weeks.forEach((w, i) => { svg += `<text x="${x(i)}" y="${H - 8}" font-size="11" fill="var(--muted)" text-anchor="middle">${esc(w.slice(5))}</text>`; });
+  for (const s of series) {
+    const pts = s.values.map((v, i) => (v == null ? null : [x(i), y(v)])).filter(Boolean);
+    if (pts.length > 1) svg += `<polyline fill="none" stroke="${s.color}" stroke-width="2.5" points="${pts.map((p) => p.join(",")).join(" ")}"/>`;
+    pts.forEach(([a, b]) => { svg += `<circle cx="${a}" cy="${b}" r="3.5" fill="${s.color}"/>`; });
+  }
+  return svg + "</svg>" + `<div class="row small" style="margin-top:6px">${series.map((s) =>
+    `<span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${s.color};margin-right:6px"></span>${s.label}</span>`).join("")}</div>`;
+}
+
+async function loadTrend() {
+  const t = await api(`/trends/${encodeURIComponent($("#ins-dept").value)}`);
+  const pct = (v) => Math.round(v * 100) + "%";
+  const ch = t.change, notes = [];
+  if (ch.click_rate) notes.push(`Click rate ${pct(ch.click_rate.before)} → ${pct(ch.click_rate.after)}`);
+  if (ch.quiz_avg) notes.push(`Quiz average ${pct(ch.quiz_avg.before)} → ${pct(ch.quiz_avg.after)}`);
+  $("#trend-out").innerHTML = (notes.length ? `<p class="small"><b>Since the first week:</b> ${notes.join(" · ")}</p>` : "") +
+    lineChart(t.weeks.map((w) => w.week), [
+      { label: "Clicked simulation", color: "var(--bad)", values: t.weeks.map((w) => w.click_rate) },
+      { label: "Quiz score", color: "var(--accent)", values: t.weeks.map((w) => w.quiz_avg) }]);
+}
+
+async function loadWeek() {
+  const r = await api("/reports/weekly");
+  const rows = Object.entries(r.departments);
+  $("#week-out").innerHTML = `<p class="muted small">${r.period[0]} to ${r.period[1]}. Totals only; individuals are not ranked.</p>
+    <div style="overflow-x:auto"><table class="small"><tr><th></th><th>people</th><th>avoided</th><th>reported</th><th>clicked</th><th>quiz avg</th></tr>
+    ${rows.map(([d, v]) => `<tr><td><b>${esc(d)}</b></td><td>${v.employees}</td><td>${v.avoided}</td><td>${v.reported}</td><td>${v.clicked}</td>
+      <td>${v.quiz_avg == null ? "–" : Math.round(v.quiz_avg * 100) + "%"}</td></tr>`).join("")}</table></div>`;
+}
+
+async function loadStale() {
+  const s = await api("/modules/staleness");
+  const stale = s.modules.filter((m) => m.status !== "current");
+  $("#stale-card").classList.toggle("hidden", !stale.length);
+  $("#stale").innerHTML = stale.map((m) => `<li style="cursor:default"><div class="grow"><div class="t">${esc(m.title)}</div>
+    <div class="muted small">${esc(m.reasons.join(" · "))}${m.newer_sources[0] ? ` · e.g. <a href="${esc(m.newer_sources[0].url)}" target="_blank" rel="noopener">${esc(m.newer_sources[0].title)}</a>` : ""}</div></div>
+    <button class="btn ghost small" data-refresh="${esc(m.topic)}">Update</button></li>`).join("");
 }
 
 async function loadEval() {
@@ -211,7 +263,7 @@ async function loadEval() {
 
 function initInsights() {
   opts($("#ins-dept"), META.departments);
-  $("#ins-dept").onchange = loadMistakes;
+  $("#ins-dept").onchange = () => { loadMistakes(); loadTrend(); };
   $("#rebuild").onclick = () => busy($("#rebuild"), "Refreshing", async () => { await api("/profile/rebuild?seed_memory=false", { method: "POST" }); await loadMistakes(); });
   $("#mistakes").onclick = (e) => {
     const b = e.target.closest("[data-teach]");
@@ -232,7 +284,8 @@ function initInsights() {
 }
 
 // ---------- navigation ----------
-const loaders = { library: loadLibrary, simulate: loadSimulate, insights: () => { loadMistakes(); loadEval(); } };
+const loaders = { library: () => Promise.all([loadLibrary(), loadStale()]), simulate: loadSimulate,
+                  insights: () => Promise.all([loadMistakes(), loadTrend(), loadWeek(), loadEval()]) };
 function show(view) {
   document.querySelectorAll("main > section").forEach((s) => s.classList.toggle("hidden", s.id !== `v-${view}`));
   document.querySelectorAll("#nav button").forEach((b) => b.classList.toggle("on", b.dataset.view === view));

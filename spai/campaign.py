@@ -111,7 +111,7 @@ def landing_page(base: str) -> str:
 </article>""")
 
 
-def debrief_page(draft: dict, caught: bool) -> str:
+def debrief_page(draft: dict, caught: bool, user: str = "") -> str:
     sim = draft["content"]["phishing_sim"]
     head = ("<h2>Well done: you reported it.</h2><p>This was a security-awareness simulation.</p>" if caught
             else "<h2>This was a phishing simulation.</h2><p>No harm done. Here is what to look for next time.</p>")
@@ -121,4 +121,5 @@ def debrief_page(draft: dict, caught: bool) -> str:
 <article class="card">{head}
   <h3>Red flags in this email</h3><ul>{flags}</ul>
   <h3>How to report</h3><p>{report}</p>
+  <p><a class="btn ghost" href="/ui/learn.html?u={_e(user)}#progress">See your progress</a></p>
 </article>""")

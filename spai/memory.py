@@ -98,7 +98,12 @@ def _cos(a, b):
 def modules() -> list[dict]:
     if not REGISTRY.exists():
         return []
-    return [json.loads(l) for l in REGISTRY.read_text(encoding="utf-8").splitlines() if l.strip()]
+    by_id = {}
+    for l in REGISTRY.read_text(encoding="utf-8").splitlines():
+        if l.strip():
+            m = json.loads(l)
+            by_id[m["id"]] = m          # last entry wins, so a re-approval never duplicates
+    return list(by_id.values())
 
 
 def similar_modules(text: str, k: int = 3, min_sim: float = 0.55) -> list[dict]:
@@ -131,7 +136,7 @@ def remember_module(draft: dict):
     return entry
 
 
-def remember_quiz(department: str, topic: str, score: float, n: int):
-    telemetry.record_quiz(department, topic, score, n)
+def remember_quiz(department: str, topic: str, score: float, n: int, user_id=None, missed=None):
+    telemetry.record_quiz(department, topic, score, n, user_id, missed)
     _ingest(f"On {date.today().isoformat()} the {department} department scored {score:.0%} "
             f"on a {n}-question security quiz about {topic}.")

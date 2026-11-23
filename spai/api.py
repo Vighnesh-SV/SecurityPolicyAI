@@ -6,6 +6,7 @@ Docs:  http://localhost:8000/docs   (interactive Swagger UI, generated from this
 LLM-backed endpoints (generate, judge, digest) take 10-90 s on the Gemini free tier.
 """
 import json
+from contextlib import asynccontextmanager
 from dataclasses import asdict
 from typing import Literal
 
@@ -15,9 +16,15 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from . import campaign, config, digest, export, generate, judge, kb, llm, memory, telemetry
+from . import campaign, config, insights, digest, export, generate, judge, kb, llm, memory, telemetry
 
-app = FastAPI(title="SecurityPolicy AI API", version="1.0",
+@asynccontextmanager
+async def lifespan(_app):
+    insights.start_auto_refresh()     # daily feed refresh + weekly report snapshot (SPAI_AUTO_REFRESH=0 to disable)
+    yield
+
+
+app = FastAPI(lifespan=lifespan, title="SecurityPolicy AI API", version="1.0",
               description="Security awareness content: grounded generation, review, memory, telemetry.")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
@@ -46,6 +53,7 @@ class GenerateIn(BaseModel):
 class QuizSubmitIn(BaseModel):
     department: str
     answers: list[int | None] = Field(..., description="Chosen option index per question, null if skipped")
+    user_id: str | None = Field(None, description="Pseudonymous employee id, for their own progress report")
 
 
 class SimEventIn(BaseModel):
@@ -58,6 +66,11 @@ class CampaignIn(BaseModel):
     draft_id: str
     department: str
     recipients: int = Field(10, ge=1, le=200)
+
+
+class CheckIn(BaseModel):
+    text: str = Field(..., min_length=10, max_length=20000, description="The suspicious email, pasted")
+    use_llm: bool = True
 
 
 class DigestIn(BaseModel):
@@ -209,7 +222,8 @@ def submit_quiz(draft_id: str, body: QuizSubmitIn):
                 "correct": a == q["answer_index"], "explanation": q["explanation"]}
                for a, q in zip(body.answers, qs)]
     score = sum(r["correct"] for r in results) / len(qs)
-    memory.remember_quiz(body.department, d["request"]["topic"], score, len(qs))
+    missed = [q["explanation"] for r, q in zip(results, qs) if not r["correct"]]
+    memory.remember_quiz(body.department, d["request"]["topic"], score, len(qs), body.user_id, missed)
     return {"score": score, "results": results}
 
 
@@ -374,14 +388,50 @@ def inbox_click(cid: str, token: str):
 def inbox_submit(cid: str, token: str):
     c, user, d, _ = _recipient(cid, token)   # form fields are deliberately never read
     campaign.record(c, user, "submitted_data")
-    return campaign.debrief_page(d, caught=False)
+    return campaign.debrief_page(d, caught=False, user=user)
 
 
 @app.post("/inbox/{cid}/{token}/report", response_class=HTMLResponse, include_in_schema=False)
 def inbox_report(cid: str, token: str):
     c, user, d, _ = _recipient(cid, token)
     campaign.record(c, user, "reported")
-    return campaign.debrief_page(d, caught=True)
+    return campaign.debrief_page(d, caught=True, user=user)
+
+
+# ---------------- employee tools and learning analytics ----------------
+@app.post("/check", tags=["employee"])
+def check_email(body: CheckIn):
+    """"Is this phishing?" Rules always run; the AI explanation is added when quota allows."""
+    return insights.check_email(body.text, body.use_llm)
+
+
+@app.get("/progress/{user_id}", tags=["employee"])
+def employee_progress(user_id: str, days: int = 7):
+    """One employee's weekly report: avoided, reported, clicked, quiz scores, streak, tips."""
+    return insights.progress(user_id, days)
+
+
+@app.get("/reports/weekly", tags=["insights"])
+def weekly_report(days: int = 7):
+    """Department totals for the week (individuals are never ranked)."""
+    return insights.weekly_overview(days)
+
+
+@app.post("/reports/snapshot", tags=["insights"])
+def weekly_snapshot():
+    return {"saved": insights.snapshot_week()}
+
+
+@app.get("/trends/{department}", tags=["insights"])
+def dept_trends(department: str):
+    _check_audience(department)
+    return insights.trends(department)
+
+
+@app.get("/modules/staleness", tags=["content"])
+def module_staleness():
+    """Approved modules that newer guidance may have overtaken."""
+    return {"last_refresh": insights.last_refresh(), "modules": insights.staleness()}
 
 
 # ---------------- web UI ----------------

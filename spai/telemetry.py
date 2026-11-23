@@ -167,10 +167,11 @@ def record_sim_event(draft_id: str, department: str, user_id: str, action: str, 
                             "at": datetime.now(timezone.utc).isoformat()}) + "\n")
 
 
-def record_quiz(department: str, topic: str, score: float, n_questions: int):
+def record_quiz(department: str, topic: str, score: float, n_questions: int,
+                user_id: str | None = None, missed: list[str] | None = None):
     with QUIZ_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps({"department": department, "topic": topic, "score": score,
-                            "n": n_questions, "at": datetime.now(timezone.utc).isoformat()}) + "\n")
+                            "n": n_questions, "user_id": user_id, "missed": missed or [], "at": datetime.now(timezone.utc).isoformat()}) + "\n")
 
 
 def export_apt_summary():

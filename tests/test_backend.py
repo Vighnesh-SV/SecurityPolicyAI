@@ -119,3 +119,52 @@ def test_campaign_flow(tmp_path, monkeypatch):
 def test_web_ui_served():
     assert client.get("/ui/").status_code == 200
     assert client.get("/ui/learn.html").status_code == 200
+
+
+def test_phishing_checker_rules():
+    mail = ("From: it-support@micros0ft-helpdesk.co\nSubject: Account locked\n\nDear user, your mailbox is "
+            "suspended. Verify your account immediately at https://micros0ft-helpdesk.co/login")
+    r = client.post("/check", json={"text": mail, "use_llm": False}).json()
+    assert r["verdict"] == "likely phishing" and len(r["flags"]) >= 3
+    safe = client.post("/check", json={"text": "Hi all, lunch is at 1pm in the canteen today.", "use_llm": False}).json()
+    assert safe["verdict"] == "probably safe"
+
+
+def test_progress_trends_and_overview(tmp_path, monkeypatch):
+    from datetime import datetime, timedelta, timezone
+    from spai import insights
+    sim, quiz = tmp_path / "sim.jsonl", tmp_path / "quiz.jsonl"
+    monkeypatch.setattr(telemetry, "SIM_LOG", sim)
+    monkeypatch.setattr(telemetry, "QUIZ_LOG", quiz)
+    now = datetime.now(timezone.utc)
+    ago = (now - timedelta(days=8)).isoformat()
+    rows = [  # last week: fin-001 clicked; this week: fin-001 reported, fin-002 clicked
+        {"draft_id": "old", "department": "Finance", "user_id": "fin-001", "action": "delivered", "topic": "Invoices", "at": ago},
+        {"draft_id": "old", "department": "Finance", "user_id": "fin-001", "action": "clicked", "topic": "Invoices", "at": ago},
+        {"draft_id": "new", "department": "Finance", "user_id": "fin-001", "action": "delivered", "topic": "Payroll", "at": now.isoformat()},
+        {"draft_id": "new", "department": "Finance", "user_id": "fin-001", "action": "reported", "topic": "Payroll", "at": now.isoformat()},
+        {"draft_id": "new", "department": "Finance", "user_id": "fin-002", "action": "delivered", "topic": "Payroll", "at": now.isoformat()},
+        {"draft_id": "new", "department": "Finance", "user_id": "fin-002", "action": "clicked", "topic": "Payroll", "at": now.isoformat()},
+    ]
+    sim.write_text("\n".join(json.dumps(r) for r in rows))
+    quiz.write_text(json.dumps({"department": "Finance", "topic": "Invoices", "score": 0.8, "n": 5,
+                                "user_id": "fin-001", "missed": ["Call the vendor on a known number."],
+                                "at": now.isoformat()}))
+    p = client.get("/progress/fin-001").json()
+    assert p["found"] and p["week"]["avoided"] == 1 and p["week"]["reported"] == 1 and p["week"]["clicked"] == 0
+    assert p["week"]["quiz_avg"] == 0.8 and p["streak_weeks"] == 1
+    assert "Call the vendor on a known number." in p["tips"]
+    assert client.get("/progress/nobody").json()["found"] is False
+    t = client.get("/trends/Finance").json()
+    assert [w["click_rate"] for w in t["weeks"]] == [1.0, 0.5]
+    o = client.get("/reports/weekly").json()["departments"]["Finance"]
+    assert o == {"employees": 2, "simulations": 2, "avoided": 1, "reported": 1, "clicked": 1, "quiz_avg": 0.8}
+    monkeypatch.setattr(insights, "REPORTS", tmp_path / "reports")
+    assert (tmp_path / "reports").exists() is False
+    insights.snapshot_week()
+    assert list((tmp_path / "reports").glob("*.json"))
+
+
+def test_staleness_endpoint():
+    r = client.get("/modules/staleness").json()
+    assert "modules" in r and all(m["status"] in ("current", "update suggested") for m in r["modules"])

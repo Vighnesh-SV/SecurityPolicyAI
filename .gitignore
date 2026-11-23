@@ -31,3 +31,6 @@ resources/datasets/phishing_email_hf.csv
 outputs/test_export.*
 data/telemetry/campaigns.json
 eval/run.err.log
+outputs/reports/
+data/last_refresh.txt
+data/api*.log
