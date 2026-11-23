@@ -1,0 +1,77 @@
+:root {
+  --bg: #f7f7f5; --card: #ffffff; --ink: #1d1d1f; --muted: #6b6b70; --line: #e4e4e0;
+  --accent: #2f5bd3; --accent-ink: #ffffff; --good: #1f8a4c; --warn: #b7791f; --bad: #c0392b;
+  --radius: 10px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #151517; --card: #1f1f22; --ink: #ececef; --muted: #9a9aa2; --line: #2e2e33;
+          --accent: #7b9cff; --accent-ink: #0d0d10; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.55; }
+a { color: var(--accent); }
+
+header { display: flex; align-items: center; gap: 24px; padding: 14px 24px; border-bottom: 1px solid var(--line);
+         background: var(--card); position: sticky; top: 0; z-index: 2; flex-wrap: wrap; }
+header .brand { font-weight: 650; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav button { background: none; border: 0; padding: 8px 12px; border-radius: 8px; color: var(--muted);
+             font: inherit; cursor: pointer; }
+nav button.on { background: var(--bg); color: var(--ink); font-weight: 600; }
+header .right { margin-left: auto; font-size: 13px; color: var(--muted); }
+
+main { max-width: 860px; margin: 0 auto; padding: 28px 16px 80px; }
+main.narrow { max-width: 560px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 0 0 12px; }
+h3 { font-size: 15px; margin: 20px 0 6px; }
+.lead { color: var(--muted); margin: 0 0 22px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.hidden { display: none !important; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+input, select, textarea { width: 100%; font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; margin-bottom: 10px; }
+textarea { min-height: 90px; resize: vertical; }
+
+.btn { display: inline-block; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 8px;
+       padding: 9px 16px; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
+.btn.ghost { background: none; color: var(--accent); border: 1px solid var(--line); }
+.btn:disabled { opacity: .5; cursor: wait; }
+
+details { margin-top: 10px; }
+summary { cursor: pointer; color: var(--muted); font-size: 14px; }
+
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { padding: 12px 4px; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: center; cursor: pointer; }
+.list li:last-child { border-bottom: 0; }
+.list .grow { flex: 1; min-width: 0; }
+.list .t { font-weight: 550; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.pill { font-size: 12px; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.pill.good { color: var(--good); border-color: var(--good); }
+.pill.warn { color: var(--warn); border-color: var(--warn); }
+.pill.bad { color: var(--bad); border-color: var(--bad); }
+
+.doc h1, .doc h2, .doc h3 { margin-top: 18px; }
+.doc .cite { font-size: 11px; vertical-align: super; color: var(--accent); text-decoration: none; }
+.doc .org { font-size: 11px; vertical-align: super; color: var(--muted); }
+.mail { white-space: normal; }
+.mail-head { border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 12px; font-size: 14px; }
+
+.bar { height: 8px; background: var(--bg); border-radius: 99px; overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--accent); }
+.funnel { display: grid; grid-template-columns: 110px 1fr 40px; gap: 6px 10px; align-items: center; font-size: 13px; }
+
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg);
+         padding: 10px 16px; border-radius: 8px; font-size: 14px; max-width: 90vw; }
+.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent);
+           border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: 8px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+body.recipient main { padding-top: 48px; }

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SecurityPolicy AI</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <span class="brand">SecurityPolicy AI</span>
+  <nav id="nav">
+    <button data-view="create" class="on">Create</button>
+    <button data-view="library">Library</button>
+    <button data-view="simulate">Simulate</button>
+    <button data-view="insights">Insights</button>
+  </nav>
+  <span class="right"><a href="learn.html">Employee quiz ↗</a></span>
+</header>
+
+<main>
+  <!-- CREATE -->
+  <section id="v-create">
+    <h1>Create awareness content</h1>
+    <p class="lead">Grounded in current public guidance and your team's recurring mistakes.</p>
+    <form class="card" id="gen-form">
+      <label for="topic">Topic</label>
+      <input id="topic" required placeholder="e.g. QR-code phishing, invoice fraud, MFA fatigue">
+      <div class="grid">
+        <div><label for="audience">Audience</label><select id="audience"></select></div>
+        <div><label for="format">Format</label><select id="format"></select></div>
+        <div><label for="language">Language</label><select id="language"></select></div>
+      </div>
+      <details>
+        <summary>More options</summary>
+        <label for="extra" style="margin-top:10px">Extra instructions</label>
+        <input id="extra" placeholder="optional">
+        <div id="policy-box" class="hidden">
+          <label for="policy">Policy text to summarise</label>
+          <textarea id="policy"></textarea>
+        </div>
+      </details>
+      <div class="row"><button class="btn" id="gen-btn">Generate</button>
+        <span class="muted small" id="gen-note">Takes up to a minute.</span></div>
+    </form>
+    <div id="create-out"></div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section id="v-library" class="hidden">
+    <h1>Library</h1>
+    <p class="lead">Drafts and approved modules. Approved content is remembered so new content builds on it.</p>
+    <div class="card"><ul class="list" id="drafts"></ul></div>
+    <div id="library-out"></div>
+  </section>
+
+  <!-- SIMULATE -->
+  <section id="v-simulate" class="hidden">
+    <h1>Phishing simulation</h1>
+    <p class="lead">Send an approved training email to pseudonymous recipients. Clicks update the department's mistakes.</p>
+    <form class="card" id="camp-form">
+      <div class="grid">
+        <div><label for="kit">Simulation</label><select id="kit"></select></div>
+        <div><label for="camp-dept">Department</label><select id="camp-dept"></select></div>
+        <div><label for="camp-n">Recipients</label><input id="camp-n" type="number" min="1" max="200" value="10"></div>
+      </div>
+      <div class="row"><button class="btn">Launch</button>
+        <span class="muted small" id="kit-note"></span></div>
+    </form>
+    <div id="campaigns"></div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section id="v-insights" class="hidden">
+    <h1>Insights</h1>
+    <p class="lead">Recurring mistakes per department, from logs, phishing tests, quizzes and simulations.</p>
+    <div class="card">
+      <div class="row" style="margin-top:0">
+        <select id="ins-dept" style="max-width:240px;margin:0"></select>
+        <button class="btn ghost" id="rebuild">Refresh</button>
+      </div>
+      <ul class="list" id="mistakes" style="margin-top:8px"></ul>
+    </div>
+    <details class="card"><summary>What's new in the threat feeds</summary>
+      <div class="row"><button class="btn ghost" id="digest-btn">Check last 14 days</button></div>
+      <div id="digest-out"></div>
+    </details>
+    <details class="card"><summary>Evaluation results</summary><div id="eval-out"></div></details>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

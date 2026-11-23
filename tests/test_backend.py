@@ -94,3 +94,28 @@ def test_sim_event_endpoint(tmp_path, monkeypatch):
     bad = client.post(f"/simulations/{sid}/events",
                       json={"department": "Finance", "user_id": "t1", "action": "nope"})
     assert bad.status_code == 422
+
+
+def test_campaign_flow(tmp_path, monkeypatch):
+    from spai import campaign
+    sims = client.get("/simulations").json()
+    if not sims:
+        pytest.skip("no approved simulation yet")
+    monkeypatch.setattr(telemetry, "SIM_LOG", tmp_path / "sim.jsonl")
+    monkeypatch.setattr(campaign, "CAMPAIGNS", tmp_path / "campaigns.json")
+    c = client.post("/campaigns", json={"draft_id": sims[0]["id"], "department": "HR", "recipients": 3}).json()
+    a, b, _ = [l["url"].split("testserver")[1] for l in c["inbox_links"]]
+    assert "TRAINING" in client.get(a).text
+    client.get(a + "/click")
+    client.get(a + "/click")                                 # counted once
+    assert "phishing simulation" in client.post(a + "/submit", data={"u": "x", "p": "secret"}).text
+    client.post(b + "/report")
+    f = client.get("/campaigns").json()[0]["funnel"]
+    assert f == {"delivered": 3, "opened": 1, "clicked": 1, "submitted_data": 1, "reported": 1}
+    assert "secret" not in (tmp_path / "sim.jsonl").read_text()
+    assert client.get("/inbox/nope/nope").status_code == 404
+
+
+def test_web_ui_served():
+    assert client.get("/ui/").status_code == 200
+    assert client.get("/ui/learn.html").status_code == 200

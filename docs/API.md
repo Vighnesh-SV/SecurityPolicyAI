@@ -26,6 +26,9 @@ CORS is open, so a dev server on any port can call it.
 | GET | `/simulations?approved_only=true` | Phishing-simulation kits: training email + debrief |
 | POST | `/simulations/{id}/events` | `{department, user_id, action}` record a recipient action |
 | GET | `/simulations/{id}/stats` | Unique users per action per department |
+| POST | `/campaigns` | `{draft_id, department, recipients}` → pseudonymous inbox links (approved kits only) |
+| GET | `/campaigns` | Campaigns with funnel counts and inbox links |
+| GET | `/inbox/{cid}/{token}` | Recipient's training inbox (records opened; link → click → fake sign-in → debrief; report button) |
 | GET | `/profile` / `/profile/{dept}?n=10` | Recurring mistakes per department |
 | POST | `/profile/rebuild` | Recompute mistakes from logs + NEST + quizzes + simulations |
 | POST 🐢 | `/digest` | `{days}` → suggested new topics from recent feeds |
@@ -47,6 +50,9 @@ GET  /drafts/{id}/export?fmt=docx  → download
 ```
 
 **2. Phishing simulation**
+
+Built in: the **Simulate** page (or `POST /campaigns`) creates recipients and local inbox pages that
+record every action automatically. The manual event API below is for an external simulator.
 ```
 GET  /simulations                         → pick a kit: email.sender / email.subject / email.body
                                             (always example.com; email.training_marker must stay

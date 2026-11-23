@@ -1,0 +1,349 @@
+{
+ "id": "e2dec163f7",
+ "request": {
+  "topic": "Spotting phishing emails",
+  "audience": "All staff",
+  "format": "newsletter",
+  "language": "English",
+  "use_rag": true,
+  "use_memory": true,
+  "use_telemetry": false,
+  "policy_text": "",
+  "extra": "",
+  "k_sources": 8
+ },
+ "content": {
+  "title": "Catching the Phish: How to Spot Suspicious Emails",
+  "summary": "Learn how to spot common phishing red flags and safely report suspicious emails to protect Nebulon.",
+  "body_markdown": "We all get tricked sometimes—especially when our inboxes are full and we are rushing through the workday. Building on our earlier Finance training, *Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud* [ORG], this guide covers practical ways for everyone at Nebulon [ORG] to spot and handle suspicious messages.\n\n### What is Happening?\nPhishing occurs when attackers send electronically delivered messages to trick us into sharing sensitive data or downloading malware [S8]. These attacks range from mass spam emails to highly targeted spearphishing campaigns aimed at gaining access to internal systems [S8]. While security filters catch many scam messages, some still reach our inboxes. Today, attackers even use artificial intelligence to generate messages with perfect spelling and grammar, making them harder to spot by language alone [S3].\n\n### Key Red Flags to Watch Out For\nEven when an email looks convincing, cybercriminals rely on predictable social engineering tactics [S8]. Look out for these four common indicators:\n\n1. **Urgent or Emotional Language:** Messages that demand immediate action or threaten severe consequences if you do not respond right away [S3].\n2. **Mismatched or Incorrect Addresses:** Sender email addresses or website links with subtle misspellings, such as \"amazan.com\" [S3].\n3. **Requests for Sensitive Data:** Unexpected requests asking for login credentials, personal details, or financial numbers [S3].\n4. **Untrusted Links and Attachments:** Suspicious file attachments or shortened, untrusted links designed to install harmful software [S3, S5].\n\n### What to Do If You Suspect Phishing\nSpotting every single phishing email is tough, and nobody gets in trouble for double-checking suspicious messages [S1, S2]. If an email feels off:\n\n- **Resist clicking:** Do not click any links, open attachments, or click \"unsubscribe\" links in untrusted emails [S3, S7].\n- **Verify independently:** If a message claims to come from a known organization or colleague, verify it using a trusted phone number or official website address—never use contact details provided inside the suspicious email [S5, S7].\n- **Do not reply:** Never send requested credentials or financial data back to the sender [S3, S7].\n\n### How to Report\nReporting phishing attempts helps protect the entire organization [S3]. If you receive a suspicious email, forward it immediately to **security@nebulon.example.com** [ORG] or click the Report Phish button in your email menu [S6]. If you accidentally clicked a link or entered information, let our security team know right away at **security@nebulon.example.com** so we can help safeguard your system [ORG, S5].",
+  "key_points": [
+   "Phishing uses social engineering to trick recipients into revealing data or installing malware.",
+   "AI tools mean phishing emails can now have perfect grammar, so focus on structural red flags.",
+   "Always verify unexpected requests out-of-band using official contact details.",
+   "Prompt reporting protects the entire Nebulon team without fear of reprimand."
+  ],
+  "red_flags": [
+   "Urgent or emotional language demanding immediate response",
+   "Mismatched or misspelled web links and email addresses",
+   "Unsolicited requests for sensitive personal or financial information",
+   "Unexpected email attachments or shortened untrusted links"
+  ],
+  "actions": [
+   "Resist clicking links, attachments, or unsubscribe buttons in suspicious emails.",
+   "Verify the request through a trusted, independent communication channel.",
+   "Report suspicious emails immediately to security@nebulon.example.com or via the email report button."
+  ],
+  "report_how": "Forward any suspicious email to security@nebulon.example.com or use the Report Phish button in your email platform menu.",
+  "quiz": [],
+  "phishing_sim": null,
+  "citations": [
+   {
+    "id": "S1",
+    "used_for": "Acknowledging that spotting all phishing is hard and users should not be reprimanded for reporting."
+   },
+   {
+    "id": "S2",
+    "used_for": "Promoting a supportive environment where staff are encouraged to report without fear."
+   },
+   {
+    "id": "S3",
+    "used_for": "Phishing red flags (urgent language, AI grammar, altered links like amazan.com, sensitive info requests) and resist/delete advice."
+   },
+   {
+    "id": "S5",
+    "used_for": "Out-of-band verification rules and steps to take if malware or credential loss is suspected."
+   },
+   {
+    "id": "S6",
+    "used_for": "Mentioning the report phish capability button on email platforms."
+   },
+   {
+    "id": "S7",
+    "used_for": "Not clicking unsubscribe links and verifying sender identity via official websites/channels."
+   },
+   {
+    "id": "S8",
+    "used_for": "Definition of phishing (ATT&CK T1566), targeted spearphishing, mass campaigns, links, and attachments."
+   }
+  ],
+  "mitre": [
+   "T1566"
+  ],
+  "compliance": [
+   "NIST SP 800-50r1",
+   "ISO/IEC 27001:2022 A.6.3"
+  ],
+  "targets_mistakes": [
+   "Phishing with emails with an attachment",
+   "emails with a link",
+   "Account/security notifications (IT/auth) phishing"
+  ]
+ },
+ "sources": [
+  {
+   "chunk_id": "68316807ce296b25",
+   "score": 0.7774,
+   "age_days": null,
+   "url": "https://www.ncsc.gov.uk/guidance/phishing",
+   "source": "ncsc_phish",
+   "date_known": false,
+   "date": "2026-11-22",
+   "doc_id": "26950118e8a857aa",
+   "kind": "guidance",
+   "title": "Phishing attacks: defending your organisation | National Cyber Security Centre",
+   "excerpt": "Phishing attacks: defending your organisation | National Cyber Security Centre\n### Layer 2: Help users identify and report suspected phishing emails\n\nShow\n\nThis section outlines how to help your staff spot phishing emails, and how to improve your reporting culture.\n\n### Carefully consider your approach to phishing training\n\nTraining your users – particularly in the form of phishing simulations – is the layer that is often over-emphasised in phishing defences. However, spotting all phishing emails is hard, and spear phishing attacks are even harder to detect. The advice given in many training p"
+  },
+  {
+   "chunk_id": "2bd70698d92e1957",
+   "score": 0.7734,
+   "age_days": null,
+   "url": "https://www.ncsc.gov.uk/guidance/phishing",
+   "source": "ncsc_phish",
+   "date": "2026-11-22",
+   "title": "Phishing attacks: defending your organisation | National Cyber Security Centre",
+   "kind": "guidance",
+   "date_known": false,
+   "doc_id": "26950118e8a857aa",
+   "excerpt": "Phishing attacks: defending your organisation | National Cyber Security Centre\n#### How do I do this?\n\n- Ensure that your users understand the nature of the threat posed by phishing, especially those departments that may be more vulnerable to it. Customer-facing departments may receive high volumes of unsolicited emails, whereas staff authorised to access sensitive information, manage financial assets, or administer IT systems will be of greater interest to an attacker (and may be the target of a sophisticated spear phishing campaign). Ensure these more vulnerable staff are aware of the risks,"
+  },
+  {
+   "chunk_id": "eca9a96f66a7e43c",
+   "score": 0.7403,
+   "age_days": null,
+   "source": "cisa_phish",
+   "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+   "kind": "guidance",
+   "doc_id": "7e534816cd56aed4",
+   "title": "Recognize and Report Phishing | CISA",
+   "date_known": false,
+   "date": "2026-11-22",
+   "excerpt": "Recognize and Report Phishing | CISA\nRecognize and Report Phishing(link is external)\n\nprevnext\n\nslide 1 of 1\n\n[](https://youtu.be/sg0kQYvTlnc \"How to Avoid Phishing! (We Can Secure Our World)\")\n\n### How to Avoid Phishing! (We Can Secure Our World)\\  (link is external)\n\nRecognize and Report Phishing \\| Audio Description\n\nHow to Avoid Phishing! (We Can Secure Our World) \\| Audio Description\n\n## Stay Safe with Three Simple Tips\n\n### 1\\. Recognize\n\nLook for these common signs:\n\n- Urgent or emotionally appealing language, especially messages that claim dire consequences for not responding immediate"
+  },
+  {
+   "chunk_id": "4231794d5a2576ac",
+   "score": 0.7388,
+   "age_days": 2761,
+   "date": "2019-05-03",
+   "source": "ftc_phish",
+   "date_known": true,
+   "doc_id": "d5e5f1a3c8e7b2a3",
+   "kind": "guidance",
+   "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+   "title": "How To Recognize and Avoid Phishing Scams | Consumer Advice",
+   "excerpt": "How To Recognize and Avoid Phishing Scams | Consumer Advice\n## How To Report Phishing\n\nIf you got a phishing email or text message, report it. The information you give helps fight scammers.\n\n- If you got a phishing **email**, forward it to the Anti-Phishing Working Group at [reportphishing@apwg.org(link sends email)](mailto:reportphishing@apwg.org).\n- If you got a phishing **text message**, forward it to SPAM (7726).\n- Report the phishing attempt to the FTC at ReportFraud.ftc.gov.\n\nSearch Terms\n\ncyber security\n\nphishing\n\nscam\n\nTopics\n\nIdentity Theft and Online Security\n\nOnline Privacy and Secu"
+  },
+  {
+   "chunk_id": "3a4825b30a529ace",
+   "score": 0.7307,
+   "age_days": 2761,
+   "title": "How To Recognize and Avoid Phishing Scams | Consumer Advice",
+   "source": "ftc_phish",
+   "date_known": true,
+   "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+   "date": "2019-05-03",
+   "doc_id": "d5e5f1a3c8e7b2a3",
+   "kind": "guidance",
+   "excerpt": "How To Recognize and Avoid Phishing Scams | Consumer Advice\n## What To Do if You Suspect a Phishing Attack\n\nIf you get an email or a text message that asks you to click on a link or open an attachment, answer this question:\n\n**Do I have an account with the company or know the person who contacted me?**\n\n**If the answer is “No,”** it could be a phishing scam. Go back and review the advice in How to recognize phishing and look for signs of a phishing scam. If you see them, report the message and then delete it.\n\n**If the answer is “Yes,”** contact the company using a phone number or website you "
+  },
+  {
+   "chunk_id": "3bde4f5af00a65b7",
+   "score": 0.7087,
+   "age_days": null,
+   "date": "",
+   "kind": "standard",
+   "date_known": false,
+   "source": "nist_50r1",
+   "doc_id": "e82f5f08359f892a",
+   "title": "NIST SP 800-50 Rev. 1: Building a Cybersecurity and Privacy Learning Program (p. 41)",
+   "url": "https://doi.org/10.6028/NIST.SP.800-50r1#page=41",
+   "excerpt": "NIST SP 800-50 Rev. 1: Building a Cybersecurity and Privacy Learning Program (p. 41)\nNIST SP 800-50r1 Building a Cybersecurity and \nSeptember 2024 Privacy Learning Program \n31 \nand measuring behaviors for phishing threats.11\n11 The NIST Phish Scale considers employee context in its method for determining the difficulty of a simulated phishing email. See additional \ninformation https://doi.org/10.6028/NIST.TN.2276 . \n These exercises offer opportunities to collect \nmetrics and measurements, which are usually referred to as “click-through” or reported \nmeasurements. These types of measurements i"
+  },
+  {
+   "chunk_id": "8d11a3b93680f8f5",
+   "score": 0.7086,
+   "age_days": null,
+   "doc_id": "7e534816cd56aed4",
+   "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+   "title": "Recognize and Report Phishing | CISA",
+   "source": "cisa_phish",
+   "date_known": false,
+   "kind": "guidance",
+   "date": "2026-11-22",
+   "excerpt": "Recognize and Report Phishing | CISA\n### 3\\. Delete\n\nDelete the message. Don’t reply or click on any attachment or link, including any “unsubscribe” link. **Just delete**.\n\n## Phishing Tip Sheet\n\nDownload the Secure Our World Phishing Tip Sheet to share with friends and family.\n\nDownload Tip Sheet\n\n### **If a message looks suspicious, it's probably phishing.**\n\nHowever, if you think it could be real, don't click on any link or call any number in the message. Look up another way to contact the company or person directly:\n\n- Go to the company's website and capture their contact information from "
+  },
+  {
+   "chunk_id": "91da248e878f47c9",
+   "score": 0.7029,
+   "age_days": null,
+   "date_known": false,
+   "date": "",
+   "url": "https://attack.mitre.org/techniques/T1566",
+   "doc_id": "20ab94b5a25db619",
+   "kind": "technique",
+   "source": "mitre_attack",
+   "title": "MITRE ATT&CK T1566: Phishing",
+   "excerpt": "MITRE ATT&CK T1566: Phishing\nAdversaries may send phishing messages to gain access to victim systems. All forms of phishing are electronically delivered social engineering. Phishing can be targeted, known as spearphishing. In spearphishing, a specific individual, company, or industry will be targeted by the adversary. More generally, adversaries can conduct non-targeted phishing, such as in mass malware spam campaigns. Adversaries may send victims emails containing malicious attachments or links, typically to execute malicious code on victim systems. Phishing may also be conducted via third-pa"
+  }
+ ],
+ "memory_text": "## Physical access/security (concept)\n- type: concept\n- as_of: 2026-11-22\n- category: phishing\n- department: Engineering\n- missed_emails: 7 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n- ← [susceptible_to] Finance\n- ← [susceptible_to] IT department\n- ← [exhibits_security_mistake] Engineering\n\n## Phishing with emails with an attachment (concept)\n- type: concept\n- missed_emails: 32 of 114\n- mitre_technique: T1566\n- source: nest-phish\n- ← [susceptible_to] Finance\n\n## Data privacy / records management phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 6 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Training & certifications phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 5 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Account/security notifications (IT/auth) phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 8 of 20\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Corporate communications / executive announcements phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 3 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud (project)\n- type: project\n- key_points: Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts; Always verify banking detail updates using trusted out-of-band communication channels; Urgent language and unexpected invoice changes are key indicators of billing fraud\n- mitre_technique: T1566\n- target_audience: Finance\n- topic: Invoice and payment-redirect fraud\n- type: awareness phishing_sim\n- ← [approved] Nebulon\n\n## emails with a link (concept)\n- type: concept\n- missed_emails: 16 of 46\n- mitre_technique: T1566\n- source: nest-phish\n- type: phishing\n- ← [vulnerable_to] HR\n\n## Finance (organization)\n- parent_organization: Nebulon\n\n## IT department (organization)\n- parent_organization: Nebulon\n\n## Engineering (organization)\n- parent_organization: Nebulon\n\n## Nebulon (organization)\n- approval_date: 2026-11-22\n- call_to_action: always end with how to report\n- citations: every factual claim cites a trusted source from config/sources.yaml\n- department: Engineering\n- description: demo organisation\n- newsletter_length: ≤ 500 words\n- note: demo organisation\n- phishing_simulations: always clearly marked as TRAINING in metadata; use only reserved domains (example.com, example.org)\n- prohibitions: fear-mongering, shaming named people or teams, real employee data, live malicious links\n- quiz_length: 5 MCQs with explanations\n- reading_level: plain English, short sentences, no unexplained jargon\n- status: demo organisation\n- structure: hook → ",
+ "past_modules": [
+  {
+   "id": "2092fa0aac",
+   "date": "2026-11-22",
+   "title": "Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud",
+   "topic": "Invoice and payment-redirect fraud",
+   "audience": "Finance",
+   "format": "phishing_sim",
+   "language": "English",
+   "summary": "Learn how to spot and report fraudulent vendor payment-redirect requests targeting Finance workflows.",
+   "key_points": [
+    "Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts [S1], [S6].",
+    "Always verify banking detail updates using trusted out-of-band communication channels [S1], [S6].",
+    "Urgent language and unexpected invoice changes are key indicators of billing fraud [S4], [S8]."
+   ],
+   "mitre": [
+    "T1566"
+   ],
+   "similarity": 0.636
+  }
+ ],
+ "mistakes": [],
+ "model": "gemini-3.5-flash",
+ "guardrails": {
+  "untrusted_links": [],
+  "citations": {
+   "cited_ids": [
+    3,
+    6,
+    8
+   ],
+   "invalid_ids": [],
+   "n_citations": 9,
+   "n_org": 3
+  }
+ },
+ "created": "2026-11-23",
+ "review": {
+  "metrics": {
+   "factuality": 0.654,
+   "citation_cov": 1.0,
+   "consistency": 1,
+   "relevance": 0.5,
+   "style": 0.75,
+   "clarity": 1.0,
+   "freshness": null,
+   "novelty": 0.307,
+   "unsafe_links": 0
+  },
+  "judge": {
+   "claims": [
+    {
+     "claim": "Phishing involves electronically delivered messages designed to trick users into sharing sensitive data or downloading malware.",
+     "cited": [
+      "S8"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Phishing ranges from non-targeted mass spam to targeted spearphishing campaigns aimed at gaining system access.",
+     "cited": [
+      "S8"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Attackers use artificial intelligence to generate messages with perfect spelling and grammar.",
+     "cited": [
+      "S3"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Urgent or emotional language claiming dire consequences is a key phishing indicator.",
+     "cited": [
+      "S3"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Mismatched email addresses or links with subtle misspellings like 'amazan.com' are common red flags.",
+     "cited": [
+      "S3"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Unexpected requests asking for login credentials, personal details, or financial numbers indicate phishing.",
+     "cited": [
+      "S3"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Untrusted links and file attachments are used to install harmful software.",
+     "cited": [
+      "S3",
+      "S5"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "claim": "Spotting all phishing emails is difficult.",
+     "cited": [
+      "S1",
+      "S2"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Users should avoid clicking links, opening attachments, or using 'unsubscribe' links in untrusted emails.",
+     "cited": [
+      "S3",
+      "S7"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Suspicious messages should be verified independently using trusted contact details rather than information in the email.",
+     "cited": [
+      "S5",
+      "S7"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Do not reply to suspicious phishing messages.",
+     "cited": [
+      "S3",
+      "S7"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Suspicious emails should be reported to security@nebulon.example.com.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Users can report phishing by clicking the Report Phish button in their email menu.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "unsupported"
+    }
+   ],
+   "contradictions": [],
+   "relevance": 3,
+   "style": 4,
+   "clarity": 5,
+   "fixes": [
+    "Remove or re-cite the claim about AI generating messages with perfect grammar, as [S3] does not contain this information.",
+    "Fix citations for red flags (mismatched addresses/amazan.com, requests for sensitive data) to cite appropriate sources or remove uncited specifics.",
+    "Remove citation [S6] from the 'Report Phish button' phrase since [S6] does not reference a report button."
+   ]
+  },
+  "judge_model": "gemini-3.6-flash"
+ }
+}

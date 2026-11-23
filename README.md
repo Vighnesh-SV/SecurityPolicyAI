@@ -3,15 +3,30 @@
 Keeps security awareness content **current** (Firecrawl + live feeds), **consistent** (Memento memory),
 and **targeted** (real behaviour telemetry). Gemini writes it, and a judge model checks it before review.
 
-## Quick start (fresh clone, Windows)
+## Run it locally (Windows)
+Double-click **`start.bat`**. The first run installs everything, asks for your Gemini key in `.env`,
+builds the knowledge base (~5-10 min), then opens **http://localhost:8000**.
+
+| Page | For |
+|---|---|
+| **Create** | Topic + audience + format → grounded draft with citations, quality score, approve, Word/Markdown export |
+| **Library** | All drafts and approved modules |
+| **Simulate** | Launch an approved phishing-simulation email to pseudonymous recipients; live funnel (opened → clicked → entered data → reported) |
+| **Insights** | Recurring mistakes per department ("Teach this" pre-fills Create), threat-feed digest, evaluation results |
+| `/ui/learn.html` | Employee quiz page |
+| `/docs` | API reference |
+
+Docker instead: `docker compose up --build` (needs `.env`).
+
+## Manual setup (fresh clone, Windows)
 ```powershell
 python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 copy .env.example .env            # paste your own GEMINI_API_KEY and FIRECRAWL_API_KEY
 .venv\Scripts\python scripts\setup.py          # downloads, builds KB + profiles + memory (~5-10 min)
-.venv\Scripts\python -m pytest                 # 11 offline tests, no API quota used
+.venv\Scripts\python -m pytest                 # 13 offline tests, no API quota used
 .venv\Scripts\uvicorn spai.api:app --port 8000 # backend API → http://localhost:8000/docs
-.venv\Scripts\streamlit run app.py             # optional demo UI → http://localhost:8501
+.venv\Scripts\streamlit run app.py             # older Streamlit demo (optional)
 ```
 - Free Gemini key: https://aistudio.google.com/app/apikey. Free Firecrawl key: https://www.firecrawl.dev/signin
   (only needed for `--crawl`; the crawl cache is committed).
@@ -39,6 +54,8 @@ copy .env.example .env            # paste your own GEMINI_API_KEY and FIRECRAWL_
 | `export.py` | Markdown / Word export |
 | `llm.py` | Gemini model fallback chain, retries, disk cache, free-tier-aware embedding throttle |
 | `api.py` | FastAPI backend: content, review, approve, export, quizzes, phishing-simulation events, profiles, digest, KB, eval |
+| `campaign.py` | E2 local phishing-simulation campaigns: inbox, landing and debrief pages, funnel |
+| `web/` | Web UI (plain HTML/JS, served by the API at `/ui/`) |
 | `app.py` | Streamlit demo UI: generate → review → approve, quiz, insights, digest, KB search, history, evaluation |
 
 ## Data

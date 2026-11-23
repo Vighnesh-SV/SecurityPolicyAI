@@ -9,11 +9,13 @@ import json
 from dataclasses import asdict
 from typing import Literal
 
-from fastapi import BackgroundTasks, FastAPI, HTTPException, Response
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request, Response
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from . import config, digest, export, generate, judge, kb, llm, memory, telemetry
+from . import campaign, config, digest, export, generate, judge, kb, llm, memory, telemetry
 
 app = FastAPI(title="SecurityPolicy AI API", version="1.0",
               description="Security awareness content: grounded generation, review, memory, telemetry.")
@@ -50,6 +52,12 @@ class SimEventIn(BaseModel):
     department: str
     user_id: str = Field(..., description="Pseudonymous id; never send real names or emails")
     action: Literal["delivered", "opened", "clicked", "submitted_data", "reported"]
+
+
+class CampaignIn(BaseModel):
+    draft_id: str
+    department: str
+    recipients: int = Field(10, ge=1, le=200)
 
 
 class DigestIn(BaseModel):
@@ -313,3 +321,73 @@ def eval_summary():
     summ = df.groupby("setup")[num].mean().round(3)
     return {"n_topics": int(df.topic_id.nunique()), "rows": rows,
             "summary": json.loads(summ.to_json(orient="index"))}
+
+
+# ---------------- simulation campaigns (local inbox) ----------------
+@app.post("/campaigns", tags=["simulation"])
+def create_campaign(body: CampaignIn, request: Request):
+    """Send an approved simulation kit to N pseudonymous recipients (local inbox pages, no real email)."""
+    d = _load(body.draft_id)
+    if not d["content"].get("phishing_sim"):
+        raise HTTPException(404, "not a phishing simulation")
+    if not (APPROVED / f"{body.draft_id}.json").exists():
+        raise HTTPException(409, "approve the simulation before launching it")
+    if body.department not in config.org()["departments"]:
+        raise HTTPException(422, f"department must be one of {config.org()['departments']}")
+    return _campaign_out(campaign.create(d, body.department, body.recipients), request)
+
+
+@app.get("/campaigns", tags=["simulation"])
+def list_campaigns(request: Request):
+    return [_campaign_out(c, request) for c in campaign.listing()]
+
+
+def _campaign_out(c, request):
+    base = str(request.base_url).rstrip("/")
+    return {k: c[k] for k in ("id", "draft_id", "title", "topic", "department", "created")} | {
+        "funnel": campaign.funnel(c),
+        "inbox_links": [{"user": u, "url": f"{base}/inbox/{c['id']}/{t}"} for t, u in c["recipients"].items()]}
+
+
+def _recipient(cid, token):
+    c, user = campaign.resolve(cid, token)
+    if not c:
+        raise HTTPException(404, "unknown link")
+    return c, user, _load(c["draft_id"]), f"/inbox/{cid}/{token}"
+
+
+@app.get("/inbox/{cid}/{token}", response_class=HTMLResponse, include_in_schema=False)
+def inbox(cid: str, token: str):
+    c, user, d, base = _recipient(cid, token)
+    campaign.record(c, user, "opened")
+    return campaign.inbox_page(c, d, base)
+
+
+@app.get("/inbox/{cid}/{token}/click", response_class=HTMLResponse, include_in_schema=False)
+def inbox_click(cid: str, token: str):
+    c, user, d, base = _recipient(cid, token)
+    campaign.record(c, user, "clicked")
+    return campaign.landing_page(base)
+
+
+@app.post("/inbox/{cid}/{token}/submit", response_class=HTMLResponse, include_in_schema=False)
+def inbox_submit(cid: str, token: str):
+    c, user, d, _ = _recipient(cid, token)   # form fields are deliberately never read
+    campaign.record(c, user, "submitted_data")
+    return campaign.debrief_page(d, caught=False)
+
+
+@app.post("/inbox/{cid}/{token}/report", response_class=HTMLResponse, include_in_schema=False)
+def inbox_report(cid: str, token: str):
+    c, user, d, _ = _recipient(cid, token)
+    campaign.record(c, user, "reported")
+    return campaign.debrief_page(d, caught=True)
+
+
+# ---------------- web UI ----------------
+app.mount("/ui", StaticFiles(directory=config.ROOT / "web", html=True), name="ui")
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse("/ui/")
