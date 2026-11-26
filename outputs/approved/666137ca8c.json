@@ -1,0 +1,377 @@
+{
+ "id": "666137ca8c",
+ "request": {
+  "topic": "Fake job applicant attachments",
+  "audience": "HR",
+  "format": "tip",
+  "language": "English",
+  "use_rag": true,
+  "use_memory": true,
+  "use_telemetry": true,
+  "policy_text": "",
+  "extra": "",
+  "k_sources": 8
+ },
+ "content": {
+  "title": "HR Security Tip: Spotting Fake Job Applicant Attachments",
+  "summary": "Learn how to spot malicious attachments and fraudulent links in candidate applications to keep Nebulon secure.",
+  "body_markdown": "We all get tricked sometimes, but opening unexpected applicant attachments can expose our network to malware [S6].\n\nWatch out for these 3 red flags:\n1. Password-protected archives or unusual file types disguised as resumes [S5, S6].\n2. High-urgency wording pushing quick reviews without normal screening [S2].\n3. Links asking you to download candidate files or code assessments from unverified sites [S1, S8].\n\nAction:\nAlways verify suspicious applicant details through official recruitment channels before opening attachments or clicking external links [S2, S8].\n\nIf you receive a suspicious job application, forward it to security@nebulon.example.com [ORG].",
+  "key_points": [
+   "Attackers send malicious attachments disguised as job applicant resumes or assessments.",
+   "Password-protected archives and external links are commonly used to bypass security filters.",
+   "Always verify candidate details independently before opening attachments."
+  ],
+  "red_flags": [
+   "Password-protected zip files or executable attachments disguised as applicant resumes.",
+   "Urgent or pushy wording demanding quick review or hiring without standard screening.",
+   "Links directing you to download resumes or technical assessments from unverified external sites."
+  ],
+  "actions": [
+   "Verify candidate details via official recruitment portals before opening attached files or clicking links."
+  ],
+  "report_how": "Forward any suspicious applicant emails or attachments to security@nebulon.example.com.",
+  "quiz": [],
+  "phishing_sim": null,
+  "citations": [
+   {
+    "id": "S1",
+    "used_for": "Fake job assessments and malicious file downloads targeting technical/recruiting evaluation."
+   },
+   {
+    "id": "S2",
+    "used_for": "Pressure tactics, rushed offers, and unverified recruiter contacts."
+   },
+   {
+    "id": "S5",
+    "used_for": "Use of password-protected ZIP archives to evade security defenses."
+   },
+   {
+    "id": "S6",
+    "used_for": "Spearphishing attachments delivering malware disguised as documents."
+   },
+   {
+    "id": "S8",
+    "used_for": "Guidance not to click suspicious links or download unverified attachments."
+   }
+  ],
+  "mitre": [
+   "T1566",
+   "T1566.001"
+  ],
+  "compliance": [
+   "ISO/IEC 27001:2022 A.6.3",
+   "NIST CSF 2.0 PR.AT-01"
+  ],
+  "targets_mistakes": [
+   "Misses phishing with urgent or threatening wording",
+   "Misses phishing with emails with a link"
+  ]
+ },
+ "sources": [
+  {
+   "chunk_id": "3c08afd685205947",
+   "score": 0.7033,
+   "age_days": 0,
+   "source": "thn",
+   "kind": "news",
+   "title": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
+   "date": "2026-11-26",
+   "url": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
+   "date_known": true,
+   "doc_id": "98bf0c432201829a",
+   "excerpt": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps\n13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps\n\nCybersecurity researchers have discovered 13 malicious NuGet packages that are designed to target Windows .NET developers under the guise of a fake take-home job assessment. \"Most of the packages pose as WinUI 3 and WPF [Windows Presentation Foundation] button controls,\" Socket security researcher Kush Pandya said in a technical write-up. \"In the versions we analyzed, building or running a"
+  },
+  {
+   "chunk_id": "a813d14df539cf0e",
+   "score": 0.6958,
+   "age_days": null,
+   "title": "certin",
+   "url": "https://www.cert-in.org.in/PDF/CSH_Booklet25.pdf",
+   "date_known": false,
+   "doc_id": "00209aa3169245f2",
+   "date": "2026-11-22",
+   "kind": "guidance",
+   "source": "certin",
+   "excerpt": "certin\nFalsely claims your bank or online\naccounts are hacked to make you\npanic.\n\nUnknown\n\n## Stay Alert, Stay Secure\n\n**PAUSE AND THINK\nthe caller is likely to\nbe a scam**\n\nNever share\npersonal, financial, or\nlogin details over the\nphone.\n\nIf in doubt, contact\nthe organization\ndirectly using official\nchannels.\n\nBlock scam numbers\nimmediately to\nprevent repeat calls\nand stay safe.\n\n---\n\n# FAKE\n\n# JOB\n\n# PROPOSALS\n\n## Red Flags in Job Offers\n\nUnexpected contact from a\nrecruiter via text or encrypted\nplatforms.\n\nPromises of high income with\nminimal effort from home.\n\nRapid hiring with no intervi"
+  },
+  {
+   "chunk_id": "8833f20c155ad9be",
+   "score": 0.6624,
+   "age_days": 9,
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731",
+   "kind": "vulnerability",
+   "date_known": true,
+   "title": "CVE-2026-115731 Perforce Puppet Enterprise",
+   "doc_id": "ade0fc5a38e2c30c",
+   "date": "2026-11-17",
+   "source": "cisa_kev",
+   "excerpt": "CVE-2026-115731 Perforce Puppet Enterprise\nCVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability\nVendor/product: Perforce Puppet Enterprise\nPerforce Puppet Enterprise contains a deserialization of untrusted data vulnerability in Puppet’s report-processing code that allows a client with any CA-signed agent certificate to execute arbitrary code on the Puppet Server as the service user by submitting a report containing a crafted rich-data type through a PUT request. If the certificate authority automatically signs requests without strong verification, an unau"
+  },
+  {
+   "chunk_id": "f12b635514155d8b",
+   "score": 0.6604,
+   "age_days": null,
+   "date_known": false,
+   "title": "certin",
+   "doc_id": "00209aa3169245f2",
+   "date": "2026-11-22",
+   "source": "certin",
+   "kind": "guidance",
+   "url": "https://www.cert-in.org.in/PDF/CSH_Booklet25.pdf",
+   "excerpt": "certin\nYou don't need a UPI PIN or OTP to receive\nmoney.\n\nBe cautious of offers that seem too good to be\ntrue.\n\nMonitor financial statements regularly for\nunauthorized activity.\n\n---\n\n# FAKE CHARITY APPEAL\n\nNAT DONATION ONATI DONATION\n\nCharity scammers pretend to be from real charities and\ncontact people by phone, email, social media, or in\nperson. They create fake websites and materials to look\ntrustworthy.\n\n## Do’s\n\nAsk questions about the\ncharity’s mission and\nspending.\n\nDonate securely through\nofficial platforms.\n\nMost legitimate charity\norganisation websites\nuse .org rather than\n.com.\n\nBe"
+  },
+  {
+   "chunk_id": "400a06bbbcb51689",
+   "score": 0.6509,
+   "age_days": null,
+   "doc_id": "84208b62bd5883a4",
+   "kind": "technique",
+   "date": "",
+   "source": "mitre_attack",
+   "url": "https://attack.mitre.org/techniques/T1566/001",
+   "date_known": false,
+   "title": "MITRE ATT&CK T1566.001: Spearphishing Attachment",
+   "excerpt": "MITRE ATT&CK T1566.001: Spearphishing Attachment\na zip file password, in order to evade email boundary defenses. Adversaries frequently manipulate file extensions and icons in order to make attached executables appear to be document files, or files explo"
+  },
+  {
+   "chunk_id": "81faabf8fd70ff94",
+   "score": 0.6484,
+   "age_days": null,
+   "doc_id": "84208b62bd5883a4",
+   "url": "https://attack.mitre.org/techniques/T1566/001",
+   "title": "MITRE ATT&CK T1566.001: Spearphishing Attachment",
+   "date": "",
+   "source": "mitre_attack",
+   "date_known": false,
+   "kind": "technique",
+   "excerpt": "MITRE ATT&CK T1566.001: Spearphishing Attachment\nAdversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems. Spearphishing attachment is a specific variant of spearphishing. Spearphishing attachment is different from other forms of spearphishing in that it employs the use of malware attached to an email. All forms of spearphishing are electronically delivered social engineering targeted at a specific individual, company, or industry. In this scenario, adversaries attach a file to the spearphishing email and usually rely upon [User Execu"
+  },
+  {
+   "chunk_id": "4e56ccdd203be987",
+   "score": 0.6466,
+   "age_days": null,
+   "date": "2026-11-22",
+   "source": "ncsc_phish",
+   "kind": "guidance",
+   "url": "https://www.ncsc.gov.uk/guidance/phishing",
+   "title": "Phishing attacks: defending your organisation | National Cyber Security Centre",
+   "doc_id": "26950118e8a857aa",
+   "date_known": false,
+   "excerpt": "Phishing attacks: defending your organisation | National Cyber Security Centre\nIf you can't implement all of the mitigations, try to address at least some of the mitigations **from within each of the layers**.\n\n* * *\n\n## The problems with phishing simulations\n\nNo training package, including phishing simulations, can teach users to spot _every_ phishing attempt. Asking users to examine, in depth, every email they receive will not leave enough hours in the day for work tasks. It’s an unrealistic and counter-productive goal because responding to emails and clicking links is an integral part of wo"
+  },
+  {
+   "chunk_id": "4d338f664ac6a38a",
+   "score": 0.6333,
+   "age_days": null,
+   "doc_id": "1003ca0249b96238",
+   "date": "2026-11-22",
+   "source": "certin",
+   "url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+   "date_known": false,
+   "kind": "guidance",
+   "title": "certin",
+   "excerpt": "certin\nIf you observe your fake profile or any such objectionable posts\nin social media, report to the respective social media help\ncentre.\n\n---\n\n# Attacks Targeting Person with Disability\n\nFraudulent individuals often pose as authorized representatives\nto scam people with disability. These scammers will call or\nemail the victim and ask for their personal information.\nFraudsters often offer them promising opportunities such as\nchance to work from home and make extra income.\n\nWORK FROM HOME\nAPPLY NOW\nADMIT\nVeRE\nLOGIN\nPRIVATE\n\n###### Safety Tips\n\nBefore engaging with any unknown person or busine"
+  }
+ ],
+ "memory_text": "## Training & certifications phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 5 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Engineering (organization)\n- parent_organization: Nebulon\n\n## Related Conversations\n\n### Conversation (recorded: 2026-11-22T08:11:16.507932+00:00)\nAs of 2026-11-22, the Engineering department at Nebulon (demo organisation) has these recurring security mistakes: Falls for 'Physical access/security' phishing (missed 7 of 8 phishing emails, source nest-phish, MITRE T1566); Running pasted or downloaded commands (41 detections: Suspicious PowerShell commands Detected; powershell script block - Found Suspicious PowerShell commands , source apt-hunter, MITRE T1059.001;T1204.004); Falls for 'Data privacy / records management' phishing (missed 6 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Training & certifications' phishing (missed 5 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Account/security notifications (IT/auth)' phishing (missed 8 of 20 phishing emails, source nest-phish, MITRE T1566); Falls for 'Corporate communications / executive announcements' phishing (missed 3 of 8 phishing emails, source nest-phish, MITRE T1566).\n\n### Conversation (recorded: 2026-11-22T08:11:05.971335+00:00)\nAs of 2026-11-22, the HR department at Nebulon (demo organisation) has these recurring security mistakes: Falls for 'Travel/calendar logistics' phishing (missed 3 of 4 phishing emails, source nest-phish, MITRE T1566); Falls for 'Shipping/delivery notifications' phishing (missed 3 of 5 phishing emails, source nest-phish, MITRE T1566); Falls for 'Finance/AP/vendor billing' phishing (missed 3 of 8 phishing emails, source nest-phish, MITRE T1566); Misses phishing with emails with a link (missed 16 of 46 such emails, source nest-phish, MITRE T1566); Misses phishing with urgent or threatening wording (missed 14 of 43 such emails, source nest-phish, MITRE T1566); Misses phishing with requests for passwords or personal details (missed 7 of 22 such emails, source nest-phish, MITRE T1566).\n\n### Conversation (recorded: 2026-11-22T08:11:39.534108+00:00)\nAs of 2026-11-22, the Executives department at Nebulon (demo organisation) has these recurring security mistakes: Falls for 'Physical access/security' phishing (missed 7 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Operations/field/grid dispatch' phishing (missed 15 of 30 phishing emails, source nest-phish, MITRE T1566); Falls for 'Data privacy / records management' phishing (missed 7 of 18 phishing emails, source nest-phish, MITRE T1566); Falls for 'Travel/calendar logistics' phishing (missed 9 of 24 phishing emails, source nest-phish, MITRE T1566); Falls for 'Corporate communications / executive announcements' phishing (missed 4 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Training & certifications' phishing (missed 6 o",
+ "past_modules": [
+  {
+   "id": "6b88bbd384",
+   "date": "2026-11-26",
+   "title": "Quiz: Spotting Invoice and Payment-Redirect Fraud",
+   "topic": "Invoice and payment-redirect fraud",
+   "audience": "Finance",
+   "format": "quiz",
+   "language": "English",
+   "summary": "Test your ability to spot payment redirect fraud, fake invoices, and unauthorized banking changes with this 5-question Finance quiz.",
+   "key_points": [
+    "Always verify banking detail changes out-of-band using trusted phone numbers [ORG].",
+    "Scammers use slight variations in email addresses to spoof trusted contacts [S1].",
+    "Unusual urgency and unexpected invoice modifications are major warning signs of billing fraud [S1, S3].",
+    "Report suspicious payment requests immediately to security@nebulon.example.com [ORG]."
+   ],
+   "mitre": [
+    "T1566"
+   ],
+   "similarity": 0.644
+  },
+  {
+   "id": "2092fa0aac",
+   "date": "2026-11-23",
+   "title": "Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud",
+   "topic": "Invoice and payment-redirect fraud",
+   "audience": "Finance",
+   "format": "phishing_sim",
+   "language": "English",
+   "summary": "Learn how to spot and report fraudulent vendor payment-redirect requests targeting Finance workflows.",
+   "key_points": [
+    "Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts [S1], [S6].",
+    "Always verify banking detail updates using trusted out-of-band communication channels [S1], [S6].",
+    "Urgent language and unexpected invoice changes are key indicators of billing fraud [S4], [S8]."
+   ],
+   "mitre": [
+    "T1566"
+   ],
+   "similarity": 0.629
+  },
+  {
+   "id": "7d836a609e",
+   "date": "2026-11-26",
+   "title": "Scanning Safely: How to Spot QR-Code Phishing (Quishing)",
+   "topic": "QR-code phishing (quishing)",
+   "audience": "All staff",
+   "format": "newsletter",
+   "language": "English",
+   "summary": "Learn how scammers use QR codes in emails to bypass security filters and how you can spot and report quishing attempts safely.",
+   "key_points": [
+    "Criminals send millions of quishing emails daily to hide malicious URLs inside QR-code images [S6].",
+    "Quishing often disguises itself as physical access updates, package deliveries, or calendar logistics [S8] [ORG].",
+    "Always inspect the destination URL preview before opening a link from a QR code [S8].",
+    "Report suspicious QR emails promptly to security@nebulon.example.com without fear of blame [S1] [S3] [ORG]."
+   ],
+   "mitre": [
+    "T1566"
+   ],
+   "similarity": 0.597
+  }
+ ],
+ "mistakes": [
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Travel/calendar logistics' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting travel/calendar logistics scams",
+   "count": 3,
+   "rate": 0.75,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 4 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Shipping/delivery notifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting shipping/delivery notifications scams",
+   "count": 3,
+   "rate": 0.6,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 5 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting finance/ap/vendor billing scams",
+   "count": 3,
+   "rate": 0.375,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 8 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with emails with a link",
+   "mitre": "T1566",
+   "topic": "Red flag: emails with a link",
+   "count": 16,
+   "rate": 0.348,
+   "source": "nest-phish",
+   "evidence": "missed 16 of 46 such emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Misses phishing with urgent or threatening wording",
+   "mitre": "T1566",
+   "topic": "Red flag: urgent or threatening wording",
+   "count": 14,
+   "rate": 0.326,
+   "source": "nest-phish",
+   "evidence": "missed 14 of 43 such emails"
+  }
+ ],
+ "model": "gemini-3.6-flash",
+ "guardrails": {
+  "untrusted_links": [],
+  "citations": {
+   "cited_ids": [
+    1,
+    2,
+    5,
+    6,
+    8
+   ],
+   "invalid_ids": [],
+   "n_citations": 8,
+   "n_org": 1
+  }
+ },
+ "created": "2026-11-26",
+ "review": {
+  "metrics": {
+   "factuality": 0.917,
+   "citation_cov": 1.0,
+   "consistency": 1,
+   "relevance": 1.0,
+   "style": 1.0,
+   "clarity": 1.0,
+   "freshness": 1.0,
+   "novelty": 0.276,
+   "unsafe_links": 0
+  },
+  "judge": {
+   "claims": [
+    {
+     "claim": "Opening unexpected applicant attachments can expose our network to malware.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Password-protected archives or unusual file types disguised as resumes are red flags.",
+     "cited": [
+      "S5",
+      "S6"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "High-urgency wording pushing quick reviews without normal screening is a red flag.",
+     "cited": [
+      "S2"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "claim": "Links asking you to download candidate files or code assessments from unverified sites are red flags.",
+     "cited": [
+      "S1",
+      "S8"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Always verify suspicious applicant details through official recruitment channels before opening attachments or clicking external links.",
+     "cited": [
+      "S2",
+      "S8"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Forward suspicious job applications to security@nebulon.example.com.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    }
+   ],
+   "contradictions": [],
+   "relevance": 5,
+   "style": 5,
+   "clarity": 5,
+   "fixes": [
+    "Adjust citation [S2] under red flag 2 to directly reference sources discussing high-urgency phishing wording or align the text more closely with S2's focus on rapid hiring without interviews."
+   ]
+  },
+  "judge_model": "gemini-3.6-flash"
+ }
+}

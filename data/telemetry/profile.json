@@ -12,6 +12,26 @@
   },
   {
    "department": "Finance",
+   "behaviour": "Clicked a 'Invoice and payment-redirect fraud' phishing simulation",
+   "mitre": "T1566",
+   "topic": "Invoice and payment-redirect fraud",
+   "count": 5,
+   "rate": 0.417,
+   "source": "simulation",
+   "evidence": "5/12 clicked, 2 entered data, 7 reported"
+  },
+  {
+   "department": "Finance",
+   "behaviour": "Low quiz scores on 'Invoice and payment-redirect fraud'",
+   "mitre": "",
+   "topic": "Invoice and payment-redirect fraud",
+   "count": 23,
+   "rate": 0.339,
+   "source": "quiz",
+   "evidence": "average score 66% over 23 attempts"
+  },
+  {
+   "department": "Finance",
    "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
    "mitre": "T1566",
    "topic": "Spotting corporate communications / executive announcements scams",
@@ -104,6 +124,16 @@
   },
   {
    "department": "HR",
+   "behaviour": "Low quiz scores on 'Invoice and payment-redirect fraud'",
+   "mitre": "",
+   "topic": "Invoice and payment-redirect fraud",
+   "count": 16,
+   "rate": 0.412,
+   "source": "quiz",
+   "evidence": "average score 59% over 16 attempts"
+  },
+  {
+   "department": "HR",
    "behaviour": "Falls for 'Finance/AP/vendor billing' phishing",
    "mitre": "T1566",
    "topic": "Spotting finance/ap/vendor billing scams",
@@ -111,6 +141,16 @@
    "rate": 0.375,
    "source": "nest-phish",
    "evidence": "missed 3 of 8 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Clicked a 'Invoice and payment-redirect fraud' phishing simulation",
+   "mitre": "T1566",
+   "topic": "Invoice and payment-redirect fraud",
+   "count": 3,
+   "rate": 0.375,
+   "source": "simulation",
+   "evidence": "3/8 clicked, 2 entered data, 3 reported"
   },
   {
    "department": "HR",
@@ -450,6 +490,16 @@
   },
   {
    "department": "Sales",
+   "behaviour": "Clicked a 'Invoice and payment-redirect fraud' phishing simulation",
+   "mitre": "T1566",
+   "topic": "Invoice and payment-redirect fraud",
+   "count": 6,
+   "rate": 0.6,
+   "source": "simulation",
+   "evidence": "6/10 clicked, 1 entered data, 5 reported"
+  },
+  {
+   "department": "Sales",
    "behaviour": "Falls for 'Data privacy / records management' phishing",
    "mitre": "T1566",
    "topic": "Spotting data privacy / records management scams",
@@ -557,6 +607,16 @@
    "rate": 0.35,
    "source": "nest-phish",
    "evidence": "missed 7 of 20 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Low quiz scores on 'Invoice and payment-redirect fraud'",
+   "mitre": "",
+   "topic": "Invoice and payment-redirect fraud",
+   "count": 20,
+   "rate": 0.35,
+   "source": "quiz",
+   "evidence": "average score 65% over 20 attempts"
   },
   {
    "department": "Sales",

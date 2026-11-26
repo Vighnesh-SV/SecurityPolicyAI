@@ -351,7 +351,7 @@ async function loadTrend() {
   $("#trend-out").innerHTML = (notes.length ? `<p class="small" style="margin-top:0">Since the first week: ${notes.join(" · ")}</p>` : "") +
     lineChart(t.weeks.map((w) => w.week), [
       { label: "Clicked simulation", color: "var(--bad)", values: t.weeks.map((w) => w.click_rate) },
-      { label: "Quiz score", color: "var(--accent)", values: t.weeks.map((w) => w.quiz_avg) }]);
+      { label: "Quiz score", color: "var(--good)", values: t.weeks.map((w) => w.quiz_avg) }]);
 }
 
 async function loadWeek() {
@@ -436,7 +436,7 @@ async function sideStatus() {
 (async function main() {
   try { META = await api("/meta"); } catch (e) { toast("Backend not reachable: " + e.message); return; }
   if (META.demo) {
-    $("#nav").insertAdjacentHTML("beforeend", '<a href="guide.html" target="_blank" style="color:var(--signal)"><span>Presenter guide</span></a>');
+    $("#nav").insertAdjacentHTML("beforeend", '<a href="guide.html" target="_blank" style="color:var(--signal)"><span>Guide</span></a>');
     $(".brand").insertAdjacentHTML("beforeend", '<span class="pill warn" title="Campaign and quiz history is simulated for the demo" style="margin-left:4px">Demo data</span>');
   }
   initCreate(); initLibrary(); initSimulate(); initInsights();

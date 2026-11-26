@@ -20,6 +20,7 @@ from . import config
 PROFILE = config.TELEMETRY / "profile.json"
 QUIZ_LOG = config.TELEMETRY / "quiz_results.jsonl"
 SIM_LOG = config.TELEMETRY / "sim_events.jsonl"
+SIM_WINDOW_DAYS = 14
 SIM_ACTIONS = ("delivered", "opened", "clicked", "submitted_data", "reported")
 APT_REPORT = config.TELEMETRY / "sample_org" / "sample_org_Report.xlsx"
 # Anonymised aggregate of APT-Hunter output (no raw log lines). Shared in git instead of the raw report.
@@ -142,7 +143,13 @@ def sim_mistakes() -> list[dict]:
     """Phishing-simulation results (from the simulation front end) → recurring mistakes."""
     if not SIM_LOG.exists():
         return []
-    df = pd.DataFrame([json.loads(l) for l in SIM_LOG.read_text(encoding="utf-8").splitlines()])
+    df = pd.DataFrame([json.loads(l) for l in SIM_LOG.read_text(encoding="utf-8").splitlines() if l.strip()])
+    # current behaviour only: the last SIM_WINDOW_DAYS (older clicks show up in the trend chart instead)
+    if "at" in df:
+        recent = pd.to_datetime(df["at"], utc=True) >= pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=SIM_WINDOW_DAYS)
+        df = df[recent]
+    if df.empty:
+        return []
     out = []
     for (dept, topic), g in df.groupby(["department", "topic"]):
         users = g.groupby("user_id")["action"].apply(set)

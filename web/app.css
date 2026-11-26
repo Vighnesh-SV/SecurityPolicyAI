@@ -39,7 +39,7 @@ aside { display: flex; align-items: stretch; gap: 0; border-bottom: 2px solid va
 .logo { width: 26px; height: 26px; background: var(--ink); color: var(--paper); display: grid; place-items: center; }
 .logo svg.i { width: 15px; height: 15px; }
 .nav { display: flex; align-items: stretch; }
-.nav button, .nav a { display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; background: none; color: var(--ink-2);
+.nav button, .nav a { white-space: nowrap; display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; background: none; color: var(--ink-2);
   font: 500 14px var(--sans); cursor: pointer; text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -2px; }
 .nav button svg.i, .nav a svg.i { display: none; }
 .nav button:hover, .nav a:hover { color: var(--ink); }
