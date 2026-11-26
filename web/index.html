@@ -7,93 +7,116 @@
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<header>
-  <span class="brand">SecurityPolicy AI</span>
-  <nav id="nav">
-    <button data-view="create" class="on">Create</button>
-    <button data-view="library">Library</button>
-    <button data-view="simulate">Simulate</button>
-    <button data-view="insights">Insights</button>
-  </nav>
-  <span class="right"><a href="learn.html">Employee portal ↗</a></span>
-</header>
+<div class="shell">
+  <aside>
+    <div class="brand"><div class="logo" data-icon="shield"></div><div>SecurityPolicy AI<small>Awareness studio</small></div></div>
+    <nav class="nav" id="nav">
+      <button data-view="overview"><span data-icon="home"></span><span>Overview</span></button>
+      <button data-view="create"><span data-icon="spark"></span><span>Create</span></button>
+      <button data-view="library"><span data-icon="book"></span><span>Library</span></button>
+      <button data-view="simulate"><span data-icon="mail"></span><span>Simulate</span></button>
+      <button data-view="insights"><span data-icon="chart"></span><span>Insights</span></button>
+      <div class="sep"></div>
+      <a href="learn.html" target="_blank"><span data-icon="users"></span><span>Employee portal</span></a>
+      <a href="/docs" target="_blank"><span data-icon="code"></span><span>API docs</span></a>
+    </nav>
+    <div class="side-foot" id="kb-status"><span class="dot"></span>Connecting…</div>
+  </aside>
 
-<main>
-  <!-- CREATE -->
-  <section id="v-create">
-    <h1>Create awareness content</h1>
-    <p class="lead">Grounded in current public guidance and your team's recurring mistakes.</p>
-    <form class="card" id="gen-form">
-      <label for="topic">Topic</label>
-      <input id="topic" required placeholder="e.g. QR-code phishing, invoice fraud, MFA fatigue">
-      <div class="grid">
-        <div><label for="audience">Audience</label><select id="audience"></select></div>
-        <div><label for="format">Format</label><select id="format"></select></div>
-        <div><label for="language">Language</label><select id="language"></select></div>
-      </div>
-      <details>
-        <summary>More options</summary>
-        <label for="extra" style="margin-top:10px">Extra instructions</label>
-        <input id="extra" placeholder="optional">
-        <div id="policy-box" class="hidden">
-          <label for="policy">Policy text to summarise</label>
-          <textarea id="policy"></textarea>
+  <main>
+    <!-- OVERVIEW -->
+    <section id="v-overview">
+      <div class="page-head"><div><h1 id="hello">Overview</h1><p class="sub">What's happening across your awareness programme.</p></div>
+        <button class="btn" data-go="create"><span data-icon="plus"></span>New content</button></div>
+      <div class="kpis" id="kpis"></div>
+      <div class="cols">
+        <div class="card"><div class="card-head"><h2>Top risks right now</h2><a href="#insights" class="small">All insights →</a></div>
+          <ul class="list" id="ov-risks"></ul></div>
+        <div class="stack">
+          <div class="card"><div class="card-head"><h2>Recent content</h2><a href="#library" class="small">Library →</a></div>
+            <ul class="list" id="ov-recent"></ul></div>
+          <div class="card hidden" id="ov-stale-card"><div class="card-head"><h2>Needs an update</h2></div><ul class="list" id="ov-stale"></ul></div>
         </div>
-      </details>
-      <div class="row"><button class="btn" id="gen-btn">Generate</button>
-        <span class="muted small" id="gen-note">Takes up to a minute.</span></div>
-    </form>
-    <div id="create-out"></div>
-  </section>
-
-  <!-- LIBRARY -->
-  <section id="v-library" class="hidden">
-    <h1>Library</h1>
-    <p class="lead">Drafts and approved modules. Approved content is remembered so new content builds on it.</p>
-    <div class="card hidden" id="stale-card"><h2>Update suggested</h2><ul class="list" id="stale"></ul></div>
-    <div class="card"><ul class="list" id="drafts"></ul></div>
-    <div id="library-out"></div>
-  </section>
-
-  <!-- SIMULATE -->
-  <section id="v-simulate" class="hidden">
-    <h1>Phishing simulation</h1>
-    <p class="lead">Send an approved training email to pseudonymous recipients. Clicks update the department's mistakes.</p>
-    <form class="card" id="camp-form">
-      <div class="grid">
-        <div><label for="kit">Simulation</label><select id="kit"></select></div>
-        <div><label for="camp-dept">Department</label><select id="camp-dept"></select></div>
-        <div><label for="camp-n">Recipients</label><input id="camp-n" type="number" min="1" max="200" value="10"></div>
       </div>
-      <div class="row"><button class="btn">Launch</button>
-        <span class="muted small" id="kit-note"></span></div>
-    </form>
-    <div id="campaigns"></div>
-  </section>
+    </section>
 
-  <!-- INSIGHTS -->
-  <section id="v-insights" class="hidden">
-    <h1>Insights</h1>
-    <p class="lead">Recurring mistakes per department, from logs, phishing tests, quizzes and simulations.</p>
-    <div class="card">
-      <div class="row" style="margin-top:0">
-        <select id="ins-dept" style="max-width:240px;margin:0"></select>
-        <button class="btn ghost" id="rebuild">Refresh</button>
+    <!-- CREATE -->
+    <section id="v-create" class="hidden">
+      <div class="page-head"><div><h1>Create content</h1><p class="sub">Grounded in trusted, current guidance and your teams' real mistakes.</p></div></div>
+      <div class="cols-create">
+        <form class="card sticky" id="gen-form">
+          <div class="field"><label for="topic">Topic</label>
+            <input id="topic" required placeholder="e.g. QR-code phishing, invoice fraud"></div>
+          <div class="field"><label>Format</label><div class="formats" id="formats"></div><p class="fmt-desc" id="fmt-desc"></p></div>
+          <div class="two">
+            <div class="field"><label for="audience">Audience</label><select id="audience"></select></div>
+            <div class="field"><label for="language">Language</label><select id="language"></select></div>
+          </div>
+          <details><summary>More options</summary>
+            <div class="field" style="margin-top:10px"><label for="extra">Extra instructions</label><input id="extra" placeholder="optional, e.g. friendly tone, under 200 words"></div>
+            <div class="field hidden" id="policy-box"><label for="policy">Policy text to summarise</label><textarea id="policy"></textarea></div>
+          </details>
+          <button class="btn block" id="gen-btn" style="margin-top:16px"><span data-icon="spark"></span>Generate</button>
+        </form>
+        <div id="create-out"><div class="card empty"><span data-icon="spark"></span><b>Your draft will appear here</b>
+          Pick a topic and format. Every claim is cited and the draft is fact-checked before you approve it.</div></div>
       </div>
-      <ul class="list" id="mistakes" style="margin-top:8px"></ul>
-    </div>
-    <div class="card">
-      <h2>Trend</h2>
-      <div id="trend-out"></div>
-    </div>
-    <details class="card"><summary>This week by department</summary><div id="week-out"></div></details>
-    <details class="card"><summary>What's new in the threat feeds</summary>
-      <div class="row"><button class="btn ghost" id="digest-btn">Check last 14 days</button></div>
-      <div id="digest-out"></div>
-    </details>
-    <details class="card"><summary>Evaluation results</summary><div id="eval-out"></div></details>
-  </section>
-</main>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="v-library" class="hidden">
+      <div class="page-head"><div><h1>Library</h1><p class="sub">Approved content is remembered, so new content builds on it instead of repeating it.</p></div></div>
+      <div class="card hidden" id="stale-card" style="margin-bottom:16px"><div class="card-head"><h2>Update suggested</h2>
+        <span class="pill warn">newer guidance found</span></div><ul class="list" id="stale"></ul></div>
+      <div class="cols-create">
+        <div class="card sticky">
+          <div class="row" style="margin-bottom:10px"><input id="lib-q" placeholder="Search…" style="flex:1"></div>
+          <div class="chips" id="lib-filter" style="margin-bottom:8px">
+            <button class="chip on" data-f="all">All</button><button class="chip" data-f="approved">Approved</button><button class="chip" data-f="draft">Drafts</button></div>
+          <ul class="list" id="drafts" style="max-height:62vh;overflow:auto"></ul>
+        </div>
+        <div id="library-out"><div class="card empty"><span data-icon="book"></span><b>Select an item</b>Open any draft to review, approve or export it.</div></div>
+      </div>
+    </section>
+
+    <!-- SIMULATE -->
+    <section id="v-simulate" class="hidden">
+      <div class="page-head"><div><h1>Phishing simulation</h1><p class="sub">Send an approved training email to pseudonymous recipients. Every click updates the team's mistakes.</p></div></div>
+      <form class="card" id="camp-form">
+        <div class="card-head"><h2>Launch a campaign</h2><span class="small muted">No real email is sent. Recipients get private local inbox links.</span></div>
+        <div class="row" style="align-items:flex-end">
+          <div style="flex:2;min-width:220px"><label for="kit">Training email</label><select id="kit"></select></div>
+          <div style="flex:1;min-width:140px"><label for="camp-dept">Department</label><select id="camp-dept"></select></div>
+          <div style="width:110px"><label for="camp-n">Recipients</label><input id="camp-n" type="number" min="1" max="200" value="10"></div>
+          <button class="btn"><span data-icon="send"></span>Launch</button>
+        </div>
+        <p class="small muted" id="kit-note" style="margin:8px 0 0"></p>
+      </form>
+      <div id="campaigns" class="stack" style="margin-top:16px"></div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section id="v-insights" class="hidden">
+      <div class="page-head"><div><h1>Insights</h1><p class="sub">Recurring mistakes from Windows logs, phishing tests, quizzes and simulations.</p></div>
+        <button class="btn ghost" id="rebuild"><span data-icon="refresh"></span>Recompute</button></div>
+      <div class="chips" id="ins-dept" style="margin-bottom:16px"></div>
+      <div class="cols">
+        <div class="card"><div class="card-head"><h2>Recurring mistakes</h2><span class="small muted">share of people who fell for it</span></div>
+          <ul class="list" id="mistakes"></ul></div>
+        <div class="card"><div class="card-head"><h2>Trend</h2></div><div id="trend-out"></div></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="tabs" id="ins-tabs" style="margin-top:0">
+          <button class="on" data-t="week">This week</button><button data-t="digest">Threat feed digest</button><button data-t="eval">Evaluation</button></div>
+        <div id="t-week"></div>
+        <div id="t-digest" class="hidden"><p class="small muted" style="margin-top:0">Suggests topics from the last 14 days of news that you haven't taught yet.</p>
+          <button class="btn ghost sm" id="digest-btn"><span data-icon="spark"></span>Analyse feeds</button><div id="digest-out"></div></div>
+        <div id="t-eval" class="hidden"></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="icons.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

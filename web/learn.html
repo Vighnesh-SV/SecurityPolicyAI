@@ -7,57 +7,58 @@
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<header>
-  <span class="brand">Security Corner</span>
-  <nav id="nav">
-    <button data-view="progress" class="on">My progress</button>
-    <button data-view="check">Check an email</button>
-    <button data-view="quiz">Quiz</button>
+<header class="topbar">
+  <div class="brand"><div class="logo" data-icon="shield"></div><div>Security Corner</div></div>
+  <nav class="nav" id="nav">
+    <button data-view="progress"><span data-icon="flame"></span><span>My progress</span></button>
+    <button data-view="check"><span data-icon="hook"></span><span>Check an email</span></button>
+    <button data-view="quiz"><span data-icon="quiz"></span><span>Quiz</span></button>
   </nav>
   <span class="right" id="who"></span>
 </header>
 
 <main class="narrow">
-  <div class="card hidden" id="id-card">
-    <label for="uid">Your employee ID (e.g. fin-007)</label>
-    <div class="row" style="margin-top:0"><input id="uid" style="margin:0;flex:1"><button class="btn" id="uid-save">Continue</button></div>
-    <p class="muted small">Pseudonymous: your name is never stored.</p>
-  </div>
-
   <!-- PROGRESS -->
   <section id="v-progress">
-    <h1>Your week in security</h1>
-    <p class="lead" id="period"></p>
+    <div class="card hidden" id="id-card">
+      <h2>Welcome 👋</h2>
+      <p class="muted" style="margin-top:0">Enter your employee ID to see your weekly security progress.</p>
+      <div class="row"><input id="uid" placeholder="e.g. fin-007" style="flex:1"><button class="btn" id="uid-save">Continue</button></div>
+      <p class="small muted" style="margin-bottom:0">Pseudonymous: your name is never stored.</p>
+    </div>
     <div id="prog-out"></div>
   </section>
 
   <!-- CHECK -->
   <section id="v-check" class="hidden">
     <h1>Is this phishing?</h1>
-    <p class="lead">Paste a suspicious email (include the From line if you can). Nothing is saved.</p>
+    <p class="sub" style="margin-bottom:18px">Paste a suspicious email, including the From line if you can. Nothing is saved.</p>
     <form class="card" id="check-form">
       <textarea id="mail" required style="min-height:200px" placeholder="From: ...&#10;Subject: ...&#10;&#10;Email text"></textarea>
-      <button class="btn">Check</button>
+      <div class="row" style="margin-top:12px"><button class="btn"><span data-icon="shield"></span>Check it</button>
+        <span class="small muted">Never forward a suspicious email to colleagues. Report it instead.</span></div>
     </form>
-    <div id="check-out"></div>
+    <div id="check-out" style="margin-top:16px"></div>
   </section>
 
   <!-- QUIZ -->
   <section id="v-quiz" class="hidden">
     <h1>Security quiz</h1>
-    <p class="lead">A few quick questions.</p>
+    <p class="sub" style="margin-bottom:18px">Five quick questions. Scores count towards your team, never by name.</p>
     <div class="card" id="pick">
-      <label for="dept">Your department</label><select id="dept"></select>
-      <label for="quiz">Quiz</label><select id="quiz"></select>
-      <button class="btn" id="start">Start</button>
+      <div class="field"><label for="dept">Your department</label><select id="dept"></select></div>
+      <div class="field"><label for="quiz">Quiz</label><select id="quiz"></select></div>
+      <button class="btn" id="start">Start quiz</button>
     </div>
-    <form id="qform" class="hidden"></form>
+    <form id="qform" class="hidden stack"></form>
     <div id="result"></div>
   </section>
 </main>
+<script src="icons.js"></script>
 <script>
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pct = (v) => (v == null ? "–" : Math.round(v * 100) + "%");
 const store = { get: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
                 set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
 let QUIZZES = [], UID = new URLSearchParams(location.search).get("u") || store.get("spai_uid") || "";
@@ -69,33 +70,41 @@ async function busy(btn, label, fn) {
 }
 
 function showWho() {
-  $("#who").innerHTML = UID ? `${esc(UID)} · <a href="#" id="switch">switch</a>` : "";
+  $("#who").innerHTML = UID ? `<span class="pill">${esc(UID)}</span> <a href="#" id="switch">switch</a>` : "";
   if (UID) $("#switch").onclick = (e) => { e.preventDefault(); UID = ""; store.set("spai_uid", ""); showWho(); show("progress"); };
 }
 
 // ---------- progress ----------
-const stat = (n, label) => `<div><div style="font-size:26px;font-weight:650">${n}</div><div class="muted small">${label}</div></div>`;
 async function loadProgress() {
   $("#id-card").classList.toggle("hidden", !!UID);
-  if (!UID) { $("#prog-out").innerHTML = ""; $("#period").textContent = "Enter your employee ID to see your progress."; return; }
+  if (!UID) { $("#prog-out").innerHTML = ""; return; }
   const p = await (await fetch(`/progress/${encodeURIComponent(UID)}`)).json();
-  if (!p.found) { $("#period").textContent = ""; $("#prog-out").innerHTML = `<div class="card muted">No activity yet for ${esc(UID)}. Take a quiz to get started.</div>`; return; }
+  if (!p.found) {
+    $("#prog-out").innerHTML = `<div class="card"><div class="empty">${icon("flame")}<b>No activity yet for ${esc(UID)}</b>
+      Take a quiz to start your streak.<div style="margin-top:14px"><button class="btn" onclick="show('quiz')">Take a quiz</button></div></div></div>`;
+    return;
+  }
   const w = p.week, m = p.month;
-  $("#period").textContent = `${p.department} · ${p.period[0]} to ${p.period[1]}`;
   const team = p.team.recent_weeks.filter((x) => x.click_rate != null);
-  const teamLine = team.length === 2 ? `Your team's click rate went from ${Math.round(team[0].click_rate * 100)}% to ${Math.round(team[1].click_rate * 100)}%.`
-                 : team.length === 1 ? `Your team's click rate this week: ${Math.round(team[0].click_rate * 100)}%.` : "";
+  const teamLine = team.length === 2 ? `Your team's click rate went from <b>${pct(team[0].click_rate)}</b> to <b>${pct(team[1].click_rate)}</b>.`
+                 : team.length === 1 ? `Your team's click rate this week: <b>${pct(team[0].click_rate)}</b>.` : "";
   $("#prog-out").innerHTML = `
-    <div class="card"><h2>${esc(p.headline)}</h2>
-      <div class="grid" style="margin-top:14px">${stat(w.avoided, "phishing avoided")}${stat(w.reported, "reported")}
-        ${stat(w.quiz_avg == null ? "–" : Math.round(w.quiz_avg * 100) + "%", "quiz average")}${stat(p.streak_weeks, "week streak")}</div>
-      <ul style="margin-top:16px">${p.lines.slice(1).map((l) => `<li>${esc(l)}</li>`).join("")}</ul>
-      ${teamLine ? `<p class="muted small">${esc(teamLine)}</p>` : ""}
-    </div>
-    ${p.tips.length ? `<div class="card"><h3 style="margin-top:0">Tips for next time</h3><ul>${p.tips.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>` : ""}
-    <p class="muted small">This month: ${m.avoided} avoided · ${m.reported} reported · ${m.quizzes} quiz(zes)${m.quiz_avg != null ? ` · average ${Math.round(m.quiz_avg * 100)}%` : ""}</p>`;
+    <div class="hero"><div class="small" style="opacity:.85">${esc(p.department)} · ${p.period[0]} to ${p.period[1]}</div>
+      <h2>${esc(p.headline)}</h2>
+      <div class="grid4"><div><b>${w.avoided}</b><span>phishing avoided</span></div><div><b>${w.reported}</b><span>reported</span></div>
+        <div><b>${pct(w.quiz_avg)}</b><span>quiz average</span></div><div><b>${p.streak_weeks}🔥</b><span>week streak</span></div></div></div>
+    ${p.lines.length > 1 || teamLine ? `<div class="card" style="margin-top:16px"><h2>This week</h2><ul class="list">
+      ${p.lines.slice(1).map((l) => `<li><span class="ico-bg">${icon(/clicked/i.test(l) ? "alert" : "check")}</span><div class="grow">${esc(l)}</div></li>`).join("")}
+      ${teamLine ? `<li><span class="ico-bg">${icon("users")}</span><div class="grow">${teamLine}</div></li>` : ""}</ul></div>` : ""}
+    ${p.tips.length ? `<div class="card" style="margin-top:16px"><h2>Tips for next time</h2><ul class="list">${p.tips.map((t) =>
+      `<li><span class="ico-bg" style="background:var(--warn-soft);color:var(--warn)">${icon("tip")}</span><div class="grow">${esc(t)}</div></li>`).join("")}</ul></div>` : ""}
+    <div class="card" style="margin-top:16px"><h2>Last 30 days</h2>
+      <div class="stats3" style="margin:0"><div class="stat"><div class="val">${m.avoided}</div><div class="lbl">avoided</div></div>
+      <div class="stat"><div class="val">${m.reported}</div><div class="lbl">reported</div></div>
+      <div class="stat"><div class="val">${m.quizzes}</div><div class="lbl">quizzes${m.quiz_avg != null ? ` · avg ${pct(m.quiz_avg)}` : ""}</div></div></div></div>`;
 }
 $("#uid-save").onclick = () => { UID = $("#uid").value.trim(); if (UID) { store.set("spai_uid", UID); showWho(); loadProgress(); } };
+$("#uid").onkeydown = (e) => { if (e.key === "Enter") $("#uid-save").click(); };
 
 // ---------- check ----------
 $("#check-form").onsubmit = (e) => {
@@ -105,11 +114,13 @@ $("#check-form").onsubmit = (e) => {
       body: JSON.stringify({ text: $("#mail").value }) })).json();
     if (!r.verdict) { $("#check-out").innerHTML = `<div class="card">${esc(r.detail?.[0]?.msg || "Could not check this text.")}</div>`; return; }
     const cls = r.verdict === "likely phishing" ? "bad" : r.verdict === "suspicious" ? "warn" : "good";
-    $("#check-out").innerHTML = `<div class="card"><span class="pill ${cls}" style="font-size:14px">${esc(r.verdict)}</span>
+    $("#check-out").innerHTML = `<div class="card">
+      <div class="verdict ${cls}">${icon(cls === "good" ? "check" : "alert")}<div><b>${esc(r.verdict[0].toUpperCase() + r.verdict.slice(1))}</b>
+        <span class="small">risk ${pct(r.risk)}${r.ai ? " · AI-explained" : " · automatic checks"}</span></div></div>
       ${r.explanation ? `<p>${esc(r.explanation)}</p>` : ""}
-      ${r.flags.length ? `<h3>Warning signs</h3><ul>${r.flags.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
+      ${r.flags.length ? `<h3>Warning signs</h3><ul class="list">${r.flags.map((f) => `<li><span class="ico-bg" style="background:var(--bad-soft);color:var(--bad)">${icon("alert")}</span><div class="grow">${esc(f)}</div></li>`).join("")}</ul>` : ""}
       <h3>What to do</h3><ul>${r.what_to_do.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
-      ${r.sources.length ? `<details><summary>Based on</summary><ul class="small">${r.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join("")}</ul></details>` : ""}
+      ${r.sources.length ? `<details><summary>Based on trusted guidance</summary><ul class="small">${r.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join("")}</ul></details>` : ""}
     </div>`;
   });
 };
@@ -123,36 +134,39 @@ async function loadQuiz() {
   QUIZZES = await (await fetch("/quizzes")).json();
   $("#quiz").innerHTML = QUIZZES.map((q, i) => `<option value="${i}">${esc(q.title)}</option>`).join("") || "<option disabled>No quizzes yet</option>";
   $("#start").disabled = !QUIZZES.length;
+  if (!QUIZZES.length) $("#pick").innerHTML = `<div class="empty">${icon("quiz")}<b>No quizzes yet</b>Your security team hasn't published one. Check back soon.</div>`;
 }
 $("#start").onclick = () => {
   const q = QUIZZES[$("#quiz").value];
   $("#pick").classList.add("hidden"); $("#qform").classList.remove("hidden"); $("#result").innerHTML = "";
-  $("#qform").innerHTML = q.questions.map((x, i) => `<div class="card"><p><b>${i + 1}. ${esc(x.question)}</b></p>
-    ${x.options.map((o, j) => `<label style="color:inherit;font-size:15px;margin:6px 0"><input type="radio" name="q${i}" value="${j}" style="width:auto;margin:0 8px 0 0">${esc(o)}</label>`).join("")}
-    </div>`).join("") + '<button class="btn">Submit</button>';
+  $("#qform").innerHTML = q.questions.map((x, i) => `<div class="card"><div class="small muted">Question ${i + 1} of ${q.questions.length}</div>
+    <p style="font-weight:600;margin:4px 0 10px">${esc(x.question)}</p>
+    ${x.options.map((o, j) => `<label class="opt"><input type="radio" name="q${i}" value="${j}">${esc(o)}</label>`).join("")}
+    </div>`).join("") + '<button class="btn block">Submit answers</button>';
   $("#qform").onsubmit = async (e) => {
     e.preventDefault();
     const answers = q.questions.map((_, i) => { const c = document.querySelector(`input[name=q${i}]:checked`); return c ? +c.value : null; });
     const r = await (await fetch(`/quizzes/${q.id}/submit`, { method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ department: $("#dept").value, answers, user_id: UID || null }) })).json();
     $("#qform").classList.add("hidden");
-    $("#result").innerHTML = `<div class="card"><h2>You scored ${Math.round(r.score * 100)}%</h2>
-      ${r.results.map((x, i) => `<p>${x.correct ? "✅" : "❌"} <b>${esc(x.question)}</b><br>
-      <span class="muted small">Answer: ${esc(q.questions[i].options[x.correct_index])}. ${esc(x.explanation)}</span></p>`).join("")}
-      <button class="btn ghost" onclick="location.reload()">Another quiz</button></div>`;
+    $("#result").innerHTML = `<div class="hero"><h2>You scored ${pct(r.score)}</h2><div class="small" style="opacity:.85">${r.score >= 0.8 ? "Excellent work." : "Review the explanations below. They're what attackers count on."}</div></div>
+      <div class="card" style="margin-top:16px"><ul class="list">${r.results.map((x, i) => `<li style="align-items:flex-start">
+        <span class="ico-bg" style="${x.correct ? "background:var(--good-soft);color:var(--good)" : "background:var(--bad-soft);color:var(--bad)"}">${icon(x.correct ? "check" : "alert")}</span>
+        <div class="grow"><b>${esc(x.question)}</b><div class="small muted">Answer: ${esc(q.questions[i].options[x.correct_index])}. ${esc(x.explanation)}</div></div></li>`).join("")}</ul>
+      <div class="row" style="margin-top:12px"><button class="btn ghost" onclick="location.reload()">Another quiz</button><button class="btn" onclick="show('progress')">See my progress</button></div></div>`;
   };
 };
 
 // ---------- nav ----------
 const loaders = { progress: loadProgress, quiz: loadQuiz };
 function show(view) {
+  if (!document.getElementById(`v-${view}`)) view = "progress";
   document.querySelectorAll("main > section").forEach((s) => s.classList.toggle("hidden", s.id !== `v-${view}`));
   document.querySelectorAll("#nav button").forEach((b) => b.classList.toggle("on", b.dataset.view === view));
-  $("#id-card").classList.toggle("hidden", !!UID || view !== "progress");
-  history.replaceState(null, "", `#${view}`);
+  history.replaceState(null, "", `${location.search}#${view}`);
   loaders[view]?.();
 }
-$("#nav").onclick = (e) => e.target.dataset.view && show(e.target.dataset.view);
+$("#nav").onclick = (e) => { const b = e.target.closest("[data-view]"); if (b) show(b.dataset.view); };
 showWho();
 show(location.hash.slice(1) || "progress");
 </script>
