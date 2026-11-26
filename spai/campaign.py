@@ -1,4 +1,4 @@
-"""E2: local phishing-simulation campaigns.
+﻿"""E2: local phishing-simulation campaigns.
 
 A campaign sends one approved simulation kit to N pseudonymous recipients of a department.
 Each recipient gets a private inbox link. Everything they do (open, click, enter data, report)
@@ -77,7 +77,7 @@ def funnel(c: dict) -> dict:
 # ---------------- recipient pages (plain server-rendered HTML) ----------------
 PAGE = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title>
-<link rel="stylesheet" href="/ui/app.css"></head><body class="recipient"><main class="narrow">{body}</main></body></html>"""
+<link rel="stylesheet" href="/ui/app.css?v=1795669216"></head><body class="recipient"><main class="narrow">{body}</main></body></html>"""
 
 
 def _e(s) -> str:
@@ -89,7 +89,7 @@ def inbox_page(c: dict, draft: dict, base: str) -> str:
     body = _e(sim.get("body", "")).replace("\n", "<br>")
     link = f'<a class="btn" href="{base}/click">Open the link in this email</a>'
     return PAGE.format(title="Inbox", body=f"""
-<p class="muted small">Training inbox · {_e(sim.get('training_marker'))}</p>
+<p class="muted small">Training inbox Â· {_e(sim.get('training_marker'))}</p>
 <article class="card mail">
   <div class="mail-head"><div><b>From:</b> {_e(sim.get('sender'))}</div>
   <div><b>Subject:</b> {_e(sim.get('subject'))}</div></div>

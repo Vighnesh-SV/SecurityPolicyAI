@@ -30,7 +30,7 @@ app = FastAPI(lifespan=lifespan, title="SecurityPolicy AI API", version="1.0",
 async def no_cache_ui(request: Request, call_next):
     resp = await call_next(request)
     if request.url.path.startswith("/ui"):
-        resp.headers["Cache-Control"] = "no-cache"      # always serve the latest UI files
+        resp.headers["Cache-Control"] = "no-store"      # never let a browser reuse old UI files
     return resp
 
 

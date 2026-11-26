@@ -24,7 +24,7 @@ const ICONS = {
   download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
   flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.6 1.6 2.8 3.5 2.8z"/>',
 };
-const icon = (n, cls = "i") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n] || ""}</svg>`;
+const icon = (n, cls = "i") => `<svg class="${cls}" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${ICONS[n] || ""}</svg>`;
 const fillIcons = (root = document) => root.querySelectorAll("[data-icon]").forEach((el) => {
   if (!el.firstElementChild || el.firstElementChild.tagName !== "svg") el.insertAdjacentHTML("afterbegin", icon(el.dataset.icon));
 });

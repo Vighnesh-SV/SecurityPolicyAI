@@ -251,3 +251,5 @@ body.recipient form input { margin-bottom: 10px; }
   .kpi .val { font-size: 34px; }
   .hero .grid4 { grid-template-columns: repeat(2, 1fr); } .hero .grid4 div:nth-child(3) { border-left: 0; padding-left: 0; }
 }
+
+.card.empty { border: 1px solid var(--rule); border-top: 2px solid var(--ink); padding: 26px 24px; }
