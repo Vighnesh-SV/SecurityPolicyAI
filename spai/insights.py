@@ -225,7 +225,8 @@ def progress(user_id: str, days: int = 7, today: date | None = None) -> dict:
         else:
             break
 
-    tips = _tips_for_clicks(week.pop("clicked_drafts"))[:3] + week["missed"][:2]
+    strip = lambda t: re.sub(r"\s*\[(?:S\d+|ORG)\](?:,\s*\[(?:S\d+|ORG)\])*", "", t).strip()   # no citation markers for staff
+    tips = [strip(t) for t in _tips_for_clicks(week.pop("clicked_drafts"))[:3] + week["missed"][:2]]
     for s in (prev, month):
         s.pop("clicked_drafts")
 

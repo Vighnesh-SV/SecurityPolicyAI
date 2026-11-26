@@ -426,7 +426,10 @@ async function sideStatus() {
     const [h, s] = await Promise.all([api("/health"), api("/modules/staleness").catch(() => ({}))]);
     $("#kb-status").innerHTML = `<span class="dot"></span>Online · ${h.kb_chunks.toLocaleString()} passages<br>
       <span>${s.last_refresh ? `Feeds refreshed ${ago(s.last_refresh)}` : "Feeds refresh daily"}</span>`;
-  } catch { $("#kb-status").innerHTML = '<span class="dot" style="background:var(--bad)"></span>Backend offline'; }
+  } catch {
+    $("#kb-status").innerHTML = '<span class="dot" style="background:var(--warn)"></span>Reconnecting…';
+    setTimeout(sideStatus, 5000);
+  }
 }
 
 (async function main() {

@@ -8,7 +8,7 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="brand"><div class="logo" data-icon="shield"></div><div>Security Corner</div></div>
+  <div class="brand"><div class="logo" data-icon="shield"></div><div>Security Corner<small>Employee portal</small></div></div>
   <nav class="nav" id="nav">
     <button data-view="progress"><span data-icon="flame"></span><span>My progress</span></button>
     <button data-view="check"><span data-icon="hook"></span><span>Check an email</span></button>
@@ -21,7 +21,7 @@
   <!-- PROGRESS -->
   <section id="v-progress">
     <div class="card hidden" id="id-card">
-      <h2>Welcome 👋</h2>
+      <h2>Sign in with your employee ID</h2>
       <p class="muted" style="margin-top:0">Enter your employee ID to see your weekly security progress.</p>
       <div class="row"><input id="uid" placeholder="e.g. fin-007" style="flex:1"><button class="btn" id="uid-save">Continue</button></div>
       <p class="small muted" style="margin-bottom:0">Pseudonymous: your name is never stored.</p>
@@ -92,7 +92,7 @@ async function loadProgress() {
     <div class="hero"><div class="small" style="opacity:.85">${esc(p.department)} · ${p.period[0]} to ${p.period[1]}</div>
       <h2>${esc(p.headline)}</h2>
       <div class="grid4"><div><b>${w.avoided}</b><span>phishing avoided</span></div><div><b>${w.reported}</b><span>reported</span></div>
-        <div><b>${pct(w.quiz_avg)}</b><span>quiz average</span></div><div><b>${p.streak_weeks}🔥</b><span>week streak</span></div></div></div>
+        <div><b>${pct(w.quiz_avg)}</b><span>quiz average</span></div><div><b>${p.streak_weeks}</b><span>week streak</span></div></div></div>
     ${p.lines.length > 1 || teamLine ? `<div class="card" style="margin-top:16px"><h2>This week</h2><ul class="list">
       ${p.lines.slice(1).map((l) => `<li><span class="ico-bg">${icon(/clicked/i.test(l) ? "alert" : "check")}</span><div class="grow">${esc(l)}</div></li>`).join("")}
       ${teamLine ? `<li><span class="ico-bg">${icon("users")}</span><div class="grow">${teamLine}</div></li>` : ""}</ul></div>` : ""}
