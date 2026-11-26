@@ -168,3 +168,25 @@ def test_progress_trends_and_overview(tmp_path, monkeypatch):
 def test_staleness_endpoint():
     r = client.get("/modules/staleness").json()
     assert "modules" in r and all(m["status"] in ("current", "update suggested") for m in r["modules"])
+
+
+def test_key_rotation(monkeypatch):
+    from google.genai import errors
+    from spai import llm
+    monkeypatch.setenv("GEMINI_API_KEY", "key-one")
+    monkeypatch.setenv("GEMINI_API_KEY_2", "key-two")
+    monkeypatch.delenv("GEMINI_API_KEYS", raising=False)
+    calls = []
+
+    class Fake:
+        def __init__(self, key): self.key = key; self.models = self
+        def generate_content(self, model, contents, config):
+            calls.append((self.key, model))
+            if self.key == "key-one":
+                raise errors.APIError(429, {"error": {"code": 429, "message": "quota", "status": "RESOURCE_EXHAUSTED"}})
+            return type("R", (), {"text": "ok"})()
+    monkeypatch.setattr(llm, "client", lambda key=None: Fake(key))
+    monkeypatch.setattr(llm, "_benched", {})
+    r = llm.generate("rotation test prompt", role="cheap", use_cache=False)
+    assert r["text"] == "ok" and calls[0][0] == "key-one" and calls[1][0] == "key-two"
+    assert calls[0][1] == calls[1][1]          # same model, next key

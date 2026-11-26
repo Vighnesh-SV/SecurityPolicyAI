@@ -10,20 +10,43 @@ from google.genai import errors, types
 
 from . import config
 
-_client = None
+_clients: dict[str, genai.Client] = {}
 LLM_CACHE = config.CACHE / "llm"
 EMB_CACHE = config.CACHE / "emb"
 LLM_CACHE.mkdir(parents=True, exist_ok=True)
 EMB_CACHE.mkdir(parents=True, exist_ok=True)
 
 
-def client():
-    global _client
-    if _client is None:
+def keys() -> list[str]:
+    """All Gemini keys: GEMINI_API_KEY, GEMINI_API_KEY_2 … _9, and/or GEMINI_API_KEYS=a,b,c.
+    Free-tier quota is per Google Cloud PROJECT, so backup keys must come from different projects."""
+    import os
+    found = [os.environ.get("GEMINI_API_KEY", "")]
+    found += [os.environ.get(f"GEMINI_API_KEY_{i}", "") for i in range(2, 10)]
+    found += os.environ.get("GEMINI_API_KEYS", "").split(",")
+    out = []
+    for k in (k.strip() for k in found):
+        if k and k not in out:
+            out.append(k)
+    if not out:
+        config.key("GEMINI_API_KEY")          # raises the usual "missing key" error
+    return out
+
+
+def client(key: str | None = None):
+    key = key or keys()[0]
+    if key not in _clients:
         # Our own fallback handles busy models, so turn off the SDK's long internal retries.
-        _client = genai.Client(api_key=config.key("GEMINI_API_KEY"), http_options=types.HttpOptions(
+        _clients[key] = genai.Client(api_key=key, http_options=types.HttpOptions(
             timeout=120_000, retry_options=types.HttpRetryOptions(attempts=1)))
-    return _client
+    return _clients[key]
+
+
+def key_status() -> list[dict]:
+    """For /health: which keys are usable right now (keys shown masked)."""
+    now = time.time()
+    return [{"key": f"…{k[-4:]}", "benched_models": sorted(m for (kk, m), t in _benched.items() if kk == k and t > now)}
+            for k in keys()]
 
 
 def _h(*parts) -> str:
@@ -39,14 +62,15 @@ class LLMError(RuntimeError):
     pass
 
 
-_benched: dict[str, float] = {}     # model -> time until which we skip it (busy / quota)
-BENCH_SECONDS = 600
+_benched: dict[tuple[str, str], float] = {}   # (key, model) -> time until which we skip it
+BENCH_SECONDS = 600     # quota hit (429) on this key+model
+BUSY_SECONDS = 120      # model overloaded (503): same for every key, retry soon
 
 
 def generate(prompt: str, role: str = "generator", system: str | None = None,
              json_out: bool = False, temperature: float = 0.6, use_cache: bool = True,
              max_rounds: int = 3) -> dict:
-    """Return {"text", "model", "cached"}. Tries each model of the role; rotates on 503/429."""
+    """Return {"text", "model", "cached"}. Tries every (model, key) pair; rotates on 503/429."""
     chain = config.models()[role]
     ck = LLM_CACHE / f"{_h(role, system, prompt, json_out, temperature)}.json"
     if use_cache and ck.exists():
@@ -57,10 +81,14 @@ def generate(prompt: str, role: str = "generator", system: str | None = None,
         response_mime_type="application/json" if json_out else None)
     last = None
     for rnd in range(max_rounds):
-        live = [m for m in chain if _benched.get(m, 0) < time.time()] or chain
-        for model in live:
+        pairs = [(m, k) for m in chain for k in keys()]
+        live = [p for p in pairs if _benched.get((p[1], p[0]), 0) < time.time()]
+        all_benched = not live
+        for model, key in (live or pairs):
+            if not all_benched and _benched.get((key, model), 0) > time.time():
+                continue                      # benched earlier in this same round (e.g. model busy)
             try:
-                r = client().models.generate_content(model=model, contents=prompt, config=cfg)
+                r = client(key).models.generate_content(model=model, contents=prompt, config=cfg)
                 text = r.text or ""
                 if json_out:
                     json.loads(text)          # raise now if the model returned broken JSON
@@ -69,8 +97,16 @@ def generate(prompt: str, role: str = "generator", system: str | None = None,
                 return {**d, "cached": False}
             except errors.APIError as e:
                 last = e
-                if e.code in (404, 429, 500, 503, 504):
-                    _benched[model] = time.time() + BENCH_SECONDS   # busy, quota or closed: skip a while
+                if e.code == 429 or e.code == 404:          # this key's quota (or model closed to it)
+                    _benched[(key, model)] = time.time() + BENCH_SECONDS
+                    continue
+                if e.code in (500, 503, 504):                # model busy for everyone
+                    for k in keys():
+                        _benched[(k, model)] = time.time() + BUSY_SECONDS
+                    continue
+                if e.code in (400, 401, 403) and "key" in str(e).lower():   # bad / revoked key
+                    for m in chain:
+                        _benched[(key, m)] = time.time() + 3600
                     continue
                 raise
             except json.JSONDecodeError as e:
@@ -78,7 +114,7 @@ def generate(prompt: str, role: str = "generator", system: str | None = None,
                 continue
             except Exception as e:            # network timeout etc.
                 last = e
-                _benched[model] = time.time() + 120
+                _benched[(key, model)] = time.time() + 120
                 continue
         time.sleep(_retry_delay(last, 10 * (rnd + 1)))
     raise LLMError(f"all models failed for role '{role}': {last}")

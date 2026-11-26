@@ -79,4 +79,7 @@ copy .env.example .env            # paste your own GEMINI_API_KEY and FIRECRAWL_
 ## Honest limitations
 - Department assignment is simulated; the mistakes themselves come from real data (one Windows host, 30 NEST-Phish participants → ~4 per department, so rates are noisy).
 - The judge is itself an LLM; scores are indicative. Validate with a small human rating.
+- **Backup Gemini keys:** add `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` … to `.env`. When a key runs out, the app
+  switches to the next one automatically (`/health` shows key status). Free quota is per Google Cloud *project*,
+  so each backup key must be created in a different project.
 - Free-tier quotas: embeddings 100 texts / 30k tokens per minute; everything is cached so reruns cost nothing.

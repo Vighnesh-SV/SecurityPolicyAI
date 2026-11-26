@@ -121,7 +121,8 @@ def _check_audience(a: str):
 # ---------------- meta ----------------
 @app.get("/health", tags=["meta"])
 def health():
-    return {"status": "ok", "kb_chunks": kb.stats()["chunks"], "approved_modules": len(memory.modules())}
+    return {"status": "ok", "kb_chunks": kb.stats()["chunks"], "approved_modules": len(memory.modules()),
+            "gemini_keys": llm.key_status()}
 
 
 @app.get("/meta", tags=["meta"])
