@@ -4,9 +4,14 @@ from urllib.parse import urlparse
 
 from . import config
 
-URL_RE = re.compile(r"https?://[^\s)\]>\"']+")
+URL_RE = re.compile(r"https?://[A-Za-z0-9][^\s)\]>\"'`]*")   # must start with a host ("https://`" is not a link)
 SAFE_SIM_DOMAINS = {"example.com", "example.org", "example.net"}
 CITE_RE = re.compile(r"\[S(\d+)\]")
+_CITE_GROUP = re.compile(r"\[(S\d+(?:\s*,\s*S\d+)*)\]")   # [S1] and grouped [S3, S4]
+
+
+def _cites(text: str) -> list[int]:
+    return [int(n) for g in _CITE_GROUP.findall(text) for n in re.findall(r"\d+", g)]
 ORG_RE = re.compile(r"\[ORG\]")
 
 
@@ -54,7 +59,7 @@ def defang_sim(sim: dict) -> tuple[dict, list[str]]:
 
 
 def citation_stats(text: str, n_sources: int) -> dict:
-    cited = {int(x) for x in CITE_RE.findall(text)}
+    cited = set(_cites(text))
     bad = sorted(c for c in cited if c < 1 or c > n_sources)
     return {"cited_ids": sorted(cited - set(bad)), "invalid_ids": bad,
-            "n_citations": len(CITE_RE.findall(text)), "n_org": len(ORG_RE.findall(text))}
+            "n_citations": len(_cites(text)), "n_org": len(ORG_RE.findall(text))}

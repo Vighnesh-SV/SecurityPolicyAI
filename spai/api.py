@@ -131,7 +131,8 @@ def meta():
     return {"audiences": generate.AUDIENCES, "departments": config.org()["departments"],
             "formats": generate.FORMATS, "languages": generate.LANGUAGES,
             "organisation": config.org()["name"], "report_address": config.org()["report_address"],
-            "sim_actions": list(telemetry.SIM_ACTIONS)}
+            "sim_actions": list(telemetry.SIM_ACTIONS),
+            "demo": (config.ROOT / "data" / "demo_mode").exists()}
 
 
 # ---------------- content ----------------

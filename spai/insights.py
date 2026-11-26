@@ -39,7 +39,7 @@ def _sim_by_user(rows):
     """{(user, draft_id): {"actions": set, "first": datetime, "department", "topic"}}"""
     out = {}
     for r in rows:
-        k = (r["user_id"], r["draft_id"])
+        k = (r["user_id"], r.get("campaign_id") or r["draft_id"])
         e = out.setdefault(k, {"actions": set(), "first": _when(r), "department": r["department"],
                                "topic": r["topic"], "draft_id": r["draft_id"]})
         e["actions"].add(r["action"])

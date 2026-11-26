@@ -34,3 +34,4 @@ eval/run.err.log
 outputs/reports/
 data/last_refresh.txt
 data/api*.log
+data/demo_mode

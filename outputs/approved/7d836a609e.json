@@ -1,0 +1,409 @@
+{
+ "id": "7d836a609e",
+ "request": {
+  "topic": "QR-code phishing (quishing)",
+  "audience": "All staff",
+  "format": "newsletter",
+  "language": "English",
+  "use_rag": true,
+  "use_memory": true,
+  "use_telemetry": true,
+  "policy_text": "",
+  "extra": "",
+  "k_sources": 8
+ },
+ "content": {
+  "title": "Scanning Safely: How to Spot QR-Code Phishing (Quishing)",
+  "summary": "Learn how scammers use QR codes in emails to bypass security filters and how you can spot and report quishing attempts safely.",
+  "body_markdown": "### A Quick Scan Can Cost You\n\nWe all love convenience. Whether ordering lunch, checking in for travel, or picking up a parcel, scanning a QR code with a smartphone has become second nature. But cybercriminals know how routine this habit is, and they are taking advantage of it. We all get tricked sometimes [ORG], especially when a busy day has us rushing through our inbox [S1]. Following our earlier session on invoice and payment fraud—the 2026-11-23 'Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud' [ORG]—let’s look at a rapidly growing technique: QR-code phishing, often called \"quishing\" [S6].\n\n### What Is Happening?\n\nPhishing remains a primary method attackers use to gain initial access to systems [S5]. Attackers are now embedding QR codes directly into emails, sending millions of these messages every day [S6]. These QR codes direct recipients to malicious websites designed to steal credentials or install malware [S6]. During the first quarter of 2025 alone, over one million phishing attacks were observed globally [S6]. By placing malicious links inside an image instead of plain text, attackers attempt to slip past automated email security filters and push you toward scanning with an unmanaged personal phone [S6].\n\n### Red Flags to Watch For\n\nScammers frequently disguise quishing messages as routine workplace requests. Be on the lookout for these warning signs:\n\n1. **Physical Security and Badge Updates:** An unexpected email asking you to scan a QR code to update your physical office security access, building pass, or digital badge [ORG].\n2. **Urgent Delivery or Shipping Alerts:** Notifications claiming a package cannot be delivered unless you scan a code immediately to confirm details [S8] [ORG].\n3. **Travel and Calendar Logistics:** Meeting invites or travel itinerary updates prompting you to scan a code to confirm scheduling or access travel documents [ORG].\n4. **Urgent or Pressuring Language:** Messages claiming dire consequences, such as account suspension or missing a crucial record update, if you do not act right away [S8].\n5. **Odd Links and Shortened URLs:** When your phone camera previews the code, it shows an unexpected domain, a suspicious shortened link, or misspelled brand names [S8].\n\n### What To Do\n\n- **Pause before you scan:** If an email asks you to scan a QR code to perform a work task, verify the request through an established official portal rather than the code [S1] [S3].\n- **Check the preview URL:** Most smartphone cameras display the destination web address before opening it. If the link looks unfamiliar or mistyped, do not tap it [S8].\n- **Resist the urge to rush:** Scammers rely on stress and haste [S1]. Take a breath and inspect the context of the email.\n\n### How to Report\n\nNever worry about getting in trouble for making a mistake or asking questions—prompt reporting keeps everyone safe [S1] [S3] [ORG]. If you receive a suspicious QR code or email, please forward it immediately to security@nebulon.example.com [ORG].",
+  "key_points": [
+   "Criminals send millions of quishing emails daily to hide malicious URLs inside QR-code images [S6].",
+   "Quishing often disguises itself as physical access updates, package deliveries, or calendar logistics [S8] [ORG].",
+   "Always inspect the destination URL preview before opening a link from a QR code [S8].",
+   "Report suspicious QR emails promptly to security@nebulon.example.com without fear of blame [S1] [S3] [ORG]."
+  ],
+  "red_flags": [
+   "Emails asking to scan a QR code for physical security, badges, or facility access.",
+   "Package or shipping notifications requiring a QR scan to release a delivery.",
+   "Urgent calendar or travel logistics emails prompting you to scan a code.",
+   "High-pressure language demanding immediate action to avoid penalties.",
+   "Camera previews showing strange, misspelled, or untrusted shortened URLs."
+  ],
+  "actions": [
+   "Verify unexpected QR code requests through known internal portals or out-of-band channels.",
+   "Check the preview link displayed by your camera before tapping to open a site.",
+   "Avoid scanning work-related QR codes with personal devices if they request corporate credentials.",
+   "Forward suspicious emails and QR codes to security@nebulon.example.com."
+  ],
+  "report_how": "Forward the suspicious email directly to security@nebulon.example.com or use the Report Phish button in your email client.",
+  "quiz": [],
+  "phishing_sim": null,
+  "citations": [
+   {
+    "id": "S1",
+    "used_for": "Acknowledging that people click phishing links when busy or stressed, and emphasizing a no-blame culture."
+   },
+   {
+    "id": "S3",
+    "used_for": "Reinforcing that users should not be reprimanded and should feel safe reporting incidents."
+   },
+   {
+    "id": "S5",
+    "used_for": "Identifying phishing as an initial access technique (MITRE ATT&CK T1566)."
+   },
+   {
+    "id": "S6",
+    "used_for": "Statistics on over 1,003,924 phishing attacks in Q1 2025 and millions of QR code emails sent daily leading to malicious sites."
+   },
+   {
+    "id": "S8",
+    "used_for": "Identifying red flags such as urgent language, requests for sensitive information, and untrusted or misspelled URLs."
+   }
+  ],
+  "mitre": [
+   "T1566"
+  ],
+  "compliance": [
+   "ISO/IEC 27001:2022 A.6.3",
+   "NIST CSF 2.0 PR.AT-01"
+  ],
+  "targets_mistakes": [
+   "Falls for 'Physical access/security' phishing (missed 8 of 8 phishing emails) MITRE T1566",
+   "Falls for 'Shipping/delivery notifications' phishing (missed 3 of 5 phishing emails) MITRE T1566",
+   "Falls for 'Travel/calendar logistics' phishing (missed 3 of 4 phishing emails) MITRE T1566"
+  ]
+ },
+ "sources": [
+  {
+   "chunk_id": "4e56ccdd203be987",
+   "score": 0.6827,
+   "age_days": null,
+   "date_known": false,
+   "source": "ncsc_phish",
+   "title": "Phishing attacks: defending your organisation | National Cyber Security Centre",
+   "doc_id": "26950118e8a857aa",
+   "kind": "guidance",
+   "date": "2026-11-22",
+   "url": "https://www.ncsc.gov.uk/guidance/phishing",
+   "excerpt": "Phishing attacks: defending your organisation | National Cyber Security Centre\nIf you can't implement all of the mitigations, try to address at least some of the mitigations **from within each of the layers**.\n\n* * *\n\n## The problems with phishing simulations\n\nNo training package, including phishing simulations, can teach users to spot _every_ phishing attempt. Asking users to examine, in depth, every email they receive will not leave enough hours in the day for work tasks. It’s an unrealistic and counter-productive goal because responding to emails and clicking links is an integral part of wo"
+  },
+  {
+   "chunk_id": "f23e2a36b3636657",
+   "score": 0.6603,
+   "age_days": 21,
+   "date": "2026-11-05",
+   "date_known": true,
+   "title": "Post-Quantum Questions to Ask Your Vendors",
+   "source": "cisa_adv",
+   "url": "https://www.cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+   "kind": "news",
+   "doc_id": "780955fd1e41f71d",
+   "excerpt": "Post-Quantum Questions to Ask Your Vendors\nCISA, the Australian Signals Directorate’s Australian Cyber Security Centre (ASD’s ACSC) and the National Security Agency (NSA) released joint guidance and an accompanying quick-reference list to help organizations assess vendor readiness for transitioning to post-quantum cryptography (PQC). As quantum computing advances, widely used public-key cryptography will become vulnerable to compromise from cryptographically relevant quantum computers (CRQCs). To protect their systems and data, organizations must plan for and transition to PQC—which includes a"
+  },
+  {
+   "chunk_id": "2bd70698d92e1957",
+   "score": 0.6577,
+   "age_days": null,
+   "kind": "guidance",
+   "url": "https://www.ncsc.gov.uk/guidance/phishing",
+   "date_known": false,
+   "date": "2026-11-22",
+   "title": "Phishing attacks: defending your organisation | National Cyber Security Centre",
+   "source": "ncsc_phish",
+   "doc_id": "26950118e8a857aa",
+   "excerpt": "Phishing attacks: defending your organisation | National Cyber Security Centre\n#### How do I do this?\n\n- Ensure that your users understand the nature of the threat posed by phishing, especially those departments that may be more vulnerable to it. Customer-facing departments may receive high volumes of unsolicited emails, whereas staff authorised to access sensitive information, manage financial assets, or administer IT systems will be of greater interest to an attacker (and may be the target of a sophisticated spear phishing campaign). Ensure these more vulnerable staff are aware of the risks,"
+  },
+  {
+   "chunk_id": "33f3908a5be35d88",
+   "score": 0.6493,
+   "age_days": null,
+   "url": "https://attack.mitre.org/techniques/T1566",
+   "doc_id": "20ab94b5a25db619",
+   "kind": "technique",
+   "source": "mitre_attack",
+   "date": "",
+   "date_known": false,
+   "title": "MITRE ATT&CK T1566: Phishing",
+   "excerpt": "MITRE ATT&CK T1566: Phishing\ntools,(Citation: cyberproof-double-bounce) or by including the intended target as a party to an existing email thread that includes malicious files or links (i.e., \"thread hijacking\").(Citation: phishing-krebs)"
+  },
+  {
+   "chunk_id": "6f343330747250dc",
+   "score": 0.6435,
+   "age_days": null,
+   "url": "https://attack.mitre.org/techniques/T1566",
+   "title": "MITRE ATT&CK T1566: Phishing",
+   "doc_id": "20ab94b5a25db619",
+   "source": "mitre_attack",
+   "date_known": false,
+   "date": "",
+   "kind": "technique",
+   "excerpt": "MITRE ATT&CK T1566: Phishing\nT1566 Phishing (tactics: initial-access)"
+  },
+  {
+   "chunk_id": "d737d5a655a14fe4",
+   "score": 0.6378,
+   "age_days": null,
+   "source": "apwg",
+   "kind": "guidance",
+   "date": "2026-11-22",
+   "date_known": false,
+   "url": "https://apwg.org/trendsreports/",
+   "title": "Trendsreports",
+   "doc_id": "879a29786c71237a",
+   "excerpt": "Trendsreports\nReport Smishing Text About APWG Report Phishing Emails\n\n©2026 Anti-Phishing Working Group, Inc\n\n©2026 Anti-Phishing Working Group, Inc\n\n# Phishing Activity Trends Reports\n\nThe APWG Phishing Activity Trends Report analyzes phishing attacks reported to the APWG by its member companies, its Global Research Partners, through the organization’s website at https://apwg.org and by e-mail submissions to reportphishing@apwg.org. APWG also measures the evolution, proliferation, and propagation of crimeware by drawing from the research of our member companies.\n\n**Summary – 1st Quarter 2025*"
+  },
+  {
+   "chunk_id": "4231794d5a2576ac",
+   "score": 0.633,
+   "age_days": 2764,
+   "doc_id": "d5e5f1a3c8e7b2a3",
+   "source": "ftc_phish",
+   "kind": "guidance",
+   "title": "How To Recognize and Avoid Phishing Scams | Consumer Advice",
+   "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+   "date_known": true,
+   "date": "2019-05-03",
+   "excerpt": "How To Recognize and Avoid Phishing Scams | Consumer Advice\n## How To Report Phishing\n\nIf you got a phishing email or text message, report it. The information you give helps fight scammers.\n\n- If you got a phishing **email**, forward it to the Anti-Phishing Working Group at [reportphishing@apwg.org(link sends email)](mailto:reportphishing@apwg.org).\n- If you got a phishing **text message**, forward it to SPAM (7726).\n- Report the phishing attempt to the FTC at ReportFraud.ftc.gov.\n\nSearch Terms\n\ncyber security\n\nphishing\n\nscam\n\nTopics\n\nIdentity Theft and Online Security\n\nOnline Privacy and Secu"
+  },
+  {
+   "chunk_id": "eca9a96f66a7e43c",
+   "score": 0.6313,
+   "age_days": null,
+   "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+   "date_known": false,
+   "source": "cisa_phish",
+   "date": "2026-11-22",
+   "kind": "guidance",
+   "title": "Recognize and Report Phishing | CISA",
+   "doc_id": "7e534816cd56aed4",
+   "excerpt": "Recognize and Report Phishing | CISA\nRecognize and Report Phishing(link is external)\n\nprevnext\n\nslide 1 of 1\n\n[](https://youtu.be/sg0kQYvTlnc \"How to Avoid Phishing! (We Can Secure Our World)\")\n\n### How to Avoid Phishing! (We Can Secure Our World)\\  (link is external)\n\nRecognize and Report Phishing \\| Audio Description\n\nHow to Avoid Phishing! (We Can Secure Our World) \\| Audio Description\n\n## Stay Safe with Three Simple Tips\n\n### 1\\. Recognize\n\nLook for these common signs:\n\n- Urgent or emotionally appealing language, especially messages that claim dire consequences for not responding immediate"
+  }
+ ],
+ "memory_text": "## Physical access/security (concept)\n- type: concept\n- as_of: 2026-11-22\n- category: phishing\n- department: Engineering\n- missed_emails: 7 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n- ← [susceptible_to] Finance\n- ← [susceptible_to] IT department\n- ← [exhibits_security_mistake] Engineering\n\n## Phishing with emails with an attachment (concept)\n- type: concept\n- missed_emails: 32 of 114\n- mitre_technique: T1566\n- source: nest-phish\n- ← [susceptible_to] Finance\n\n## Data privacy / records management phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 6 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Training & certifications phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 5 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Account/security notifications (IT/auth) phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 8 of 20\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Corporate communications / executive announcements phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 3 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud (project)\n- type: project\n- key_points: Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts; Always verify banking detail updates using trusted out-of-band communication channels; Urgent language and unexpected invoice changes are key indicators of billing fraud\n- mitre_technique: T1566\n- target_audience: Finance\n- topic: Invoice and payment-redirect fraud\n- type: awareness phishing_sim\n- ← [approved] Nebulon\n\n## Finance (organization)\n- parent_organization: Nebulon\n\n## IT department (organization)\n- parent_organization: Nebulon\n\n## Engineering (organization)\n- parent_organization: Nebulon\n\n## Nebulon (organization)\n- approval_date: 2026-11-22\n- call_to_action: always end with how to report\n- citations: every factual claim cites a trusted source from config/sources.yaml\n- department: Engineering\n- description: demo organisation\n- newsletter_length: ≤ 500 words\n- note: demo organisation\n- phishing_simulations: always clearly marked as TRAINING in metadata; use only reserved domains (example.com, example.org)\n- prohibitions: fear-mongering, shaming named people or teams, real employee data, live malicious links\n- quiz_length: 5 MCQs with explanations\n- reading_level: plain English, short sentences, no unexplained jargon\n- status: demo organisation\n- structure: hook → what's happening → how to spot it (3–5 red flags) → what to do → how to report\n- tip_length: ≤ 120 words\n- tone: friendly, practical, never blaming\n\n## Related C",
+ "past_modules": [
+  {
+   "id": "2092fa0aac",
+   "date": "2026-11-23",
+   "title": "Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud",
+   "topic": "Invoice and payment-redirect fraud",
+   "audience": "Finance",
+   "format": "phishing_sim",
+   "language": "English",
+   "summary": "Learn how to spot and report fraudulent vendor payment-redirect requests targeting Finance workflows.",
+   "key_points": [
+    "Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts [S1], [S6].",
+    "Always verify banking detail updates using trusted out-of-band communication channels [S1], [S6].",
+    "Urgent language and unexpected invoice changes are key indicators of billing fraud [S4], [S8]."
+   ],
+   "mitre": [
+    "T1566"
+   ],
+   "similarity": 0.652
+  }
+ ],
+ "mistakes": [
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 8,
+   "rate": 1.0,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 8 phishing emails"
+  },
+  {
+   "department": "Engineering",
+   "behaviour": "Running pasted or downloaded commands",
+   "mitre": "T1059.001;T1204.004",
+   "topic": "Never run commands from emails or web pop-ups (ClickFix scams)",
+   "count": 41,
+   "rate": null,
+   "source": "apt-hunter",
+   "evidence": "41 detections: Suspicious PowerShell commands Detected; powershell script block - Found Suspicious PowerShell commands "
+  },
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Travel/calendar logistics' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting travel/calendar logistics scams",
+   "count": 3,
+   "rate": 0.75,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 4 phishing emails"
+  },
+  {
+   "department": "HR",
+   "behaviour": "Falls for 'Shipping/delivery notifications' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting shipping/delivery notifications scams",
+   "count": 3,
+   "rate": 0.6,
+   "source": "nest-phish",
+   "evidence": "missed 3 of 5 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 7,
+   "rate": 0.583,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 12 phishing emails"
+  }
+ ],
+ "model": "gemini-3.8-flash",
+ "guardrails": {
+  "untrusted_links": [],
+  "citations": {
+   "cited_ids": [
+    1,
+    3,
+    5,
+    6,
+    8
+   ],
+   "invalid_ids": [],
+   "n_citations": 16,
+   "n_org": 7
+  }
+ },
+ "created": "2026-11-26",
+ "review": {
+  "metrics": {
+   "factuality": 0.467,
+   "citation_cov": 1.0,
+   "consistency": 0,
+   "relevance": 1.0,
+   "style": 0.75,
+   "clarity": 1.0,
+   "freshness": null,
+   "novelty": 0.329,
+   "unsafe_links": 0
+  },
+  "judge": {
+   "claims": [
+    {
+     "claim": "We all get tricked sometimes.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "A busy day has us rushing through our inbox.",
+     "cited": [
+      "S1"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "The 'Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud' occurred on 2026-11-23.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "QR-code phishing is often called 'quishing'.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Phishing is a primary method attackers use to gain initial access to systems.",
+     "cited": [
+      "S5"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Attackers send millions of QR code phishing emails every day.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "QR codes direct recipients to malicious websites to steal credentials or install malware.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Over one million phishing attacks were observed globally during Q1 2025.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Attackers use image-based QR codes to slip past automated email security filters onto unmanaged personal phones.",
+     "cited": [
+      "S6"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Unexpected emails asking to scan a QR code to update physical office access or badges are a warning sign.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Urgent package delivery or shipping notifications asking to scan a code immediately are red flags.",
+     "cited": [
+      "S8",
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Meeting invites or travel updates prompting a QR scan are red flags.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Messages claiming dire consequences if you do not act right away are red flags.",
+     "cited": [
+      "S8"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Camera previews showing unexpected domains or shortened URLs indicate suspicious links.",
+     "cited": [
+      "S8"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Suspicious emails should be forwarded immediately to security@nebulon.example.com.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    }
+   ],
+   "contradictions": [
+    "The draft cites source [S6] for specific statistics and claims (quishing definition, millions of daily emails, 1 million+ attacks in Q1 2025, and email filter evasion), but the provided text of [S6] contains none of these details.",
+    "The draft specifies a date of 2026-11-23 for the previous debrief session, which is not present in the [ORG] context."
+   ],
+   "relevance": 5,
+   "style": 4,
+   "clarity": 5,
+   "fixes": [
+    "Remove or replace citations to [S6] for claims regarding quishing definitions, email volume statistics, and email security filter evasion.",
+    "Remove the unverified date '2026-11-23' when referencing the previous Phishing Simulation Debrief module.",
+    "Verify or correct the citation [S8] for camera preview/shortened URL recommendations."
+   ]
+  },
+  "judge_model": "gemini-3.5-flash"
+ }
+}

@@ -1,0 +1,391 @@
+{
+ "id": "80817b5297",
+ "request": {
+  "topic": "Spotting physical access/security scams",
+  "audience": "Sales",
+  "format": "newsletter",
+  "language": "English",
+  "use_rag": true,
+  "use_memory": true,
+  "use_telemetry": true,
+  "policy_text": "",
+  "extra": "",
+  "k_sources": 8
+ },
+ "content": {
+  "title": "Spotting Physical Access and Security Scams",
+  "summary": "Learn how to spot and defend against fraudulent emails impersonating building access and physical security alerts.",
+  "body_markdown": "We all get tricked sometimes, especially when an email looks like an official alert about building passes, office badge updates, or physical security systems [ORG]. In Sales, fast responses are key, but scammers count on urgency to bypass our guardrails [S4].\n\n## What is happening\n\nCybercriminals frequently send emails impersonating office management, security teams, or facility administrators [S4]. These messages claim that your physical access badge has expired, a building security system requires urgent identity verification, or visitor logging procedures have changed [S3, S4]. Scammers use these realistic scenarios to trick you into clicking malicious links or submitting corporate credentials on fake login portals [S2, S3].\n\nIn our Nebulon telemetry, physical access notifications have been a challenging spot for our team, with 8 out of 8 simulated physical access emails missed [ORG]. Scammers know we want to keep office entry smooth, so they create fake emergencies to rush our decisions before we have time to check if the request is real [S4].\n\n## 3 Red flags to watch out for\n\n- **Urgent requests to retain access:** Messages claiming your physical building access, badge, or facility pass will be deactivated immediately unless you click a link or re-enter credentials [S3, S4].\n- **Unusual login links or shortened URLs:** Web links directing you to external, non-standard websites rather than Nebulon's official secure portals [S4].\n- **Unverified contacts asking for credentials or remote access:** Requests claiming to be technical or facility assistance demanding password confirmation, identity verification, or software installation [S1, S6].\n\n## What to do\n\nIf you receive an unexpected notification regarding building badges, physical security updates, or facility access:\n\n- **Pause and verify:** Never rush when a message creates a sense of urgency [S4]. Take a moment to inspect the sender details.\n- **Use a second channel:** Verify any unexpected security or badge request by contacting the facility or security team directly using known, official channels rather than clicking email links [S7].\n- **Check URLs:** Ensure any website you log into uses a secure connection starting with `https://` on an official company domain [S2, S4].\n- **Avoid downloading unauthorized apps:** Do not grant remote access or download applications received via email links or chat messages [S1, S6].\n\n## How to report\n\nIf you spot a suspicious building access alert or any unexpected physical security scam email, do not click any links or attachments [S1]. Forward the message immediately to **security@nebulon.example.com** [ORG]. Reporting suspicious emails protects the entire team and keeps our workplaces safe!",
+  "key_points": [
+   "Scammers impersonate facility and security teams using fake badge or access updates.",
+   "Urgency and fake emergencies are designed to make you act without checking.",
+   "Always verify physical access requests through a trusted secondary channel.",
+   "Report suspicious emails promptly to security@nebulon.example.com."
+  ],
+  "red_flags": [
+   "Urgent threats of immediate badge or physical access deactivation.",
+   "Links pointing to external or shortened URLs instead of official company portals.",
+   "Unverified contacts asking for passwords, identity confirmation, or remote system access."
+  ],
+  "actions": [
+   "Pause and inspect sender details before responding to physical security alerts.",
+   "Verify unexpected facility requests using a separate communication channel.",
+   "Check that login pages use secure https links on official company domains.",
+   "Forward suspicious access emails to security@nebulon.example.com."
+  ],
+  "report_how": "Forward suspicious physical security or access emails to security@nebulon.example.com.",
+  "quiz": [],
+  "phishing_sim": null,
+  "citations": [
+   {
+    "id": "S1",
+    "used_for": "Recommendation not to click suspicious links or download apps from chats/emails"
+   },
+   {
+    "id": "S2",
+    "used_for": "Scammers stealing passwords/account info via email and verifying https"
+   },
+   {
+    "id": "S3",
+    "used_for": "Phishing tactics including suspicious activity alerts and fake links"
+   },
+   {
+    "id": "S4",
+    "used_for": "Scammers impersonating trusted figures, using urgency/emergencies, and avoiding shortened links"
+   },
+   {
+    "id": "S6",
+    "used_for": "Fake assistance tactics asking for credentials or remote access"
+   },
+   {
+    "id": "S7",
+    "used_for": "Verifying unexpected requests using a second communication channel"
+   }
+  ],
+  "mitre": [
+   "T1566"
+  ],
+  "compliance": [
+   "ISO/IEC 27001:2022 A.6.3",
+   "NIST CSF 2.0 PR.AT-01"
+  ],
+  "targets_mistakes": [
+   "Falls for 'Physical access/security' phishing (missed 8 of 8 phishing emails) MITRE T1566"
+  ]
+ },
+ "sources": [
+  {
+   "chunk_id": "4d338f664ac6a38a",
+   "score": 0.7251,
+   "age_days": null,
+   "kind": "guidance",
+   "doc_id": "1003ca0249b96238",
+   "source": "certin",
+   "date": "2026-11-22",
+   "url": "https://www.cert-in.org.in/PDF/CSA_Booklet.pdf",
+   "title": "certin",
+   "date_known": false,
+   "excerpt": "certin\nIf you observe your fake profile or any such objectionable posts\nin social media, report to the respective social media help\ncentre.\n\n---\n\n# Attacks Targeting Person with Disability\n\nFraudulent individuals often pose as authorized representatives\nto scam people with disability. These scammers will call or\nemail the victim and ask for their personal information.\nFraudsters often offer them promising opportunities such as\nchance to work from home and make extra income.\n\nWORK FROM HOME\nAPPLY NOW\nADMIT\nVeRE\nLOGIN\nPRIVATE\n\n###### Safety Tips\n\nBefore engaging with any unknown person or busine"
+  },
+  {
+   "chunk_id": "347040c29d061b87",
+   "score": 0.7232,
+   "age_days": 2764,
+   "date_known": true,
+   "kind": "guidance",
+   "date": "2019-05-03",
+   "doc_id": "d5e5f1a3c8e7b2a3",
+   "title": "How To Recognize and Avoid Phishing Scams | Consumer Advice",
+   "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+   "source": "ftc_phish",
+   "excerpt": "How To Recognize and Avoid Phishing Scams | Consumer Advice\nSkip to main content\n\n**The .gov means it’s official.**\n\nFederal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.\n\n**The site is secure.**\n\nThe **https://** ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.\n\nVea esta página en español\n\nArticle\n\n# How To Recognize and Avoid Phishing Scams\n\n[](https://consumer.ftc.gov/#facebook)[](https://consumer.ftc.gov/#twitter)[](https:/"
+  },
+  {
+   "chunk_id": "8b7057cf4406e466",
+   "score": 0.7196,
+   "age_days": 2764,
+   "doc_id": "d5e5f1a3c8e7b2a3",
+   "url": "https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams",
+   "title": "How To Recognize and Avoid Phishing Scams | Consumer Advice",
+   "date_known": true,
+   "date": "2019-05-03",
+   "source": "ftc_phish",
+   "kind": "guidance",
+   "excerpt": "How To Recognize and Avoid Phishing Scams | Consumer Advice\nScammers often update their tactics to keep up with the latest news or trends, but here are some common tactics used in phishing emails or text messages:\n\nPhishing emails and text messages often tell a story to trick you into clicking on a link or opening an attachment. You might get an unexpected email or text message that looks like it’s from a company you know or trust, like a bank or a credit card or utility company. Or maybe it’s from an online payment website or app. The message could be from a scammer, who might\n\n- say they’ve "
+  },
+  {
+   "chunk_id": "833423d275566403",
+   "score": 0.7078,
+   "age_days": null,
+   "title": "certin",
+   "kind": "guidance",
+   "doc_id": "00209aa3169245f2",
+   "url": "https://www.cert-in.org.in/PDF/CSH_Booklet25.pdf",
+   "date": "2026-11-22",
+   "source": "certin",
+   "date_known": false,
+   "excerpt": "certin\nAttackers impersonate trusted\nfigures to manipulate victims.\n\n## Confusion & Complexity\n\nScammers create\nfake emergencies to\nrush decisions.\n\n&\ny\nate\nies to\nns.\n\n## Fear & Intimidation\n\nThreats of legal\naction or account\nsuspension pressure\nvictims to act quickly.\n\n## Urgency & Scarcity\n\nAttackers use urgent offers\nor emergencies to pressure\nquick decisions.\n\n## BE CAUTIOUS\n\nAvoid sharing personal details with\nunfamiliar individuals.\n\nRemain cautious regarding\nunsolicited messages.\n\nConduct thorough research prior to\ncommitting to any financial\ndecisions.\n\nAlways inquire for clarificati"
+  },
+  {
+   "chunk_id": "e56cc1866241372d",
+   "score": 0.7006,
+   "age_days": 9,
+   "title": "Dorsett Controls InfoScan",
+   "date_known": true,
+   "kind": "news",
+   "source": "cisa_adv",
+   "doc_id": "2662cf713828e239",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-01",
+   "date": "2026-11-17",
+   "excerpt": "Dorsett Controls InfoScan\nclick web links or open attachments in unsolicited email messages. Refer to Recognizing and Avoiding Email Scams for more information on avoiding email scams. Refer to Avoiding Social Engineering and Phishing Attacks for more information on social engineering attacks. No known public exploitation specifically targeting these vulnerabilities has been reported to CISA at this time. Revision History Initial Release Date: 2026-11-17 Date Revision Summary 2026-11-17 1 Initial Publication Legal Notice and Terms of Use"
+  },
+  {
+   "chunk_id": "981d76ac9f70a1bb",
+   "score": 0.6953,
+   "age_days": null,
+   "date": "2026-11-22",
+   "kind": "guidance",
+   "url": "https://www.cert-in.org.in/PDF/CSH_Booklet25.pdf",
+   "title": "certin",
+   "doc_id": "00209aa3169245f2",
+   "date_known": false,
+   "source": "certin",
+   "excerpt": "certin\nccc ccc\n\n---\n\n# FAKE\n\n# TECHNICAL ASSISTANCE\n\nBeware of calls, emails, or pop-ups claiming your computer has\nissues. Scammers often pose as trusted companies to create fear.\n\nScammer’s Tactics\n\nRequest remote\naccess.\n\nFake\nNEWS!\n\nInstall malware for\npassword access.\n\nNetworking\n\nCREDIT\nCARD\n\nEnrolls in Fake\nPrograms.\n\nTry to sell worthless\nservice/software.\n\nMALWARE\n\nFAKE!\n\nDemand credit\ncard info for scams.\n\n# Customer Service Representative\n\nDirect to fake\nwebsites for\nsensitive info.\n\n## Useful Techniques\n\nHang up if someone claims\nyour computer has a\nproblem; scammers often\nuse fake"
+  },
+  {
+   "chunk_id": "2dd036a2471c3158",
+   "score": 0.6945,
+   "age_days": null,
+   "date_known": false,
+   "url": "https://www.ncsc.gov.uk/guidance/phishing",
+   "title": "Phishing attacks: defending your organisation | National Cyber Security Centre",
+   "date": "2026-11-22",
+   "kind": "guidance",
+   "doc_id": "26950118e8a857aa",
+   "source": "ncsc_phish",
+   "excerpt": "Phishing attacks: defending your organisation | National Cyber Security Centre\n### Make it easier for your users to recognise fraudulent requests\n\nAttackers can exploit ‘ways of working’ to trick users into handing over information (including passwords), or making unauthorised payments. Consider which processes could be mimicked by attackers, and how to review and improve them so phishing attacks are easier to spot.\n\n#### How do I do this?\n\n- Ensure staff are familiar with the normal ways of working for key tasks (such as how payments are made), so they're better equipped to recognise unusual "
+  },
+  {
+   "chunk_id": "38341be162bc0922",
+   "score": 0.685,
+   "age_days": null,
+   "source": "cisa_phish",
+   "title": "Recognize and Report Phishing | CISA",
+   "date_known": false,
+   "date": "2026-11-22",
+   "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+   "kind": "guidance",
+   "doc_id": "7e534816cd56aed4",
+   "excerpt": "Recognize and Report Phishing | CISA\n### Secure Yourself & Your Family\n\nWe can all protect ourselves, our friends and our families from online threats. It’s fast. It’s easy.\n\n### Use Strong Passwords\n\nUsing strong passwords and a password manager are some easy ways to protect ourselves from someone logging into an account and stealing data or money.\n\n### Turn on MFA\n\nMultifactor authentication means using more than a password to access an app or account. With MFA, we might be asked to enter a text code or use a fingerprint. It alerts us and prevents others from accessing our accounts.\n\n### Upd"
+  }
+ ],
+ "memory_text": "## Physical access/security (concept)\n- type: concept\n- as_of: 2026-11-22\n- category: phishing\n- department: Engineering\n- missed_emails: 7 of 8\n- mitre_technique: T1566\n- source: nest-phish\n- vulnerability: phishing\n- ← [susceptible_to] Finance\n- ← [susceptible_to] IT department\n- ← [exhibits_security_mistake] Engineering\n\n## Training & certifications phishing (concept)\n- type: concept\n- as_of: 2026-11-22\n- department: Engineering\n- missed_emails: 5 of 12\n- mitre_technique: T1566\n- source: nest-phish\n- ← [exhibits_security_mistake] Engineering\n\n## Finance (organization)\n- parent_organization: Nebulon\n\n## IT department (organization)\n- parent_organization: Nebulon\n\n## Engineering (organization)\n- parent_organization: Nebulon\n\n## Related Conversations\n\n### Conversation (recorded: 2026-11-22T08:11:16.507932+00:00)\nAs of 2026-11-22, the Engineering department at Nebulon (demo organisation) has these recurring security mistakes: Falls for 'Physical access/security' phishing (missed 7 of 8 phishing emails, source nest-phish, MITRE T1566); Running pasted or downloaded commands (41 detections: Suspicious PowerShell commands Detected; powershell script block - Found Suspicious PowerShell commands , source apt-hunter, MITRE T1059.001;T1204.004); Falls for 'Data privacy / records management' phishing (missed 6 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Training & certifications' phishing (missed 5 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Account/security notifications (IT/auth)' phishing (missed 8 of 20 phishing emails, source nest-phish, MITRE T1566); Falls for 'Corporate communications / executive announcements' phishing (missed 3 of 8 phishing emails, source nest-phish, MITRE T1566).\n\n### Conversation (recorded: 2026-11-22T08:11:12.253370+00:00)\nAs of 2026-11-22, the IT department at Nebulon (demo organisation) has these recurring security mistakes: Falls for 'Physical access/security' phishing (missed 5 of 10 phishing emails, source nest-phish, MITRE T1566); Falls for 'Data privacy / records management' phishing (missed 6 of 15 phishing emails, source nest-phish, MITRE T1566); Falls for 'Voicemail/communications system alerts' phishing (missed 5 of 15 phishing emails, source nest-phish, MITRE T1566).\n\n### Conversation (recorded: 2026-11-22T08:11:39.534108+00:00)\nAs of 2026-11-22, the Executives department at Nebulon (demo organisation) has these recurring security mistakes: Falls for 'Physical access/security' phishing (missed 7 of 12 phishing emails, source nest-phish, MITRE T1566); Falls for 'Operations/field/grid dispatch' phishing (missed 15 of 30 phishing emails, source nest-phish, MITRE T1566); Falls for 'Data privacy / records management' phishing (missed 7 of 18 phishing emails, source nest-phish, MITRE T1566); Falls for 'Travel/calendar logistics' phishing (missed 9 of 24 phishing emails, source nest-phish, MITRE T1566); Falls for 'Corporate communications / executive announcements' phishing (m",
+ "past_modules": [
+  {
+   "id": "2092fa0aac",
+   "date": "2026-11-23",
+   "title": "Phishing Simulation Debrief: Invoice and Payment-Redirect Fraud",
+   "topic": "Invoice and payment-redirect fraud",
+   "audience": "Finance",
+   "format": "phishing_sim",
+   "language": "English",
+   "summary": "Learn how to spot and report fraudulent vendor payment-redirect requests targeting Finance workflows.",
+   "key_points": [
+    "Attackers attempt to alter vendor payment records and misdirect payouts to fake accounts [S1], [S6].",
+    "Always verify banking detail updates using trusted out-of-band communication channels [S1], [S6].",
+    "Urgent language and unexpected invoice changes are key indicators of billing fraud [S4], [S8]."
+   ],
+   "mitre": [
+    "T1566"
+   ],
+   "similarity": 0.621
+  }
+ ],
+ "mistakes": [
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Physical access/security' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting physical access/security scams",
+   "count": 8,
+   "rate": 1.0,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 8 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Data privacy / records management' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting data privacy / records management scams",
+   "count": 7,
+   "rate": 0.583,
+   "source": "nest-phish",
+   "evidence": "missed 7 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Corporate communications / executive announcements' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting corporate communications / executive announcements scams",
+   "count": 4,
+   "rate": 0.5,
+   "source": "nest-phish",
+   "evidence": "missed 4 of 8 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Voicemail/communications system alerts' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting voicemail/communications system alerts scams",
+   "count": 5,
+   "rate": 0.417,
+   "source": "nest-phish",
+   "evidence": "missed 5 of 12 phishing emails"
+  },
+  {
+   "department": "Sales",
+   "behaviour": "Falls for 'Compliance/policy acknowledgements & surveys' phishing",
+   "mitre": "T1566",
+   "topic": "Spotting compliance/policy acknowledgements & surveys scams",
+   "count": 8,
+   "rate": 0.4,
+   "source": "nest-phish",
+   "evidence": "missed 8 of 20 phishing emails"
+  }
+ ],
+ "model": "gemini-3.6-flash",
+ "guardrails": {
+  "untrusted_links": [],
+  "citations": {
+   "cited_ids": [
+    1,
+    4,
+    7
+   ],
+   "invalid_ids": [],
+   "n_citations": 7,
+   "n_org": 3
+  }
+ },
+ "created": "2026-11-26",
+ "review": {
+  "metrics": {
+   "factuality": 0.708,
+   "citation_cov": 1.0,
+   "consistency": 0,
+   "relevance": 1.0,
+   "style": 0.75,
+   "clarity": 1.0,
+   "freshness": null,
+   "novelty": 0.334,
+   "unsafe_links": 1
+  },
+  "judge": {
+   "claims": [
+    {
+     "claim": "Emails impersonating building passes, office badge updates, or physical security systems can trick employees.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Scammers rely on urgency and fake emergencies to rush decisions before victims verify requests.",
+     "cited": [
+      "S4"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Cybercriminals impersonate office management, security teams, or facility administrators claiming physical access badges expired or visitor logging changed.",
+     "cited": [
+      "S3",
+      "S4"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "claim": "Scammers use realistic scenarios to trick victims into clicking malicious links or submitting corporate credentials on fake login portals.",
+     "cited": [
+      "S2",
+      "S3"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "claim": "Nebulon telemetry shows 8 out of 8 simulated physical access emails were missed by the team.",
+     "cited": [
+      "ORG"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Urgent messages claim building access will be deactivated immediately unless links are clicked or credentials re-entered.",
+     "cited": [
+      "S3",
+      "S4"
+     ],
+     "verdict": "partial"
+    },
+    {
+     "claim": "Web links and shortened URLs direct users to external, non-standard websites rather than official portals.",
+     "cited": [
+      "S4"
+     ],
+     "verdict": "unsupported"
+    },
+    {
+     "claim": "Scammers posing as technical or facility assistance request remote access, credentials, or software installation.",
+     "cited": [
+      "S1",
+      "S6"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Unexpected security or badge requests should be verified via a second channel using known official channels.",
+     "cited": [
+      "S7"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Secure connections start with https:// on official company domains.",
+     "cited": [
+      "S2",
+      "S4"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Do not grant remote access or download unauthorized applications received via email links or chat.",
+     "cited": [
+      "S1",
+      "S6"
+     ],
+     "verdict": "supported"
+    },
+    {
+     "claim": "Suspicious physical security emails should be forwarded immediately to security@nebulon.example.com without clicking links or attachments.",
+     "cited": [
+      "S1",
+      "ORG"
+     ],
+     "verdict": "supported"
+    }
+   ],
+   "contradictions": [
+    "Content contains internal statistics ('8 out of 8 simulated physical access emails missed') that are not provided in the organisation context [ORG]."
+   ],
+   "relevance": 5,
+   "style": 4,
+   "clarity": 5,
+   "fixes": [
+    "Remove the unsupported statistic claiming 8 out of 8 simulated physical access emails were missed, as it is absent from the organisation context.",
+    "Adjust citations where specific physical access details are cited against general phishing sources [S3, S4] to clarify that these are specific workplace applications of general phishing concepts.",
+    "Remove citation [S4] from the claim regarding shortened URLs, as the provided source text does not mention shortened URLs."
+   ]
+  },
+  "judge_model": "gemini-3.6-flash"
+ }
+}

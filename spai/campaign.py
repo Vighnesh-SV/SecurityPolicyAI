@@ -34,7 +34,7 @@ def create(draft: dict, department: str, n: int) -> dict:
     allc[cid] = c
     _write(allc)
     for uid in users.values():
-        telemetry.record_sim_event(draft["id"], department, uid, "delivered", c["topic"])
+        telemetry.record_sim_event(draft["id"], department, uid, "delivered", c["topic"], cid)
     return c
 
 
@@ -58,9 +58,14 @@ def record(c: dict, user: str, action: str):
     if telemetry.SIM_LOG.exists():
         for line in telemetry.SIM_LOG.read_text(encoding="utf-8").splitlines():
             r = json.loads(line)
-            if r["draft_id"] == c["draft_id"] and r["user_id"] == user and r["action"] == action:
+            if _same(r, c) and r["user_id"] == user and r["action"] == action:
                 return
-    telemetry.record_sim_event(c["draft_id"], c["department"], user, action, c["topic"])
+    telemetry.record_sim_event(c["draft_id"], c["department"], user, action, c["topic"], c["id"])
+
+
+def _same(r: dict, c: dict) -> bool:
+    """Event belongs to campaign c (older events have no campaign_id: match by draft)."""
+    return r.get("campaign_id") == c["id"] if r.get("campaign_id") else r["draft_id"] == c["draft_id"]
 
 
 def funnel(c: dict) -> dict:
@@ -69,7 +74,7 @@ def funnel(c: dict) -> dict:
     if telemetry.SIM_LOG.exists():
         for line in telemetry.SIM_LOG.read_text(encoding="utf-8").splitlines():
             r = json.loads(line)
-            if r["draft_id"] == c["draft_id"] and r["user_id"] in users:
+            if _same(r, c) and r["user_id"] in users:
                 seen[r["action"]].add(r["user_id"])
     return {a: len(u) for a, u in seen.items()}
 

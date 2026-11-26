@@ -43,6 +43,7 @@ function md(src, nSources = 0) {
     .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
     .replace(/(^|\W)\*(.+?)\*(?=\W|$)/g, "$1<i>$2</i>")
     .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\[(S\d+(?:\s*,\s*S\d+)+)\]/g, (m, list) => list.split(/\s*,\s*/).map((x) => `[${x}]`).join(""))
     .replace(/\[S(\d+)\]/g, (m, n) => (+n <= nSources ? `<a class="cite" data-src="${n}" href="#" title="Source ${n}">${n}</a>` : m))
     .replace(/\[ORG\]/g, '<span class="org" title="Internal organisation data">org</span>');
   let out = "", list = null;
@@ -434,6 +435,10 @@ async function sideStatus() {
 
 (async function main() {
   try { META = await api("/meta"); } catch (e) { toast("Backend not reachable: " + e.message); return; }
+  if (META.demo) {
+    $("#nav").insertAdjacentHTML("beforeend", '<a href="guide.html" target="_blank" style="color:var(--signal)"><span>Presenter guide</span></a>');
+    $(".brand").insertAdjacentHTML("beforeend", '<span class="pill warn" title="Campaign and quiz history is simulated for the demo" style="margin-left:4px">Demo data</span>');
+  }
   initCreate(); initLibrary(); initSimulate(); initInsights();
   $("#nav").onclick = (e) => { const b = e.target.closest("[data-view]"); if (b) show(b.dataset.view); };
   window.addEventListener("hashchange", () => show(location.hash.slice(1)));

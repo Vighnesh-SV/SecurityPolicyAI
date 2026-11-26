@@ -158,12 +158,13 @@ def sim_mistakes() -> list[dict]:
     return out
 
 
-def record_sim_event(draft_id: str, department: str, user_id: str, action: str, topic: str):
+def record_sim_event(draft_id: str, department: str, user_id: str, action: str, topic: str,
+                     campaign_id: str | None = None):
     if action not in SIM_ACTIONS:
         raise ValueError(f"action must be one of {SIM_ACTIONS}")
     with SIM_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps({"draft_id": draft_id, "department": department, "user_id": user_id,
-                            "action": action, "topic": topic,
+                            "action": action, "topic": topic, "campaign_id": campaign_id,
                             "at": datetime.now(timezone.utc).isoformat()}) + "\n")
 
 
